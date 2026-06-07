@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diseño y Creación Audiovisual · Modo Fácil — EIG</title>
+<link rel="stylesheet" href="estilos-facil.css">
+<style>
+  :root{--accent:#ea580c;--accent-dark:#c2410c;--accent-soft:#fff5ee;--accent-soft2:#fed8bf;}
+  .lesson-grid { display: grid; gap: 14px; margin: 10px 0 30px; }
+  .lesson { display: flex; align-items: center; gap: 16px; text-decoration: none; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow-sm); transition: transform .15s, box-shadow .2s, border-color .2s; color: var(--text); }
+  .lesson:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--accent-soft2); }
+  .lesson .num { flex-shrink: 0; width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: #fff; font-weight: 800; font-size: 19px; display: grid; place-items: center; }
+  .lesson .body { flex: 1; }
+  .lesson .t { font-size: 18px; font-weight: 700; line-height: 1.25; }
+  .lesson .d { font-size: 14.5px; color: var(--text-soft); margin-top: 2px; }
+  .lesson .status { flex-shrink: 0; font-size: 12px; font-weight: 800; padding: 5px 12px; border-radius: 99px; background: var(--green-soft); color: #15803d; }
+  .howto { background: var(--accent-soft); border-radius: var(--radius); padding: 18px 22px; margin: 8px 0 34px; }
+  .howto h3 { font-size: 14px; color: var(--accent-dark); margin-bottom: 8px; }
+  .howto ul { padding-left: 20px; font-size: 15px; } .howto li { margin-bottom: 5px; }
+  .back-btn { display:inline-flex; align-items:center; gap:7px; text-decoration:none; color:var(--accent-dark); background:var(--accent-soft); border:1px solid var(--accent-soft2); border-radius:99px; padding:9px 18px; font-size:13.5px; font-weight:700; margin:22px 0 4px; transition:all .15s; }
+  .back-btn:hover { background:var(--accent-soft2); transform:translateX(-3px); }
+</style>
+</head>
+<body data-page="audiovisual-index">
+
+<div class="progressbar">
+  <div class="inner">
+    <span class="home" style="pointer-events:none">🎬</span>
+    <div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>
+    <span class="progress-label">Modo Fácil</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <a class="back-btn" href="../../index.html">← Todas las asignaturas</a>
+
+  <header class="top">
+    <span class="tag">🎬 Diseño y Creación Audiovisual</span>
+    <span class="tag warn">📅 Examen 12-jun-2026</span>
+  </header>
+
+  <h1>Diseño y Creación Audiovisual · Modo Fácil 🎓</h1>
+  <p class="subtitle">Cómo se cuenta una historia con imagen y sonido, explicado fácil: con imágenes, flashcards, test y preguntas resueltas. Tu último examen.</p>
+
+  <div class="howto">
+    <h3>🧭 Cómo usar esto</h3>
+    <ul>
+      <li><strong>Despliega</strong> cada concepto y márcalo como <em>entendido</em> → la barra sube.</li>
+      <li><strong>Gira</strong> las flashcards para memorizar las definiciones.</li>
+      <li>Haz el <strong>test</strong> al final: te corrige al instante.</li>
+      <li>Practica con las <strong>preguntas tipo examen</strong> de cada tema.</li>
+    </ul>
+  </div>
+
+  <p class="section-title">📚 Las 8 lecciones</p>
+  <div class="lesson-grid">
+    <a class="lesson" href="T1.html"><span class="num">1</span><span class="body"><span class="t">Narrativa y lenguaje audiovisual</span><span class="d">Plano, encuadre, montaje, ritmo; funciones narrativa, expresiva y semántica</span></span><span class="status">LISTO</span></a>
+    <a class="lesson" href="T2.html"><span class="num">2</span><span class="body"><span class="t">El relato audiovisual</span><span class="d">Estructura en 3 actos, Aristóteles→Field→McKee, el viaje del héroe</span></span><span class="status">LISTO</span></a>
+    <a class="lesson" href="T3.html"><span class="num">3</span><span class="body"><span class="t">El personaje</span><span class="d">Dimensiones física/psicológica/sociológica, arco y arquetipos</span></span><span class="status">LISTO</span></a>
+    <a class="lesson" href="T4.html"><span class="num">4</span><span class="body"><span class="t">El narrador</span><span class="d">Omnisciente, equisciente, deficiente; voz en off; focalización</span></span><span class="status">LISTO</span></a>
+    <a class="lesson" href="T5.html"><span class="num">5</span><span class="body"><span class="t">El espacio</span><span class="d">Diegético vs extradiegético, on/off-screen, escenografía y atrezo</span></span><span class="status">LISTO</span></a>
+    <a class="lesson" href="T6.html"><span class="num">6</span><span class="body"><span class="t">El tiempo</span><span class="d">Elipsis, flashback/flashforward; orden, duración y frecuencia (Genette)</span></span><span class="status">LISTO</span></a>
+    <a class="lesson" href="T7.html"><span class="num">7</span><span class="body"><span class="t">El guion audiovisual</span><span class="d">Sinopsis, escaleta, tratamiento, guion; logline, premisa, conflicto</span></span><span class="status">LISTO</span></a>
+    <a class="lesson" href="T8.html"><span class="num">8</span><span class="body"><span class="t">Herramientas de producción digital</span><span class="d">Pre/producción/postproducción y la IA generativa de vídeo (Sora)</span></span><span class="status">LISTO</span></a>
+  </div>
+
+  <footer class="biblio">
+    <h3>Sobre este material</h3>
+    <p>Versión «modo fácil» basada en las presentaciones oficiales. Tu progreso se guarda solo en este navegador. Manual base: <b>Bordwell &amp; Thompson (2019), <i>El arte cinematográfico</i> — Paidós.</b></p>
+  </footer>
+</div>
+<script src="../../ayudante/ayudante.js" defer></script>
+</body>
+</html>

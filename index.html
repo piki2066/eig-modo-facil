@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exámenes junio 2026 · Modo Fácil — EIG</title>
+<style>
+  :root{
+    --bg:#fbfaf8; --card:#fff; --text:#1f2430; --soft:#545b6b; --mute:#8a92a4;
+    --border:#e7e3dc; --radius:18px;
+    --shadow:0 6px 22px rgba(30,36,48,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Segoe UI",system-ui,sans-serif;
+    color:var(--text); background:
+      radial-gradient(900px 380px at 85% -8%, #eef4ff, transparent 60%),
+      radial-gradient(700px 320px at 10% 4%, #fff5ee, transparent 55%),
+      var(--bg);
+    -webkit-font-smoothing:antialiased; line-height:1.6; padding:0 22px 90px;
+  }
+  .wrap{max-width:760px;margin:0 auto}
+  header{padding:56px 0 8px}
+  .kicker{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+  h1{font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:10px 0 12px}
+  .sub{font-size:18.5px;color:var(--soft);max-width:600px}
+  .grid{display:grid;gap:16px;margin:36px 0 24px}
+  .card{
+    display:flex;align-items:center;gap:18px;text-decoration:none;color:var(--text);
+    background:var(--card);border:1px solid var(--border);border-left:6px solid var(--c);
+    border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);
+    transition:transform .16s, box-shadow .2s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(30,36,48,.13)}
+  .ico{flex-shrink:0;width:54px;height:54px;border-radius:14px;display:grid;place-items:center;
+    background:var(--c);color:#fff;font-size:26px}
+  .meat{flex:1}
+  .name{font-size:20px;font-weight:750;letter-spacing:-.01em}
+  .desc{font-size:14.5px;color:var(--soft);margin-top:2px}
+  .meta{flex-shrink:0;text-align:right}
+  .date{font-size:13px;font-weight:800;color:var(--c)}
+  .lessons{font-size:12px;color:var(--mute);margin-top:3px}
+  .card.done{opacity:.6;filter:saturate(.55)}
+  .card.done .date{color:var(--mute)}
+  .done-badge{display:inline-block;background:#16a34a;color:#fff;font-size:11px;font-weight:800;letter-spacing:.04em;padding:2px 9px;border-radius:99px;margin-bottom:5px}
+  .foot{font-size:13.5px;color:var(--mute);text-align:center;margin-top:34px;line-height:1.7}
+  .foot b{color:var(--soft)}
+  @media(max-width:560px){h1{font-size:31px}.meta{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header style="position:relative">
+    <a href="index-movil.html" style="position:absolute;top:56px;right:0;font-size:13px;font-weight:700;color:var(--soft);text-decoration:none;border:1px solid var(--border);background:var(--card);padding:7px 14px;border-radius:99px">📱 Móvil</a>
+    <div class="kicker">EIG · 1º TSDMG · 2º cuatrimestre</div>
+    <h1>Modo Fácil para tus exámenes 🎓</h1>
+    <p class="sub">Todo el temario explicado <strong>para que se entienda a la primera</strong>: con imágenes, tarjetas para memorizar, test que te corrige y las preguntas de cada presentación resueltas. Elige asignatura.</p>
+  </header>
+
+  <div class="grid">
+    <a class="card done" style="--c:#2563eb" href="02-Relaciones-Publicas/facil/index.html">
+      <span class="ico">📘</span>
+      <span class="meat"><span class="done-badge">✅ HECHO</span><br><span class="name">Relaciones Públicas</span><span class="desc">Profesión, campañas, herramientas y tácticas de RRPP</span></span>
+      <span class="meta"><span class="date">✓ examen 3 jun</span><span class="lessons">6 lecciones</span></span>
+    </a>
+    <a class="card" style="--c:#0d9488" href="03-Consumidor-y-Mercado/facil/index.html">
+      <span class="ico">📗</span>
+      <span class="meat"><span class="name">Consumidor y Mercado</span><span class="desc">Investigación comercial: técnicas, encuestas, neuromarketing, paneles</span></span>
+      <span class="meta"><span class="date">8 jun</span><span class="lessons">8 lecciones</span></span>
+    </a>
+    <a class="card" style="--c:#db2777" href="04-Marketing-Social-y-Digital/facil/index.html">
+      <span class="ico">📕</span>
+      <span class="meat"><span class="name">Marketing Social y Digital</span><span class="desc">Marketing mix, modelo POEM, redes, KPIs y campañas</span></span>
+      <span class="meta"><span class="date">10 jun</span><span class="lessons">5 lecciones</span></span>
+    </a>
+    <a class="card" style="--c:#ea580c" href="05-Diseno-y-Creacion-Audiovisual/facil/index.html">
+      <span class="ico">🎬</span>
+      <span class="meat"><span class="name">Diseño y Creación Audiovisual</span><span class="desc">Lenguaje, relato, personaje, narrador, espacio, tiempo, guion</span></span>
+      <span class="meta"><span class="date">12 jun</span><span class="lessons">8 lecciones</span></span>
+    </a>
+  </div>
+
+  <p class="foot">27 lecciones interactivas · tu progreso se guarda en cada navegador.<br>
+  <b>Consejo:</b> empieza por la asignatura del examen más cercano y ve marcando lo que entiendes.</p>
+</div>
+<script src="ayudante/ayudante.js" defer></script>
+</body>
+</html>

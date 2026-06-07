@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RRPP · Test de Autoevaluación (5 por pregunta) — EIG</title>
+<link rel="stylesheet" href="estilos-facil.css">
+<style>
+  .back-btn { display:inline-flex; align-items:center; gap:7px; text-decoration:none; color:var(--accent-dark); background:var(--accent-soft); border:1px solid var(--accent-soft2); border-radius:99px; padding:9px 18px; font-size:13.5px; font-weight:700; margin:22px 0 4px; transition:all .15s; }
+  .back-btn:hover { background:var(--accent-soft2); transform:translateX(-3px); }
+  .howto { background: var(--accent-soft); border-radius: var(--radius); padding: 18px 22px; margin: 8px 0 20px; }
+  .howto h3 { font-size: 14px; color: var(--accent-dark); margin-bottom: 8px; }
+  .howto ul { padding-left: 20px; font-size: 15px; } .howto li { margin-bottom: 5px; }
+
+  .themenav { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 10px; }
+  .themenav a { font-size:13px; font-weight:700; text-decoration:none; color:var(--accent-dark); background:var(--accent-soft); border:1px solid var(--accent-soft2); border-radius:99px; padding:7px 14px; transition:all .15s; }
+  .themenav a:hover { background:var(--accent-soft2); transform:translateY(-1px); }
+
+  .toolbar { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:4px 0 8px; }
+  .btn-reset { cursor:pointer; font-size:13.5px; font-weight:700; color:#b45309; background:var(--warm-soft); border:1px solid #fde9c2; border-radius:99px; padding:9px 18px; transition:all .15s; }
+  .btn-reset:hover { filter:brightness(.97); }
+
+  .theme-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:38px; scroll-margin-top:70px; padding-bottom:4px; border-bottom:2px solid var(--accent-soft2); }
+  .theme-head .section-title { margin:0; }
+  .theme-score { flex-shrink:0; font-size:13px; font-weight:800; color:var(--text-mute); background:#f1efe9; border-radius:99px; padding:5px 13px; white-space:nowrap; }
+  .theme-score.done { background:var(--green-soft); color:#15803d; }
+
+  .ae-block { margin:18px 0 30px; }
+  .ae-head { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:18px; }
+  .ae-tag { font-size:12px; font-weight:800; letter-spacing:.02em; text-transform:uppercase; color:var(--accent-dark); background:var(--accent-soft); border:1px solid var(--accent-soft2); border-radius:99px; padding:5px 12px; }
+  .ae-score { flex-shrink:0; font-size:12.5px; font-weight:800; color:var(--text-mute); background:#f1efe9; border-radius:99px; padding:5px 12px; white-space:nowrap; }
+  .ae-score.done { background:var(--green-soft); color:#15803d; }
+  .ae-q { font-size:16.5px; font-weight:700; color:var(--text); background:var(--warm-soft); border-left:4px solid var(--warm); border-radius:8px; padding:12px 15px; margin:8px 0 14px; line-height:1.45; }
+</style>
+</head>
+<body data-page="rrpp-test-autoeval-5x">
+
+<div class="progressbar">
+  <div class="inner">
+    <span class="home" style="pointer-events:none">🧪</span>
+    <div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>
+    <span class="progress-label">0/150</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <a class="back-btn" href="index.html">← Volver a Modo Fácil RRPP</a>
+
+  <header class="top">
+    <span class="tag">🧪 Test de Autoevaluación</span>
+    <span class="tag soft">📘 Relaciones Públicas</span>
+    <span class="tag warn">📅 Examen 3-jun-2026</span>
+  </header>
+
+  <h1>Test de Autoevaluación · RRPP 🎯</h1>
+  <p class="subtitle"><strong>5 preguntas tipo test por cada pregunta de autoevaluación</strong> de los 6 temas → <strong>150 preguntas</strong>. Cada pregunta del examen aparece destacada (en amarillo) con sus 5 tests debajo. Opciones <strong>cortas, de longitud pareja y en orden aleatorio</strong>: hay que saberse la respuesta, no adivinar por la más larga.</p>
+
+  <div class="howto">
+    <h3>🧭 Cómo usar esto</h3>
+    <ul>
+      <li>El recuadro <strong>amarillo</strong> es la <strong>pregunta tal cual la pregunta la profe</strong>. Léela primero.</li>
+      <li>Debajo, <strong>5 preguntas test</strong> que la atacan desde distintos ángulos: defínela, ejemplo, qué NO es, aplicación…</li>
+      <li>Las opciones son <strong>cortas y parecidas en longitud</strong>, en orden aleatorio: la correcta ya no es «la más larga».</li>
+      <li>Pulsa una opción → se corrige sola (verde/rojo) y aparece la explicación con el detalle.</li>
+      <li>Marcador en vivo arriba; cada tema (/25) y cada pregunta de examen (/5) tienen su puntuación. Botón <strong>↺ Reiniciar</strong> para empezar de cero.</li>
+    </ul>
+  </div>
+
+  <nav class="themenav">
+    <a href="#t1">T1 · Profesión</a>
+    <a href="#t2">T2 · Organizaciones</a>
+    <a href="#t3">T3 · Campaña</a>
+    <a href="#t4">T4 · Tradicionales</a>
+    <a href="#t5">T5 · Digitales</a>
+    <a href="#t6">T6 · Tácticas</a>
+  </nav>
+  <div class="toolbar">
+    <button class="btn-reset" id="resetBtn">↺ Reiniciar test</button>
+  </div>
+
+  <div id="quizroot"></div>
+
+  <div class="quiz-result" id="finalresult">
+    <div class="score">0/150</div>
+    <div class="msg"></div>
+  </div>
+
+  <div class="toolbar" style="margin-top:18px">
+    <button class="btn-reset" id="resetBtn2">↺ Reiniciar test</button>
+    <a class="back-btn" style="margin:0" href="index.html">← Volver a Modo Fácil RRPP</a>
+  </div>
+
+  <footer class="biblio">
+    <h3>Sobre este test</h3>
+    <p>150 preguntas tipo test (5 opciones) a partir de las <b>diapositivas de «Autoevaluación»</b> de los 6 temas: 5 por cada una de las 30 preguntas de autoevaluación. Opciones cortas, equilibradas en longitud y en orden aleatorio para que no se acierte por descarte. El detalle de cada respuesta está en la explicación. Tu progreso se guarda solo en este navegador.</p>
+  </footer>
+
+</div>
+
+<script>
+/* ===== 6 temas × 5 preguntas de autoevaluación × 5 tests = 150 ===== */
+/* La opción correcta es la de índice 1 (se baraja al renderizar). Opciones cortas y de longitud pareja. */
+var DATA = [
+{ icon:"📗", tema:"Tema 1 · La profesión de las RRPP", items:[
+  { ae:"Explica cómo ha evolucionado la concepción de las RRPP desde la publicity y propaganda del s.XX hasta la comunicación digital integral del s.XXI.", qs:[
+    { q:"¿Cómo ha evolucionado la concepción de las RRPP desde el s.XX hasta hoy?", o:["De lo digital a la propaganda de masas","Del monólogo de masas al diálogo digital","De informar al público a venderle cosas","De medios pagados a otros medios pagados","De los eventos al vídeo corporativo"], c:1, e:"De la era unidireccional (moldear la opinión) a las RRPP bidireccionales, relacionales y digitales." },
+    { q:"La etapa de «publicity y propaganda» de inicios del s.XX se caracterizaba por…", o:["Diálogo en tiempo real con todos los públicos","Mensaje unidireccional para moldear la opinión","Uso intensivo de Big Data e inteligencia artificial","Relaciones de confianza a muy largo plazo","Segmentación del público mediante algoritmos"], c:1, e:"Comunicación de una sola dirección (la organización emite, el público escucha). Ej.: Ivy Lee, Bernays." },
+    { q:"¿Quién es considerado pionero de las RRPP modernas con su «Declaración de Principios» (1906)?", o:["Edward Bernays, sobrino de Freud y publicista","Ivy Lee, primer asesor de prensa moderno","James Grunig, teórico de los cuatro modelos","Philip Kotler, padre del marketing moderno","Daniel Edelman, fundador de una gran agencia"], c:1, e:"Ivy Lee (Declaración de Principios, 1906: decir la verdad a la prensa). Bernays aportó lo persuasivo." },
+    { q:"Según Grunig y Hunt, el modelo más avanzado de RRPP, basado en el equilibrio y el diálogo, es el…", o:["Agente de prensa o publicity","Simétrico bidireccional","Modelo de información pública","Asimétrico bidireccional","Propaganda de masas dirigida"], c:1, e:"Modelo simétrico bidireccional: diálogo y entendimiento mutuo entre organización y públicos." },
+    { q:"La «comunicación digital integral» del s.XXI implica sobre todo…", o:["Emitir mensajes sin escuchar a los públicos","Diálogo bidireccional, datos y reputación","Centrarse solo en la prensa escrita tradicional","Recuperar la vieja propaganda de masas","Renunciar a la confianza como objetivo"], c:1, e:"Integral = multicanal, bidireccional, basada en datos y centrada en la reputación." }
+  ]},
+  { ae:"¿En qué se diferencian las RRPP del marketing, la publicidad y el periodismo según sus objetivos, públicos y temporalidad?", qs:[
+    { q:"¿Qué distingue a las RRPP del marketing, la publicidad y el periodismo?", o:["Pagan el espacio, igual que la publicidad","Buscan reputación; los demás venden o informan","Se diferencian solo en el tamaño del presupuesto","Se dirigen a audiencias masivas, como la publicidad","No son más que tres nombres para lo mismo"], c:1, e:"Tres claves: qué buscan, con quién y en cuánto tiempo." },
+    { q:"El objetivo principal de las RRPP, frente al del marketing, es…", o:["Vender el máximo de productos a corto plazo","Construir reputación y confianza a largo plazo","Informar con objetividad a una gran audiencia masiva","Comprar espacios publicitarios en los medios","Producir contenidos de puro entretenimiento"], c:1, e:"Las RRPP buscan reputación y confianza; vender es marketing/publicidad." },
+    { q:"¿A quién se dirigen principalmente las RRPP, a diferencia de la publicidad?", o:["A una audiencia masiva totalmente anónima","A sus públicos o stakeholders concretos","Solo a los accionistas de la empresa","A nadie en particular, al público general","Exclusivamente a los periodistas de prensa"], c:1, e:"Públicos segmentados y con nombre; la publicidad va a audiencias masivas." },
+    { q:"En cuanto a la temporalidad, las RRPP se caracterizan por…", o:["Buscar un resultado inmediato y puntual","Trabajar las relaciones de forma continua","Actuar solo durante los momentos de crisis","Depender por completo de la temporada de rebajas","No tener ningún horizonte temporal definido"], c:1, e:"Largo plazo y continuidad frente al corto plazo de una campaña publicitaria." },
+    { q:"Una diferencia clave entre publicidad y RRPP es que…", o:["La publicidad es gratis y las RRPP cuestan dinero","La publicidad controla el mensaje; las RRPP no tanto","La publicidad y las RRPP son exactamente lo mismo","Las RRPP nunca utilizan los medios de comunicación","La publicidad es a largo plazo y las RRPP a corto"], c:1, e:"Paid media vs earned media: la cobertura ganada aporta más credibilidad." }
+  ]},
+  { ae:"Analiza el papel del profesional de las RRPP como mediador estratégico entre la organización y sus públicos.", qs:[
+    { q:"El profesional de RRPP actúa como «mediador estratégico» porque…", o:["Sustituye a los periodistas en la redacción","Hace de puente entre la empresa y sus públicos","Se dedica solo a escribir notas de prensa","Vende los productos de la organización","Dirige el departamento financiero"], c:1, e:"Puente bidireccional organización ↔ públicos." },
+    { q:"Como mediador, el profesional de RRPP no solo emite mensajes, sino que también…", o:["Impone siempre la opinión oficial de la empresa","Escucha a los públicos y traslada lo que piden","Ignora por completo las críticas que llegan","Se ocupa de la gestión del almacén y la logística","Fija los precios de venta al público"], c:1, e:"La mediación es de doble vía: también lleva la voz de los públicos a la organización." },
+    { q:"Que sea un mediador «estratégico» (y no solo técnico) significa que…", o:["Solo ejecuta las tareas que le ordenan","Participa en las decisiones de la empresa","Trabaja siempre sin objetivos ni un plan claro","Depende por completo del departamento comercial","Únicamente maqueta y diseña documentos internos"], c:1, e:"Estratégico = está en el nivel de decisión, no solo en la ejecución." },
+    { q:"El rol de «consultor/asesor» del profesional de RRPP implica…", o:["Tomar la decisión financiera final","Asesorar sobre el impacto reputacional","Redactar los contratos legales de la compañía","Vender los espacios publicitarios a los clientes","Producir los spots de televisión y radio"], c:1, e:"Aconseja cómo afectarán las decisiones a la reputación y a los públicos." },
+    { q:"El fin último de esa mediación es…", o:["Conseguir vender mucho más y más rápido","Construir entendimiento y confianza mutua","Eliminar del mercado a toda la competencia","Evitar que la empresa pague impuestos","Sumar seguidores en las redes sin más"], c:1, e:"Entendimiento y confianza mutua: la base de la relación." }
+  ]},
+  { ae:"¿Por qué la confianza se considera un activo clave en las relaciones públicas contemporáneas?", qs:[
+    { q:"¿Por qué la confianza es un activo clave en las RRPP?", o:["Porque permite a la empresa subir precios","Porque es intangible y amortigua las crisis","Porque sustituye a la publicidad pagada","Porque solo importa en las redes sociales","Porque garantiza ventas grandes e inmediatas"], c:1, e:"Activo intangible que sostiene la reputación y la sostenibilidad." },
+    { q:"Se dice que la confianza actúa como un «colchón» porque…", o:["Sirve para vender los productos más rápido","La confianza acumulada amortigua las crisis","Sustituye a la publicidad de pago en medios","Solo importa de cara a las redes sociales","Elimina cualquier tipo de crítica posible"], c:1, e:"La confianza previa amortigua el impacto de las crisis." },
+    { q:"La confianza, como activo de las RRPP, es…", o:["Un activo material que figura en el balance","Algo que se gana despacio y se pierde rápido","Un gasto que nunca llega a tener retorno","Algo irrelevante para la reputación corporativa","Una propiedad que pertenece a la competencia"], c:1, e:"«20 años para construir una reputación y 5 minutos para arruinarla» (W. Buffett)." },
+    { q:"La confianza se construye principalmente mediante…", o:["Grandes campañas de publicidad pagada","Coherencia y cumplimiento de lo prometido","La bajada de los precios de los productos","El aumento constante del número de anuncios","Ocultar toda la información negativa"], c:1, e:"Coherencia + transparencia + cumplir lo prometido." },
+    { q:"¿Qué relación hay entre confianza y reputación?", o:["No existe ninguna relación entre ambas","La confianza sostenida es la base de la reputación","La reputación acaba destruyendo la confianza","La confianza depende solo del precio del producto","Son lo mismo que la publicidad pagada"], c:1, e:"Confianza acumulada → reputación → legitimidad." }
+  ]},
+  { ae:"Explica con un ejemplo cómo la gestión de crisis en tiempo real ha transformado las competencias del profesional de RRPP.", qs:[
+    { q:"¿Cómo ha transformado la crisis en tiempo real las competencias del profesional?", o:["Las ha hecho innecesarias gracias a la IA","Exige monitorizar y responder rápido","Ahora basta con esperar a que la crisis pase sola","Obliga a centrarse solo en los medios impresos","Reduce el trabajo a una nota de prensa semanal"], c:1, e:"Tiempo real: escucha activa, agilidad y mensaje coordinado." },
+    { q:"Ante un vídeo que se vuelve viral en contra, en las primeras 2 horas conviene…", o:["Esperar callados a que se calme solo","Monitorizar y dar un mensaje breve","Demandar a la persona que grabó el vídeo","Lanzar una gran campaña de publicidad pagada","Cerrar de inmediato todas las redes sociales"], c:1, e:"Primeras 2 h: monitorizar + portavoz único + mensaje breve (hechos, empatía)." },
+    { q:"Una competencia NUEVA que exige la crisis en tiempo real es…", o:["Saber maquetar y diseñar revistas impresas","La escucha activa y la monitorización digital","La mecanografía rápida al teclado","El dominio de la contabilidad de costes","El diseño técnico de nuevos productos"], c:1, e:"Social listening: vigilar lo que ocurre en el entorno digital al minuto." },
+    { q:"¿Por qué se recomienda un «portavoz único» durante una crisis?", o:["Para que hablen muchas voces a la vez","Para dar coherencia y no contradecirse","Para ahorrar dinero en el personal de prensa","Porque lo exige expresamente la ley vigente","Para no tener que comunicar absolutamente nada"], c:1, e:"Una sola voz = coherencia y control del mensaje." },
+    { q:"Un buen mensaje inicial de crisis combina…", o:["La negación de los hechos y el silencio","Hechos contrastados y empatía","Ataques directos a quienes critican a la marca","Promesas de grandes descuentos al público","Datos financieros detallados de la empresa"], c:1, e:"Hechos + empatía + medidas: nunca silencio ni negación." }
+  ]}
+]},
+
+{ icon:"📘", tema:"Tema 2 · El papel de las RRPP en las organizaciones", items:[
+  { ae:"Explica por qué las RRPP son consideradas una función estratégica en la gestión organizacional actual.", qs:[
+    { q:"¿Por qué se consideran las RRPP una función estratégica?", o:["Porque su única tarea es organizar eventos","Porque gestionan intangibles que afectan al negocio","Porque dependen del departamento comercial","Porque se encargan de producir los anuncios","Porque llevan la contabilidad y las finanzas"], c:1, e:"Gestionan intangibles estratégicos y asesoran a la dirección." },
+    { q:"Que las RRPP sean estratégicas implica que deben situarse…", o:["En el último nivel operativo de la empresa","Cerca de la alta dirección de la empresa","Completamente fuera de la organización","Dentro del departamento de ventas","En la zona de almacén y de logística"], c:1, e:"Nivel directivo: están donde se toman las decisiones." },
+    { q:"¿Cuál de estos es un activo intangible que gestionan las RRPP?", o:["La maquinaria de la fábrica","La reputación de la organización","El stock de productos del almacén","La tesorería y la caja diaria","El mobiliario de las oficinas"], c:1, e:"La reputación es el intangible clave de las RRPP." },
+    { q:"Las RRPP son estratégicas porque su trabajo…", o:["Es independiente de los objetivos del negocio","Contribuye a los objetivos de la organización","Solo sirve para decorar de cara al público","Se mide exclusivamente en ventas diarias","No se puede planificar de ninguna manera"], c:1, e:"Aportan a los objetivos globales, no son un adorno." },
+    { q:"Una función estratégica de RRPP es, sobre todo…", o:["Reactiva: solo actúa cuando hay un problema","Proactiva: anticipa, investiga y planifica","Improvisada según el día a día","Exclusivamente publicitaria y comercial","Totalmente ajena a la alta dirección"], c:1, e:"Proactiva y planificada, no solo apagar fuegos." }
+  ]},
+  { ae:"¿Qué significa que las RRPP actúan como una función de «gobernanza simbólica»?", qs:[
+    { q:"«Gobernanza simbólica» significa que las RRPP…", o:["Gobiernan legalmente la empresa","Gestionan significados y valores","Solo diseñan el logotipo de la marca","Sustituyen al consejo de administración","Administran el presupuesto general"], c:1, e:"Gestionan lo simbólico (significados, valores) que legitima a la organización." },
+    { q:"El resultado de gestionar bien lo simbólico es…", o:["Conseguir más ventas de forma inmediata","Lograr legitimidad y licencia social","Tener un logotipo completamente nuevo","Reducir la carga de impuestos de la empresa","Eliminar a los competidores del mercado"], c:1, e:"Legitimidad: que la sociedad acepte y apoye a la organización." },
+    { q:"En este contexto, lo «simbólico» se refiere a…", o:["A los símbolos y las fórmulas matemáticas","A los relatos, los valores y la imagen","Al organigrama y la estructura interna","A los productos físicos que se fabrican","A la contabilidad y a las finanzas"], c:1, e:"Relatos, valores, cultura e imagen: el universo de significados." },
+    { q:"Un ejemplo de gestión simbólica sería…", o:["Fijar el precio final de un producto","Comunicar con coherencia misión y valores","Contratar al personal del almacén","Negociar las condiciones con un proveedor","Auditar las cuentas anuales de la empresa"], c:1, e:"Comunicar misión, valores y propósito con coherencia." },
+    { q:"La gobernanza simbólica está muy ligada a…", o:["A la logística y al transporte de mercancías","A la identidad y la reputación corporativa","A los procesos de fabricación y producción","A la fiscalidad y al pago de impuestos","Al precio de venta final al público"], c:1, e:"Identidad + cultura + reputación." }
+  ]},
+  { ae:"Describe las principales funciones de las RRPP en una organización e ilustra cómo se relacionan entre sí.", qs:[
+    { q:"¿Cuáles son las principales funciones de las RRPP?", o:["Solo la comunicación externa con la prensa y los medios","Comunicación interna, externa e institucional","Únicamente la venta y la publicidad de productos","La producción audiovisual y el diseño gráfico","Solo la gestión de los recursos humanos"], c:1, e:"Interna + externa + institucional + reputación/crisis + relaciones, todas conectadas." },
+    { q:"La comunicación interna de RRPP se dirige a…", o:["A los clientes que compran","A los empleados y públicos internos","A los periodistas de los medios","A los proveedores externos","A las empresas de la competencia"], c:1, e:"Público interno: empleados y colaboradores." },
+    { q:"La comunicación institucional/corporativa se ocupa de…", o:["De vender productos y servicios concretos","De transmitir la identidad y los valores","De la publicidad de ofertas y promociones","De la gestión diaria del almacén","Del cálculo de las nóminas del personal"], c:1, e:"Comunica la identidad y posición de la organización como institución." },
+    { q:"¿Cómo se relacionan entre sí las distintas funciones de RRPP?", o:["Son independientes y se contradicen","Se integran bajo una estrategia común","Compiten entre ellas por los recursos","No guardan ninguna relación entre sí","Solo importa la comunicación externa"], c:1, e:"Integradas y coherentes bajo una misma estrategia." },
+    { q:"¿Por qué la comunicación interna y la externa deben estar alineadas?", o:["En realidad no deberían estar nunca alineadas","Porque la incoherencia mata la credibilidad","Porque así lo exige la legislación vigente","Para poder gastar bastante más dinero en ello","Porque la comunicación interna no importa nada"], c:1, e:"Si dentro no se cree lo que se cuenta fuera, se cae la credibilidad." }
+  ]},
+  { ae:"¿Cómo contribuyen las RRPP a la gestión de la reputación institucional y por qué esta es fundamental para la sostenibilidad organizacional?", qs:[
+    { q:"¿Cómo contribuyen las RRPP a la reputación institucional?", o:["Generan las ventas que financian la empresa","Protegen la reputación con coherencia","La reputación y la sostenibilidad no se ligan","Todo depende solo del precio del producto","Basta con publicar muchos anuncios"], c:1, e:"Coherencia + transparencia + confianza = reputación protegida." },
+    { q:"La reputación institucional se considera…", o:["Un gasto que no aporta nada","Un activo intangible que da valor","Un simple trámite legal obligatorio","Algo irrelevante para el negocio","Una propiedad que es de los clientes"], c:1, e:"Activo intangible que da valor y resistencia ante las crisis." },
+    { q:"¿Por qué la reputación es clave para la sostenibilidad de la organización?", o:["En realidad no es nada importante","Porque sin confianza no hay continuidad","Porque sube las ventas del día de hoy","Porque ayuda a reducir los impuestos","Porque elimina a toda la competencia"], c:1, e:"Sin licencia social no hay continuidad: por eso es sostenibilidad." },
+    { q:"La reputación se protege sobre todo…", o:["Ocultando los errores y los fallos cometidos","Con coherencia, transparencia y buenas crisis","Bajando los precios de venta al público","Con grandes campañas masivas de publicidad","Ignorando por completo a los stakeholders"], c:1, e:"Coherencia, transparencia y buena gestión de crisis." },
+    { q:"Una característica de la reputación es que…", o:["Es prácticamente indestructible","Cuesta años y se daña en minutos","No afecta para nada al negocio","Solo existe dentro de las redes","Se puede comprar con facilidad"], c:1, e:"Asimétrica: lenta de construir, rápida de perder." }
+  ]},
+  { ae:"Pon un ejemplo de cómo las RRPP asesoran a la alta dirección en la toma de decisiones sensibles.", qs:[
+    { q:"Un ejemplo de cómo las RRPP asesoran en decisiones sensibles es…", o:["Decidir cuál será el sueldo del CEO","Advertir del impacto reputacional de un ERE","Elegir al proveedor de las materias primas","Encargarse de llevar toda la contabilidad","Diseñar técnicamente el nuevo producto estrella"], c:1, e:"Asesoran el «cómo comunicar» decisiones delicadas cuidando la reputación." },
+    { q:"En decisiones delicadas (despidos, fusiones, crisis), las RRPP aportan…", o:["La decisión final sobre las finanzas","La mirada sobre la reputación y los públicos","El diseño técnico del nuevo producto estrella","La gestión del almacén y del stock","Algo que en realidad no es nada relevante"], c:1, e:"Aportan la mirada reputacional y comunicativa." },
+    { q:"El valor del asesoramiento de RRPP a la dirección está en…", o:["Reaccionar siempre demasiado tarde","Anticipar reacciones y prevenir daños","Aumentar los costes de la empresa","Ocultar información a los públicos","Sustituir a la propia dirección"], c:1, e:"Anticipación: prever cómo reaccionarán los públicos." },
+    { q:"Ante un ERE, las RRPP recomendarían…", o:["No comunicar nada a la plantilla","Comunicar primero y con transparencia","Filtrarlo cuanto antes a la prensa","Negar los hechos ante los empleados","Echar la culpa a los propios trabajadores"], c:1, e:"Primero los públicos internos, con transparencia." },
+    { q:"Para poder asesorar en estas decisiones, RRPP debe…", o:["Estar situado fuera de la organización","Tener acceso e influencia en la dirección","Limitarse a ejecutar las órdenes recibidas","Depender siempre del área de ventas","Ocuparse solo de organizar grandes eventos"], c:1, e:"Sin asiento en la dirección no se puede asesorar a tiempo." }
+  ]}
+]},
+
+{ icon:"📙", tema:"Tema 3 · Diseño de una campaña de RRPP", items:[
+  { ae:"Define qué es una campaña de RRPP y señala los elementos esenciales que la componen.", qs:[
+    { q:"¿Qué es una campaña de RRPP?", o:["Un anuncio puntual emitido en televisión","Un plan coordinado con objetivos y evaluación","Una nota de prensa suelta enviada a los medios","Una promoción de ventas con muchos descuentos","La gestión diaria de las redes sin un plan"], c:1, e:"Plan integral y coordinado, no una acción suelta." },
+    { q:"¿Cuál de estos es un elemento esencial de una campaña de RRPP?", o:["El color elegido para el logotipo","Los objetivos de lo que se quiere lograr","El número de empleados de la empresa","El precio de las acciones en bolsa","El mobiliario de las oficinas"], c:1, e:"Sin objetivos no hay campaña: son el punto de partida." },
+    { q:"Las fases de una campaña de RRPP siguen el modelo…", o:["El modelo AIDA del marketing","Investigación, planificación y evaluación","Las cuatro P del marketing mix","Únicamente la matriz DAFO","Ninguno: la campaña se improvisa"], c:1, e:"Investigación, Planificación, Ejecución y Evaluación (RACE/ROPE/IPEE)." },
+    { q:"¿Por dónde empieza el diseño de una campaña?", o:["Por la fase de ejecución de las acciones","Por la investigación y el análisis","Por la fase de evaluación final","Por la elaboración del presupuesto","Por el cierre y las conclusiones"], c:1, e:"Primero investigar el contexto y el problema." },
+    { q:"Una campaña se diferencia de una acción suelta en que…", o:["Resulta bastante más barata y rápida de hacer","Coordina varias acciones hacia una meta","Dura solamente un único día","No necesita tener ningún objetivo","No se llega a evaluar nunca"], c:1, e:"Coordina varias acciones hacia una misma meta." }
+  ]},
+  { ae:"¿Qué aporta el análisis situacional y el uso de matrices como el DAFO en el diseño de una campaña?", qs:[
+    { q:"¿Qué aporta el DAFO al diseño de una campaña?", o:["Sustituye por completo a los objetivos","Diagnostica el punto de partida","Sirve solo para decorar el documento","Calcula automáticamente el presupuesto","Mide los resultados ya al final"], c:1, e:"Diagnóstico de partida que fundamenta los objetivos." },
+    { q:"¿Qué significan las siglas DAFO?", o:["Datos, Análisis, Fines, Objetivos y Operaciones","Debilidades, Amenazas, Fortalezas, Oportunidades","Diseño, Acción, Formato, Output y Operación","Diagnóstico, Auditoría, Fase, Operación y Orden","Decisión, Análisis, Foco, Orden y Output"], c:1, e:"Debilidades, Amenazas, Fortalezas y Oportunidades." },
+    { q:"En el DAFO, ¿qué elementos son INTERNOS a la organización?", o:["Las amenazas y las oportunidades","Las debilidades y las fortalezas","Solamente las oportunidades","Ninguno de los cuatro elementos","Los cuatro elementos son externos"], c:1, e:"Internos: debilidades y fortalezas. Externos: amenazas y oportunidades." },
+    { q:"El análisis situacional sirve para…", o:["Intentar adivinar los resultados de antemano","Conocer el contexto antes de fijar objetivos","Ahorrar tiempo saltándose la planificación","Sustituir por completo la fase de evaluación","Elegir el logotipo de la marca"], c:1, e:"Conocer la realidad antes de planificar." },
+    { q:"Gracias al diagnóstico situacional, los objetivos de la campaña serán…", o:["Genéricos e inventados sin base","Realistas y fundamentados en datos","Imposibles de medir de ninguna forma","Totalmente irrelevantes para la marca","Secretos y confidenciales"], c:1, e:"Objetivos realistas porque parten de un diagnóstico." }
+  ]},
+  { ae:"Explica las características de los objetivos SMART y su importancia en la planificación de RRPP.", qs:[
+    { q:"¿Qué caracteriza a los objetivos SMART?", o:["Genéricos e inspiradores, pero sin plazo","Específicos, medibles y con plazo","Que solo se usan dentro del marketing","Que miden únicamente las ventas","Que no necesitan medirse nunca"], c:1, e:"Específico, Medible, Alcanzable, Relevante, Temporal." },
+    { q:"En SMART, la «M» se refiere a que el objetivo debe ser…", o:["Que sea muy motivador para el equipo","Que sea medible con un indicador","Que sea masivo y muy amplio","Que sea de carácter mensual","Que sea lo más mínimo posible"], c:1, e:"Medible: con un indicador que permita evaluarlo." },
+    { q:"¿Por qué importan los objetivos SMART en RRPP?", o:["Para poder tener más objetivos","Para planificar y poder evaluar","Porque simplemente suenan muy bien","Porque la ley obliga a usarlos","Porque sustituyen al presupuesto"], c:1, e:"Sin objetivos medibles no se puede evaluar la eficacia." },
+    { q:"¿Cuál es un objetivo SMART bien formulado?", o:["«Mejorar un poco la imagen de marca»","«Subir la notoriedad un 15% en 6 meses»","«Ser claramente los mejores del sector»","«Hacer muchas notas de prensa este año»","«Vender bastante más que el año pasado»"], c:1, e:"Específico, medible (15%), con público y plazo (6 meses)." },
+    { q:"La «T» de SMART obliga a que el objetivo tenga…", o:["Un tono concreto y bien definido","Un plazo o marco temporal","Un tamaño grande y ambicioso","Una tendencia clara de mercado","Un título atractivo y corto"], c:1, e:"Temporal: con fecha o plazo." }
+  ]},
+  { ae:"A partir del caso «Compromiso Verde», identifica las lecciones aprendidas sobre la coherencia entre discurso y práctica.", qs:[
+    { q:"Del caso «Compromiso Verde», ¿cuál es la lección clave?", o:["Basta comunicarlo bien aunque no se cumpla","Sin hechos detrás, es greenwashing","La sostenibilidad es solo una cuestión de imagen","La publicidad pagada arregla la incoherencia","Los públicos no detectan las incoherencias"], c:1, e:"Discurso sin hechos = greenwashing = daño reputacional." },
+    { q:"El «greenwashing» consiste en…", o:["En reciclar de verdad todos los residuos","En aparentar un compromiso ecológico falso","En un tipo concreto de matriz DAFO","En una métrica habitual de las RRPP","En pintar la oficina de color verde"], c:1, e:"Aparentar verde sin serlo realmente." },
+    { q:"La consecuencia de un discurso incoherente con la práctica es…", o:["Que genera todavía más confianza","Pérdida de credibilidad al descubrirse","Que asegura un aumento de las ventas","Que no produce ningún efecto","Que mejora aún más la reputación"], c:1, e:"Cuando se descubre la incoherencia, cae la credibilidad." },
+    { q:"Para que la comunicación sea creíble, debe…", o:["Prometer mucho aunque no se cumpla","Estar respaldada por hechos reales","Centrarse solo en la imagen externa","Ocultar los datos que sean incómodos","Depender por entero de los influencers"], c:1, e:"Hechos verificables detrás de las palabras." },
+    { q:"La coherencia entre lo que se dice y lo que se hace es…", o:["Un detalle de muy poca importancia","Un principio básico de unas RRPP éticas","Algo exclusivo del mundo del marketing","Prácticamente imposible de lograr","Irrelevante para la reputación"], c:1, e:"Principio ético y de eficacia de las RRPP." }
+  ]},
+  { ae:"¿Cómo se mide la efectividad de una campaña de RRPP? Da ejemplos de métricas o indicadores.", qs:[
+    { q:"¿Cómo se mide la efectividad de una campaña de RRPP?", o:["Solo por la cantidad de dinero gastado","Con KPIs frente a los objetivos","No se puede medir, es algo intangible","Solo por el número de notas enviadas","Únicamente por las ventas del trimestre"], c:1, e:"KPIs (alcance, sentimiento, AVE…) frente a los objetivos SMART." },
+    { q:"El «share of voice» mide…", o:["Las ventas totales del periodo","La cuota de menciones frente a la competencia","El presupuesto que queda disponible","El número de empleados implicados","El sentimiento de cada mención"], c:1, e:"Cuánto se habla de tu marca respecto a las rivales." },
+    { q:"El análisis de «sentimiento» (sentiment) evalúa…", o:["El dinero total que se ha recaudado","Si el tono es positivo o negativo","El alcance bruto de la campaña","El número de notas que se enviaron","La duración total de la campaña"], c:1, e:"El tono: positivo/negativo/neutro." },
+    { q:"El AVE (Advertising Value Equivalent) estima…", o:["El sentimiento general de las publicaciones","El valor en publicidad de la cobertura ganada","El número total de empleados de la empresa","El nivel de engagement que se ha obtenido","El presupuesto que aún queda disponible"], c:1, e:"Cuánto costaría en publicidad la cobertura ganada." },
+    { q:"Para que una métrica sea útil hay que…", o:["Observarla siempre de forma totalmente aislada","Compararla con los objetivos iniciales","Ignorarla por completo y no usarla","Medirla al azar de vez en cuando","Esperar como mínimo un año entero"], c:1, e:"Una métrica sin objetivo de referencia no dice nada." }
+  ]}
+]},
+
+{ icon:"📕", tema:"Tema 4 · Herramientas tradicionales", items:[
+  { ae:"Explica por qué las herramientas tradicionales siguen teniendo vigencia en la era digital.", qs:[
+    { q:"¿Por qué siguen vigentes las herramientas tradicionales en la era digital?", o:["Porque siempre resultan mucho más baratas que lo digital","Porque aportan credibilidad y contacto directo","Porque las herramientas digitales no funcionan","Porque son obligatorias por ley","Porque sustituyen del todo a lo digital"], c:1, e:"Aportan credibilidad y contacto humano; se integran con lo digital." },
+    { q:"Una rueda de prensa o una entrevista en un medio aporta…", o:["Control total del mensaje, porque se paga","Credibilidad de un tercero, no de la marca","En realidad no aporta ningún valor","Solamente un coste elevado para la empresa","Bastante menos confianza al público"], c:1, e:"Earned media: la validación de un medio da credibilidad." },
+    { q:"La relación correcta entre herramientas tradicionales y digitales es…", o:["Excluyente: o se usa una o la otra","Complementaria, en una estrategia mixta","Las digitales eliminan a las tradicionales","No se pueden combinar de ninguna forma","Usar únicamente las herramientas tradicionales"], c:1, e:"Complementarias, no excluyentes." },
+    { q:"Las herramientas tradicionales siguen siendo útiles porque…", o:["Porque llegan solo al público más joven de todos","Porque algunos públicos los siguen valorando","Porque ya no las utiliza casi nadie","Porque son ilegales en el entorno online","Porque en realidad no comunican nada"], c:1, e:"Hay públicos y contextos donde lo tradicional pesa." },
+    { q:"Un valor que lo tradicional aporta y lo digital no del todo es…", o:["La viralidad inmediata de los contenidos","El contacto humano y la experiencia directa","La segmentación del público por algoritmos","La analítica de datos en tiempo real","La automatización de los envíos masivos"], c:1, e:"El cara a cara y la experiencia presencial." }
+  ]},
+  { ae:"Compara las principales diferencias entre herramientas tradicionales y digitales de RRPP.", qs:[
+    { q:"¿Cuál es una diferencia clave entre herramientas tradicionales y digitales?", o:["Las tradicionales son siempre bidireccionales","Más controladas; las digitales interactúan","En realidad no existe ninguna diferencia","Las digitales no se pueden medir nunca","Las tradicionales son siempre gratuitas"], c:1, e:"Cambian dirección, alcance, interacción y medición." },
+    { q:"En cuanto a la DIRECCIÓN de la comunicación…", o:["Las dos funcionan exactamente igual","Lo digital dialoga; lo tradicional emite","Las tradicionales son las más interactivas","Ninguna de las dos llega a comunicar","Las dos son siempre unidireccionales"], c:1, e:"Lo digital permite conversación; lo tradicional suele emitir." },
+    { q:"Respecto a la MEDICIÓN de resultados…", o:["Las tradicionales se miden mejor al instante","Lo digital se mide en tiempo real","Ninguna de las dos se puede medir","La medición da exactamente igual","Lo digital no se puede medir nunca"], c:1, e:"Lo digital da datos al instante; lo tradicional, más difícil." },
+    { q:"En la SEGMENTACIÓN del público…", o:["Las tradicionales segmentan mejor al individuo","Lo digital segmenta con mucha precisión","Ninguna de las dos segmenta el público","Las dos segmentan exactamente igual","Lo digital no permite segmentar nada"], c:1, e:"Lo digital segmenta fino; lo tradicional es más general." },
+    { q:"En cuanto a la VELOCIDAD de difusión…", o:["Las tradicionales son instantáneas y globales","Lo digital difunde al instante","Las dos resultan igual de lentas","Ninguna de las dos llega a difundir","Lo digital es más lento que lo tradicional"], c:1, e:"Lo digital es inmediato y global." }
+  ]},
+  { ae:"¿Qué valor simbólico aportan los eventos presenciales a la construcción de relaciones con los públicos?", qs:[
+    { q:"¿Qué valor simbólico aportan los eventos presenciales?", o:["Solo sirven para repartir regalos a los asistentes","Crean experiencias y vínculos emocionales","En realidad no aportan ningún valor","Solo el ahorro de costes frente a lo digital","La garantía de unas ventas inmediatas"], c:1, e:"Experiencia + emoción + cercanía: símbolo de la relación." },
+    { q:"Un evento presencial bien hecho genera sobre todo…", o:["Una serie de datos analíticos útiles","Una experiencia memorable y emocional","Un descuento atractivo para el cliente","Una nota de prensa para enviar a los medios","Un anuncio pagado en televisión"], c:1, e:"Experiencia memorable que estrecha el vínculo." },
+    { q:"¿Cuál es un ejemplo de evento presencial de RRPP?", o:["Un banner publicado en una página web","Una rueda de prensa o una inauguración","Un email enviado de forma automática","Un tuit publicado en la cuenta de la marca","Un anuncio emitido en televisión"], c:1, e:"Ruedas de prensa, inauguraciones, desayunos informativos…" },
+    { q:"El carácter «simbólico» del evento está en que…", o:["En que resulta verdaderamente barato de organizar","El cara a cara transmite cercanía y compromiso","En que no comunica absolutamente nada","En que solo sirve para vender productos","En que se hace de forma totalmente virtual"], c:1, e:"El gesto de reunirse en persona ya comunica compromiso." },
+    { q:"Los eventos contribuyen a las RRPP porque…", o:["Cierran las ventas de forma inmediata","Construyen confianza a largo plazo","Sustituyen a toda la estrategia de la marca","Evitan tener que comunicar nada","Solo sirven para generar gastos"], c:1, e:"Refuerzan relaciones de confianza a largo plazo." }
+  ]},
+  { ae:"Describe un ejemplo de aplicación estratégica de un medio impreso en una campaña institucional.", qs:[
+    { q:"Un ejemplo de aplicación estratégica de un medio impreso es…", o:["Un story efímero publicado en Instagram","Una memoria anual o revista corporativa","Un correo electrónico automatizado","Un anuncio de pago por clic en Google","Un podcast publicado cada semana"], c:1, e:"Memoria anual, revista corporativa, dossier, publirreportaje impreso." },
+    { q:"La memoria anual de una organización sirve sobre todo para…", o:["Para vender productos con descuento","Para rendir cuentas con transparencia","Para captar seguidores en las redes","Para sustituir por completo a la web","Para hacer publicidad de las ofertas"], c:1, e:"Rendición de cuentas y transparencia ante los públicos." },
+    { q:"Un soporte impreso institucional (dossier, revista) aporta…", o:["Una gran viralidad en las redes","Seriedad, permanencia y credibilidad","Interacción con el público en tiempo real","Segmentación avanzada por algoritmos","Automatización de los envíos masivos"], c:1, e:"Seriedad, permanencia y credibilidad." },
+    { q:"Un publirreportaje en una revista del sector es estratégico cuando…", o:["Se busca llegar a adolescentes en TikTok","Se busca un público profesional que lo lee","Cuando no se persigue ningún objetivo","Cuando solo se busca ahorrar dinero","Cuando se persigue la viralidad masiva"], c:1, e:"Cuando el medio impreso llega justo al público objetivo." },
+    { q:"El medio impreso es «estratégico» cuando…", o:["Cuando se usa simplemente por usarlo","Cuando responde a un objetivo claro","Cuando contradice el mensaje general","Cuando se hace de forma improvisada","Cuando es el único canal posible"], c:1, e:"Cuando sirve a un objetivo e integra con el resto." }
+  ]},
+  { ae:"Analiza la importancia del ciclo productivo (planificación, verificación, ejecución) en la gestión de herramientas institucionales.", qs:[
+    { q:"¿Por qué importa el ciclo productivo (planificar → verificar → ejecutar)?", o:["Porque permite improvisar bastante más","Porque garantiza calidad y control","Porque elimina la fase de evaluación","Porque encarece el proceso a propósito","Porque solo se aplica en lo digital"], c:1, e:"Control de calidad: menos errores, más coherencia." },
+    { q:"La fase de PLANIFICACIÓN del ciclo consiste en…", o:["En lanzar la acción sin pensarla","En definir objetivos y recursos antes","En corregir los errores ya cometidos","En medir los resultados finales","En descansar antes de empezar"], c:1, e:"Pensar antes de actuar: objetivos, recursos, calendario." },
+    { q:"La fase de VERIFICACIÓN sirve para…", o:["En producir más rápido sin revisar","En comprobar que todo está correcto","En saltarse la fase de planificación","En sustituir los objetivos marcados","En ignorar los errores detectados"], c:1, e:"Comprobar la calidad antes de salir a la luz." },
+    { q:"Saltarse la verificación puede provocar…", o:["Una calidad bastante mayor del trabajo","Errores que dañan la imagen","Un ahorro de dinero garantizado","Una reputación claramente mejor","Ningún efecto sobre el resultado"], c:1, e:"Erratas o datos falsos publicados dañan la imagen." },
+    { q:"El ciclo productivo se asocia a la idea de…", o:["A la pura improvisación del momento","Al control de calidad continuo","Al azar y a la suerte","Al recorte de la plantilla","A la publicidad pagada en medios"], c:1, e:"Calidad y mejora continua." }
+  ]}
+]},
+
+{ icon:"📒", tema:"Tema 5 · Herramientas digitales", items:[
+  { ae:"Explica cómo la digitalización ha transformado el rol del profesional de RRPP.", qs:[
+    { q:"¿Cómo ha transformado la digitalización el rol del profesional de RRPP?", o:["Lo ha reducido a publicar simples anuncios pagados","Le exige datos y varios canales en tiempo real","Lo ha eliminado por completo del proceso","Le permite ignorar del todo a los públicos","Lo limita a redactar notas en papel"], c:1, e:"De emisor a gestor de relaciones data-driven y multicanal." },
+    { q:"Con lo digital, el profesional pasa de ser «emisor» a…", o:["A ser un simple observador pasivo de las redes","A ser un gestor de relaciones bidireccionales","A ser un vendedor de los productos","A ser un periodista de los medios","A ser un contable de la empresa"], c:1, e:"Gestiona conversaciones, no solo emite." },
+    { q:"Una competencia digital clave hoy es…", o:["La mecanografía rápida al teclado","Analizar datos y métricas para decidir","Únicamente la buena oratoria","El dominio de la contabilidad de costes","El diseño industrial de los productos"], c:1, e:"Análisis de datos para decidir." },
+    { q:"Lo digital ha hecho que la comunicación de RRPP sea…", o:["Una comunicación bastante más lenta","Una comunicación inmediata y 24/7","Una comunicación prácticamente inexistente","Una comunicación que es solo anual","Una comunicación totalmente unidireccional"], c:1, e:"Comunicación continua, en tiempo real." },
+    { q:"El profesional digital de RRPP debe…", o:["Utilizar siempre un único canal de comunicación","Gestionar varios canales con coherencia","Evitar por completo las redes sociales","Centrarse solo en la prensa escrita","No medir absolutamente nada de nada"], c:1, e:"Multicanalidad coherente." }
+  ]},
+  { ae:"¿Cuáles son las principales categorías de herramientas digitales y qué aportan a la gestión de las RRPP?", qs:[
+    { q:"¿Cuáles son categorías principales de herramientas digitales en RRPP?", o:["Únicamente el correo postal de toda la vida","Redes, web, newsletters y monitorización","Solo la televisión y la radio tradicionales","Solo los eventos presenciales","Solo la publicidad exterior en vallas"], c:1, e:"RRSS, web/blog, newsletter, newsroom, monitorización, automatización." },
+    { q:"Una «sala de prensa virtual» (newsroom) sirve para…", o:["Para vender productos por internet","Para dar a los periodistas recursos","Para automatizar los emails de venta","Para segmentar los anuncios online","Para publicar memes y bromas"], c:1, e:"Recursos para periodistas centralizados en la web." },
+    { q:"Las redes sociales aportan a las RRPP principalmente…", o:["El control absoluto sobre el mensaje","Interacción directa con los públicos","La credibilidad de un medio impreso","Un anonimato completo para la marca","En realidad ningún valor"], c:1, e:"Diálogo directo y alcance amplio." },
+    { q:"Un «dark site» es…", o:["Una página web de carácter ilegal","Una web que se activa solo en crisis","Una red social de uso interno","Un blog corporativo cualquiera","Una newsletter periódica"], c:1, e:"Web de crisis lista de antemano, oculta hasta que se necesita." },
+    { q:"Las herramientas de monitorización/escucha aportan…", o:["Conseguir más seguidores comprados","Saber qué se dice y detectar crisis","Hacer diseño gráfico de calidad","Llevar la contabilidad de la empresa","Gestionar la logística del almacén"], c:1, e:"Escuchar a la marca: reputación y alerta de crisis." }
+  ]},
+  { ae:"¿Por qué la analítica y el monitoreo digital son fundamentales en la gestión de la reputación?", qs:[
+    { q:"¿Por qué la analítica y el monitoreo son fundamentales para la reputación?", o:["Porque sustituyen a toda la estrategia","Porque dejan escuchar y detectar crisis","Porque solo sirven para contar seguidores","Porque garantizan que no haya críticas","Porque evitan tener que responder"], c:1, e:"Escucha + alerta temprana + medición del sentimiento." },
+    { q:"La «escucha social» (social listening) consiste en…", o:["En hablar mucho y muy alto en las redes","En monitorizar lo que se dice de la marca","En comprar mucha publicidad pagada","En ignorar por completo las redes","En enviar muchísimas newsletters"], c:1, e:"Monitorizar las conversaciones sobre la marca." },
+    { q:"El monitoreo ayuda a la reputación porque…", o:["Porque elimina del todo las críticas","Porque detecta a tiempo las crisis","Porque garantiza un aumento de ventas","Porque sustituye al portavoz oficial","Porque solo genera contenido nuevo"], c:1, e:"Alerta temprana: reaccionar antes de que la crisis crezca." },
+    { q:"La analítica permite pasar…", o:["De los datos a las puras intuiciones","De las intuiciones a los datos","De lo digital a lo impreso","Del diálogo de vuelta al monólogo","De la estrategia al puro azar"], c:1, e:"Del temario T5: de intuiciones a decisiones basadas en datos." },
+    { q:"Una métrica útil para vigilar la reputación online es…", o:["El número total de empleados de la empresa","El sentimiento o tono de las menciones","El precio de la materia prima","El mobiliario de las oficinas","El horario de apertura al público"], c:1, e:"El sentimiento/tono de lo que se dice de la marca." }
+  ]},
+  { ae:"Da un ejemplo de cómo la automatización contribuye a mantener relaciones duraderas con stakeholders.", qs:[
+    { q:"¿Cómo contribuye la automatización a relaciones duraderas con stakeholders?", o:["Despersonaliza por completo todo el contacto","Permite contacto segmentado y constante","Sustituye directamente a los stakeholders","Solo sirve para enviar spam masivo","Impide medir cualquier resultado"], c:1, e:"Constancia + segmentación + escala, sin perder relevancia." },
+    { q:"Un ejemplo de automatización en RRPP es…", o:["Escribir cada email a mano, uno por uno","Newsletters automáticas segmentadas","Convocar una rueda de prensa con medios","Organizar un evento presencial","Emitir un anuncio en televisión"], c:1, e:"Flujos automáticos segmentados por perfil." },
+    { q:"Un riesgo de abusar de la automatización es…", o:["Generar demasiada cercanía con el público","Caer en mensajes impersonales tipo spam","Ahorrar demasiado tiempo de trabajo","Segmentar muy bien a los públicos","Medir en exceso los resultados"], c:1, e:"Si no se cuida, suena a spam impersonal." },
+    { q:"La automatización aporta sobre todo…", o:["Bastante menos alcance del mensaje","Constancia y escala en el contacto","Más improvisación en el día a día","Una pérdida frecuente de los datos","Una mayor desconexión con la gente"], c:1, e:"Mantener el contacto a escala y con regularidad." },
+    { q:"Automatizar tareas repetitivas permite al profesional…", o:["Trabajar simplemente bastantes menos horas","Dedicar tiempo a lo estratégico","Dejar de comunicar con la gente","Eliminar del todo la analítica","Ignorar a los stakeholders clave"], c:1, e:"Libera tiempo para lo estratégico." }
+  ]},
+  { ae:"Analiza el impacto del marketing de influencers y el storytelling inmersivo sobre la reputación: oportunidades, riesgos y 3 KPIs para medir resultados.", qs:[
+    { q:"Sobre los influencers y el storytelling inmersivo, ¿qué es correcto?", o:["Que no tienen ningún riesgo reputacional","Que amplifican, pero exigen ética y KPIs","Que no se pueden medir con KPIs","Que solo sirven para productos baratos","Que sustituyen a toda la estrategia"], c:1, e:"Oportunidad + riesgo + necesidad de medir con KPIs." },
+    { q:"La principal oportunidad del marketing de influencers es…", o:["El control total y absoluto sobre el mensaje","Más alcance vía un prescriptor de confianza","Eliminar por completo cualquier coste","Poder no medir nunca los resultados","No necesitar ninguna estrategia previa"], c:1, e:"Alcance + credibilidad prestada del prescriptor." },
+    { q:"Un riesgo reputacional del marketing de influencers es…", o:["Que haya demasiada coherencia de marca","Falta de transparencia o una polémica","Que se mida demasiado la campaña","Que se segmente demasiado bien al público","Que haya que pagar más impuestos"], c:1, e:"Falta de transparencia o crisis del influencer que arrastra a la marca." },
+    { q:"El «storytelling inmersivo» busca…", o:["Ofrecer datos fríos y muy técnicos","Implicar con relatos y experiencias","Vender sin contar nada en absoluto","Ocultar la marca al espectador","Sustituir a la analítica de datos"], c:1, e:"Relatos y experiencias que implican emocionalmente." },
+    { q:"¿Cuáles serían 3 KPIs adecuados para medir estas tácticas?", o:["El color, el tamaño y la forma","Alcance, engagement y sentimiento","Empleados, ventas de ayer y stock","Ninguno: no se pueden medir","Únicamente el coste de la acción"], c:1, e:"Alcance, engagement y sentimiento (o SOV)." }
+  ]}
+]},
+
+{ icon:"📓", tema:"Tema 6 · Tácticas de RRPP", items:[
+  { ae:"Pon un ejemplo de táctica de RRPP bien alineada con un objetivo estratégico.", qs:[
+    { q:"¿Cuál es un ejemplo de táctica bien alineada con un objetivo?", o:["Publicar por publicar, sin objetivo","Puertas abiertas y nota de prensa verde","Enviar la misma nota a todos sin criterio","Cambiar el logotipo de la empresa","Bajar el precio del producto"], c:1, e:"Cada táctica responde a un objetivo estratégico concreto." },
+    { q:"La diferencia entre estrategia y táctica es que…", o:["Que en realidad son exactamente lo mismo","La estrategia es el qué; la táctica el cómo","Que la táctica importa más que el objetivo","Que la estrategia es una acción suelta","Que ninguna de las dos existe"], c:1, e:"Estrategia = rumbo; táctica = acciones para llegar." },
+    { q:"Una táctica está «alineada» cuando…", o:["Cuando resulta ser la más barata","Cuando sirve a un objetivo definido","Cuando es la acción más vistosa","Cuando la elige el propio influencer","Cuando no tiene ningún objetivo"], c:1, e:"Alineada = sirve a un objetivo claro." },
+    { q:"Si el objetivo es aumentar la notoriedad, una táctica adecuada sería…", o:["Despedir a parte de la plantilla","Un evento con cobertura en prensa","Subir los precios de los productos","Cerrar las cuentas de redes sociales","Auditar las cuentas de la empresa"], c:1, e:"Acción con cobertura = más notoriedad." },
+    { q:"Elegir tácticas sin un objetivo claro lleva a…", o:["A unos resultados claramente mejores","A acciones dispersas e ineficaces","A un ahorro de dinero asegurado","A una reputación bastante mejor","A una medición mucho más sencilla"], c:1, e:"Sin objetivo, las tácticas se dispersan." }
+  ]},
+  { ae:"Explica por qué las tácticas de RRPP deben definirse siempre en coherencia con los objetivos estratégicos y menciona un criterio clave para evaluarlas.", qs:[
+    { q:"¿Por qué deben las tácticas ser coherentes con los objetivos?", o:["Para gastar más; se evalúan por su coste","La táctica es medio; se evalúa su aporte","No hace falta coherencia, basta con actuar","Por los «me gusta» que generan, sin más","Porque así lo exige la ley vigente"], c:1, e:"Relación medio-fin; se evalúa por resultados respecto al objetivo." },
+    { q:"El criterio clave para evaluar una táctica es…", o:["Si ha resultado divertida o no","Si ha contribuido al objetivo","Únicamente cuánto ha costado","Quién fue la persona que la propuso","El color o el formato elegido"], c:1, e:"Eficacia: aporte real al objetivo." },
+    { q:"La relación entre táctica y objetivo es de…", o:["Una relación de total independencia","Una de medio (táctica) a fin (objetivo)","Una relación de clara oposición","Una relación marcada por el azar","Una jerarquía justo al revés"], c:1, e:"La táctica es el medio; el objetivo, el fin." },
+    { q:"Hacer muchas acciones sin medir su aporte es un error porque…", o:["Porque en realidad siempre funciona","Porque confunde actividad y resultados","Porque ahorra bastante dinero","Porque mejora mucho la reputación","Porque es justo lo más recomendado"], c:1, e:"Actividad no es lo mismo que eficacia." },
+    { q:"Para saber si una táctica funciona conviene…", o:["No medir absolutamente nunca","Definir indicadores y revisarlos","Esperar hasta el año siguiente","Preguntar a la gente al azar","Cambiar la táctica cada día"], c:1, e:"Indicadores ligados al objetivo." }
+  ]},
+  { ae:"Describe dos tácticas habituales de relaciones públicas con medios de comunicación y señala en qué situaciones son más adecuadas.", qs:[
+    { q:"¿Cuáles son dos tácticas habituales de RRPP con los medios?", o:["Comprar todos los espacios publicitarios","La nota y la rueda de prensa","Ignorar siempre a los periodistas","Publicar solo en las redes propias","Dar regalos a cambio de cobertura"], c:1, e:"Nota de prensa y rueda de prensa/entrevista." },
+    { q:"La NOTA DE PRENSA es la táctica adecuada cuando…", o:["Cuando no hay nada que contar","Cuando hay una noticia relevante","Cuando se quiere ocultar algo","Solo para crisis muy graves","En realidad nunca conviene usarla"], c:1, e:"Cuando hay una noticia que difundir ampliamente." },
+    { q:"La RUEDA DE PRENSA o entrevista es más adecuada cuando…", o:["Cuando no se quiere dar la cara","Cuando hace falta portavoz y preguntas","Cuando es un tema totalmente trivial","Cuando se quiere evitar a los medios","Cuando se quiere vender por internet"], c:1, e:"Cuando hace falta portavoz, contexto y preguntas." },
+    { q:"¿Qué es un «press kit» o dossier de prensa?", o:["Una factura detallada emitida al cliente","Un conjunto de materiales para periodistas","Un anuncio pagado en un gran medio","Una red social corporativa interna","Una métrica de resultados de campaña"], c:1, e:"Paquete de materiales para facilitar el trabajo del periodista." },
+    { q:"Una buena relación con los medios se basa en…", o:["En presionar y exigir la cobertura","En dar información veraz y a tiempo","En pagar dinero por cada noticia","En evitar el contacto con ellos","En enviarles correos no deseados"], c:1, e:"Confianza: información veraz, útil y puntual." }
+  ]},
+  { ae:"¿Qué papel desempeñan los indicadores KPI en la fase de implementación de una estrategia de RRPP? Menciona al menos dos tipos.", qs:[
+    { q:"¿Qué papel desempeñan los KPI en la fase de implementación?", o:["Sirven solo para el informe final","Monitorizan y permiten corregir","En realidad no se usan en RRPP","Solo miden el presupuesto gastado","Únicamente miden las ventas"], c:1, e:"Guían y permiten corregir durante la ejecución." },
+    { q:"Un KPI (Key Performance Indicator) es…", o:["Un tipo concreto de nota de prensa","Un indicador clave de un objetivo","Un evento presencial de la marca","El portavoz oficial de la empresa","Una red social corporativa"], c:1, e:"Indicador clave de rendimiento ligado a un objetivo." },
+    { q:"Un KPI de «output» mide…", o:["El cambio de actitud del público","Lo difundido: impactos y alcance","El sentimiento de las menciones","La reputación dentro de cinco años","El presupuesto que queda disponible"], c:1, e:"Output = lo que se difunde (alcance, impactos)." },
+    { q:"Un KPI de «outcome» mide…", o:["El número total de notas enviadas a medios","El efecto real: percepción y sentimiento","El coste del papel utilizado","El número de eventos realizados","Las horas de trabajo invertidas"], c:1, e:"Outcome = el efecto real conseguido en el público." },
+    { q:"Medir KPIs durante la ejecución permite…", o:["Esperar hasta el final sin actuar nunca","Detectar desvíos y corregir a tiempo","Ignorar los objetivos fijados","Gastar bastante más dinero","No hacer absolutamente nada"], c:1, e:"Corregir el rumbo mientras la campaña está en marcha." }
+  ]},
+  { ae:"Justifica por qué la flexibilidad táctica es un elemento clave en la gestión de las RRPP en entornos digitales.", qs:[
+    { q:"¿Por qué la flexibilidad táctica es clave en entornos digitales?", o:["Permite no tener ningún objetivo claro","El entorno cambia y hay que adaptarse","Así se puede improvisar todo siempre","Elimina la fase de planificación","Lo digital es estable y previsible"], c:1, e:"Adaptarse en tiempo real manteniendo la coherencia." },
+    { q:"El entorno digital se caracteriza por…", o:["Por ser estable y muy previsible","Por cambiar constantemente sin parar","Por no cambiar prácticamente nunca","Por ser algo totalmente irrelevante","Por desarrollarse solo fuera de internet"], c:1, e:"Cambio constante e imprevisto." },
+    { q:"La flexibilidad táctica NO significa…", o:["Adaptarse con criterio a los cambios","Improvisar sin estrategia ni objetivos","Ajustar los mensajes al contexto","Aprovechar las oportunidades","Reaccionar con rapidez"], c:1, e:"Flexibilidad no es improvisar sin rumbo." },
+    { q:"Aprovechar una tendencia del momento para comunicar (newsjacking) es…", o:["Un ejemplo de pura rigidez táctica","Un ejemplo de flexibilidad bien usada","Una clara falta de ética profesional","Un tipo concreto de KPI","Una situación de crisis grave"], c:1, e:"Newsjacking: subirse a una tendencia con criterio." },
+    { q:"Al adaptar las tácticas, hay que mantener siempre…", o:["El caos y el desorden total","La coherencia con la estrategia","El mismo mensaje literal para siempre","El silencio absoluto ante todo","La improvisación de principio a fin"], c:1, e:"Adaptar el cómo, sin perder la coherencia de fondo." }
+  ]}
+]}
+];
+
+/* ===== Render (con barajado determinista) + motor ===== */
+(function () {
+  "use strict";
+  var LETTERS = ["A","B","C","D","E"];
+  var KEY = "eig-test-autoeval-rrpp-5x-v3";
+  var store = {};
+  try { store = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+
+  function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function shuffle(arr, seed) {
+    var a = arr.slice();
+    var s = seed % 2147483647; if (s <= 0) s += 2147483646;
+    function rnd() { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rnd() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+
+  var root = document.getElementById("quizroot");
+  DATA.forEach(function (tema, ti) {
+    var sec = el("section", "theme-block");
+    var head = el("div", "theme-head"); head.id = "t" + (ti + 1);
+    head.appendChild(el("p", "section-title", tema.icon + " " + tema.tema));
+    head.appendChild(el("span", "theme-score", "0/" + (tema.items.length * 5)));
+    sec.appendChild(head);
+
+    tema.items.forEach(function (item, ii) {
+      var block = el("div", "ae-block");
+      var ah = el("div", "ae-head");
+      ah.appendChild(el("span", "ae-tag", "📝 Pregunta de examen " + (ti + 1) + "." + (ii + 1)));
+      ah.appendChild(el("span", "ae-score", "0/5"));
+      block.appendChild(ah);
+      block.appendChild(el("p", "ae-q", item.ae));
+      var quiz = el("div", "quiz");
+      item.qs.forEach(function (qq, qi) {
+        var pairs = qq.o.map(function (t, i) { return { t: t, ok: (i === qq.c) }; });
+        pairs = shuffle(pairs, (ti + 1) * 100000 + (ii + 1) * 1000 + (qi + 1) * 17 + 3);
+        var correctPos = 0;
+        for (var k = 0; k < pairs.length; k++) { if (pairs[k].ok) correctPos = k; }
+
+        var qc = el("div", "qcard");
+        qc.dataset.qid = "t" + ti + "a" + ii + "q" + qi;
+        qc.appendChild(el("div", "q-num", "Pregunta " + (qi + 1)));
+        qc.appendChild(el("div", "q-text", qq.q));
+        var opts = el("div", "options");
+        pairs.forEach(function (p, oi) {
+          var b = el("button", "option", '<span class="letter">' + LETTERS[oi] + "</span> " + p.t);
+          if (p.ok) b.dataset.correct = "true";
+          opts.appendChild(b);
+        });
+        qc.appendChild(opts);
+        qc.appendChild(el("div", "explain", "<b>Correcta: " + LETTERS[correctPos] + ".</b> " + qq.e));
+        quiz.appendChild(qc);
+      });
+      block.appendChild(quiz);
+      sec.appendChild(block);
+    });
+    root.appendChild(sec);
+  });
+
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".qcard"));
+  var fill = document.querySelector(".progress-fill");
+  var label = document.querySelector(".progress-label");
+  var TOTAL = cards.length;
+  var celebrated = false;
+
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
+
+  function answer(qc, opt, persist) {
+    if (qc.dataset.answered) return;
+    qc.dataset.answered = "1";
+    var opts = Array.prototype.slice.call(qc.querySelectorAll(".option"));
+    var ok = opt.dataset.correct === "true";
+    opt.classList.add(ok ? "correct" : "wrong");
+    if (!ok) {
+      var right = opts.filter(function (o) { return o.dataset.correct === "true"; })[0];
+      if (right) right.classList.add("correct");
+    }
+    opts.forEach(function (o) { o.disabled = true; });
+    var ex = qc.querySelector(".explain"); if (ex) ex.classList.add("show");
+    qc.dataset.ok = ok ? "1" : "0";
+    if (persist) { store[qc.dataset.qid] = { i: opts.indexOf(opt) }; save(); }
+    refresh();
+  }
+
+  cards.forEach(function (qc) {
+    var opts = Array.prototype.slice.call(qc.querySelectorAll(".option"));
+    opts.forEach(function (opt) { opt.addEventListener("click", function () { answer(qc, opt, true); }); });
+    var saved = store[qc.dataset.qid];
+    if (saved && opts[saved.i]) answer(qc, opts[saved.i], false);
+  });
+
+  function refresh() {
+    var ans = 0, ok = 0;
+    cards.forEach(function (qc) { if (qc.dataset.answered) { ans++; if (qc.dataset.ok === "1") ok++; } });
+    var pct = TOTAL ? Math.round((ans / TOTAL) * 100) : 0;
+    if (fill) fill.style.width = pct + "%";
+    if (label) label.textContent = "✓ " + ok + " · " + ans + "/" + TOTAL;
+
+    document.querySelectorAll(".theme-block").forEach(function (tb) {
+      var tcards = Array.prototype.slice.call(tb.querySelectorAll(".qcard"));
+      var a = 0, o = 0;
+      tcards.forEach(function (qc) { if (qc.dataset.answered) { a++; if (qc.dataset.ok === "1") o++; } });
+      var chip = tb.querySelector(".theme-score");
+      if (chip) { chip.textContent = o + "/" + tcards.length; chip.classList.toggle("done", a === tcards.length); }
+    });
+    document.querySelectorAll(".ae-block").forEach(function (ab) {
+      var acards = Array.prototype.slice.call(ab.querySelectorAll(".qcard"));
+      var a = 0, o = 0;
+      acards.forEach(function (qc) { if (qc.dataset.answered) { a++; if (qc.dataset.ok === "1") o++; } });
+      var chip = ab.querySelector(".ae-score");
+      if (chip) { chip.textContent = o + "/" + acards.length; chip.classList.toggle("done", a === acards.length); }
+    });
+
+    if (ans === TOTAL) { showResult(ok, TOTAL); if (!celebrated) { celebrated = true; confetti(); } }
+  }
+
+  function showResult(c, t) {
+    var box = document.getElementById("finalresult");
+    if (!box) return;
+    var pct = Math.round((c / t) * 100);
+    var msg = pct >= 90 ? "¡Crack! Te lo sabes de sobra 🎉"
+      : pct >= 70 ? "¡Muy bien! Repasa los fallos y al examen 💪"
+      : pct >= 50 ? "Vas bien, pero dale otra vuelta a los temas flojos 📚"
+      : "A repasar las lecciones de Modo Fácil y volver a intentarlo 📖";
+    box.querySelector(".score").textContent = c + "/" + t;
+    box.querySelector(".msg").textContent = msg;
+    box.classList.add("show");
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  function reset() { try { localStorage.removeItem(KEY); } catch (e) {} location.reload(); }
+  var r1 = document.getElementById("resetBtn"), r2 = document.getElementById("resetBtn2");
+  if (r1) r1.addEventListener("click", reset);
+  if (r2) r2.addEventListener("click", reset);
+
+  function confetti() {
+    var colors = ["#2563eb", "#f59e0b", "#16a34a", "#dc2626", "#7c3aed", "#06b6d4"];
+    var layer = document.createElement("div");
+    layer.style.cssText = "position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden";
+    document.body.appendChild(layer);
+    for (var i = 0; i < 90; i++) {
+      var p = document.createElement("div");
+      var size = 7 + Math.random() * 8;
+      p.style.cssText = "position:absolute;top:-20px;border-radius:2px;opacity:.95;width:" + size + "px;height:" + size + "px;background:" + colors[(Math.random() * colors.length) | 0] + ";left:" + Math.random() * 100 + "%;transform:rotate(" + Math.random() * 360 + "deg);";
+      layer.appendChild(p);
+      var fall = 700 + Math.random() * 1200;
+      var drift = (Math.random() - 0.5) * 240;
+      p.animate([
+        { transform: "translate(0,0) rotate(0deg)", opacity: 1 },
+        { transform: "translate(" + drift + "px," + (window.innerHeight + 60) + "px) rotate(" + (360 + Math.random() * 360) + "deg)", opacity: 1 }
+      ], { duration: fall + 600, easing: "cubic-bezier(.3,.7,.5,1)", delay: Math.random() * 400 });
+    }
+    setTimeout(function () { layer.remove(); }, 3200);
+  }
+
+  refresh();
+})();
+</script>
+<script src="../../ayudante/ayudante.js" defer></script>
+</body>
+</html>

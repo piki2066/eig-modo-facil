@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 6 · Encuesta y cuestionario — Modo Fácil</title>
+<link rel="stylesheet" href="estilos-facil.css">
+<style>:root{--accent:#0d9488;--accent-dark:#0f766e;--accent-soft:#effbf8;--accent-soft2:#cbf0e8;}</style>
+</head>
+<body data-page="consumidor-t6">
+
+<!-- Barra de progreso -->
+<div class="progressbar">
+  <div class="inner">
+    <a class="home" href="index.html" title="Volver al índice">←</a>
+    <div class="progress-track"><div class="progress-fill"></div></div>
+    <span class="progress-label">0% · 0/0</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="top">
+    <span class="tag">📙 Consumidor · Tema 6</span>
+    <span class="tag warn">📅 Examen 8-jun · ⚠️ DENSO</span>
+  </header>
+
+  <h1>Encuesta y cuestionario</h1>
+  <p class="subtitle">La encuesta dentro del proceso de investigación comercial, cómo elegir el canal (el árbol de decisión) y los tipos de preguntas del cuestionario. <strong>Estos tres bloques son los que de verdad caen — el resto es contexto.</strong></p>
+
+  <!-- BANNER EXAMEN -->
+  <div class="examen-cae">
+    <div class="ec-head">🎯 Lo que cae de este tema en el examen</div>
+    <div class="ec-formato">📋 Examen 8-jun · 7 preguntas: 4 de teoría (1 pto c/u) + 3 teórico-prácticas (2 ptos c/u) = 10 puntos.</div>
+    <ul>
+      <li>La encuesta dentro del proceso de investigación comercial (Figura 1)</li>
+      <li>Árbol de decisión para elegir el canal de encuesta</li>
+      <li>6.4 Tipología de preguntas</li>
+    </ul>
+  </div>
+
+  <img class="hero-img" src="img/t6-hero.png" alt="Diseñar una buena encuesta es seguir un proceso ordenado, paso a paso">
+  <p class="img-caption">Una encuesta no es "ponerse a preguntar": es un proceso ordenado de principio a fin.</p>
+
+  <!-- En una frase -->
+  <div class="en-una-frase">
+    <div class="mini">El tema en una frase</div>
+    <p>La encuesta es la <strong>fase de recogida de datos</strong> dentro de un proceso más grande; para que funcione hay que <strong>elegir bien el canal</strong> (según objetivo, recursos, público y tiempo) y <strong>diseñar bien las preguntas</strong> (cada tipo sirve para algo distinto).</p>
+  </div>
+
+  <p class="section-title">🧠 Los conceptos</p>
+  <p class="section-intro">Despliega cada tarjeta, léela con calma y márcala como <em>entendida</em>. La barra de arriba irá subiendo. Las que tienen <span class="cae-badge">CAE</span> son las que el examen pregunta seguro.</p>
+
+  <!-- CONCEPTO 1 — FIGURA 1: PROCESO -->
+  <details class="concept" id="c1" open>
+    <summary>
+      <span class="c-num">1</span>
+      <span class="c-title">La encuesta en el proceso de investigación comercial (Figura 1) <span class="cae-badge">CAE</span></span>
+      <span class="c-chevron">▼</span>
+    </summary>
+    <div class="c-body">
+      <p>La encuesta no va sola: es <strong>una pieza dentro de un proceso de 5 fases encadenadas</strong>. Cada fase alimenta a la siguiente, y si una falla, las demás se resienten. La encuesta es la fase de <strong>aplicación / recogida</strong> de datos.</p>
+
+      <p><strong>Figura 1 — El flujo completo (de izquierda a derecha):</strong></p>
+      <div style="display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:14px 0;">
+        <div style="flex:1;min-width:120px;background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:10px 8px;text-align:center;font-weight:700;font-size:13.5px;color:var(--accent-dark);">1️⃣ Definición del problema</div>
+        <div style="align-self:center;font-size:24px;color:var(--accent);font-weight:800;">→</div>
+        <div style="flex:1;min-width:120px;background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:10px 8px;text-align:center;font-weight:700;font-size:13.5px;color:var(--accent-dark);">2️⃣ Diseño del cuestionario</div>
+        <div style="align-self:center;font-size:24px;color:var(--accent);font-weight:800;">→</div>
+        <div style="flex:1;min-width:120px;background:var(--accent-soft2);border:2px solid var(--accent-dark);border-radius:12px;padding:10px 8px;text-align:center;font-weight:800;font-size:13.5px;color:var(--accent-dark);">3️⃣ Aplicación de la encuesta<br><span style="font-weight:600;font-size:11.5px;">👈 aquí está la encuesta</span></div>
+        <div style="align-self:center;font-size:24px;color:var(--accent);font-weight:800;">→</div>
+        <div style="flex:1;min-width:120px;background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:10px 8px;text-align:center;font-weight:700;font-size:13.5px;color:var(--accent-dark);">4️⃣ Análisis de datos</div>
+        <div style="align-self:center;font-size:24px;color:var(--accent);font-weight:800;">→</div>
+        <div style="flex:1;min-width:120px;background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:10px 8px;text-align:center;font-weight:700;font-size:13.5px;color:var(--accent-dark);">5️⃣ Presentación de resultados</div>
+      </div>
+
+      <p>¿Qué hace cada fase y por qué importa para la <strong>calidad y utilidad de la información</strong>?</p>
+      <table class="tabla">
+        <thead><tr><th>Fase</th><th>Qué se hace</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1. Definición del problema</strong></td><td>Decidir qué queremos saber. Si esto está mal, todo lo demás sobra.</td></tr>
+          <tr><td><strong>2. Diseño del cuestionario</strong></td><td>Convertir esa duda en preguntas concretas (el "corazón" de la encuesta).</td></tr>
+          <tr><td><strong>3. Aplicación de la encuesta</strong></td><td><strong>Recoger los datos</strong> reales preguntando a la muestra. Es la encuesta en sí.</td></tr>
+          <tr><td><strong>4. Análisis de datos</strong></td><td>Depurar, codificar y calcular: convertir respuestas en números útiles.</td></tr>
+          <tr><td><strong>5. Presentación de resultados</strong></td><td>Comunicar los hallazgos para que la empresa tome decisiones.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="analogia">
+        <span class="lbl">🍽️ Imagina un restaurante…</span>
+        Primero decides qué plato hacer (problema), escribes la receta (cuestionario), <b>cocinas</b> (aplicas la encuesta = recoges los datos), pruebas y emplatas (análisis) y se lo sirves al cliente (presentación). La encuesta es el <b>"cocinar"</b>: ni el primer ni el último paso, sino el momento de recoger lo que necesitas.
+      </div>
+      <div class="recuerda">📌 La encuesta = fase de <b>aplicación/recogida</b> (paso 3) dentro de un proceso de 5 fases. Cada fase condiciona la calidad de la información final.</div>
+      <button class="understood"></button>
+    </div>
+  </details>
+
+  <!-- CONCEPTO 2 — 6.2 CANALES (TABLA 1) + ÁRBOL DE DECISIÓN (FIGURA 2) FUSIONADOS -->
+  <details class="concept" id="c2">
+    <summary>
+      <span class="c-num">2</span>
+      <span class="c-title">6.2 · Canales de encuesta y árbol de decisión (Tabla 1 + Figura 2) <span class="cae-badge">CAE</span></span>
+      <span class="c-chevron">▼</span>
+    </summary>
+    <div class="c-body">
+      <p>El <span class="word">canal</span> es <strong>por dónde</strong> se aplica la encuesta. Hay cuatro, cada uno con su ventaja y su pega, y para decidir cuál usar el tema propone un <strong>árbol de decisión</strong> que elige precisamente entre ellos.</p>
+
+      <p style="font-weight:800;color:var(--accent-dark);margin:16px 0 6px">Los 4 canales: presencial, telefónica, postal, online (Tabla 1)</p>
+      <p>Esta es la <strong>Tabla 1</strong> tal cual del tema — apréndete la ventaja, la limitación y el ejemplo de cada uno:</p>
+      <table class="tabla">
+        <thead><tr><th>Canal</th><th>Ventaja</th><th>Limitación</th><th>Ejemplo aplicado</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Presencial</strong><br>(cara a cara)</td><td>Alta tasa de respuesta; observación directa</td><td>Coste y logística elevados</td><td>Encuesta en supermercado sobre la atención en caja</td></tr>
+          <tr><td><strong>Telefónica</strong></td><td>Rapidez en la recogida de datos</td><td>Rechazo por saturación de llamadas</td><td>Banco que llama tras conceder un crédito</td></tr>
+          <tr><td><strong>Postal</strong></td><td>Alcance geográfico amplio</td><td>Baja tasa de respuesta</td><td>Encuesta vecinal sobre seguridad ciudadana</td></tr>
+          <tr><td><strong>Online</strong><br>(la más usada hoy)</td><td>Bajo coste; segmentación precisa</td><td>Sesgos de acceso; fatiga digital</td><td>Encuesta en la app de transporte urbano</td></tr>
+        </tbody>
+      </table>
+      <div class="analogia">
+        <span class="lbl">🚗 Imagina ir a un sitio…</span>
+        Los canales son como medios de transporte: el <b>presencial</b> es el taxi (cómodo y de calidad, pero caro), el <b>telefónico</b> es la moto (rápida, pero molesta a quien no quiere ruido), el <b>postal</b> es el barco (llega lejos pero tarda), y el <b>online</b> es el patinete eléctrico (barato y ágil, pero no todos saben usarlo).
+      </div>
+      <div class="recuerda">📌 <b>No hay un canal universalmente superior.</b> El bueno es el que mejor encaja con tu objetivo, presupuesto, público y tiempo.</div>
+
+      <p style="font-weight:800;color:var(--accent-dark);margin:16px 0 6px">Árbol de decisión para elegir el canal (Figura 2)</p>
+      <p>¿Cómo elijo entre esos cuatro canales? El tema lo resuelve con un <span class="word">árbol de decisión</span>: <strong>4 preguntas en cascada</strong> que te van llevando hasta el canal más adecuado. Hazte las preguntas en orden:</p>
+
+      <div style="margin:14px 0;">
+        <div style="background:#fff;border:2px solid var(--accent-dark);border-radius:12px;padding:11px 14px;font-weight:800;color:var(--accent-dark);">1️⃣ ¿Cuál es el <u>objetivo</u> principal de la investigación?</div>
+        <div style="text-align:center;font-size:22px;color:var(--accent);font-weight:800;line-height:1;">↓</div>
+        <div style="background:#fff;border:2px solid var(--accent-dark);border-radius:12px;padding:11px 14px;font-weight:800;color:var(--accent-dark);">2️⃣ ¿Qué <u>recursos y presupuesto</u> tengo?</div>
+        <div style="text-align:center;font-size:22px;color:var(--accent);font-weight:800;line-height:1;">↓</div>
+        <div style="background:#fff;border:2px solid var(--accent-dark);border-radius:12px;padding:11px 14px;font-weight:800;color:var(--accent-dark);">3️⃣ ¿Qué <u>perfil</u> tiene la población objetivo?</div>
+        <div style="text-align:center;font-size:22px;color:var(--accent);font-weight:800;line-height:1;">↓</div>
+        <div style="background:#fff;border:2px solid var(--accent-dark);border-radius:12px;padding:11px 14px;font-weight:800;color:var(--accent-dark);">4️⃣ ¿Cuánto <u>tiempo</u> hay disponible?</div>
+        <div style="text-align:center;font-size:22px;color:var(--accent);font-weight:800;line-height:1;">↓</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <div style="flex:1;min-width:130px;background:var(--accent-soft2);border:2px solid var(--accent);border-radius:12px;padding:9px;text-align:center;font-weight:700;font-size:13px;color:var(--accent-dark);">🌐 Online<br><span style="font-weight:500;font-size:11px;">poco presupuesto, público digital, rápido</span></div>
+          <div style="flex:1;min-width:130px;background:var(--accent-soft2);border:2px solid var(--accent);border-radius:12px;padding:9px;text-align:center;font-weight:700;font-size:13px;color:var(--accent-dark);">📞 Telefónica<br><span style="font-weight:500;font-size:11px;">contacto rápido, sin desplazarse</span></div>
+          <div style="flex:1;min-width:130px;background:var(--accent-soft2);border:2px solid var(--accent);border-radius:12px;padding:9px;text-align:center;font-weight:700;font-size:13px;color:var(--accent-dark);">🤝 Presencial<br><span style="font-weight:500;font-size:11px;">se necesita calidad y observar</span></div>
+          <div style="flex:1;min-width:130px;background:var(--accent-soft2);border:2px solid var(--accent);border-radius:12px;padding:9px;text-align:center;font-weight:700;font-size:13px;color:var(--accent-dark);">🔀 Mixta<br><span style="font-weight:500;font-size:11px;">combinar para llegar a todos</span></div>
+        </div>
+      </div>
+
+      <div class="callout key"><b>Idea clave:</b> el árbol no da una respuesta fija. Te obliga a pensar en objetivo + recursos + público + tiempo, y de ahí sale el canal (o la mezcla) más adecuado. La idoneidad depende de la <b>adecuación metodológica y del contexto</b>.</div>
+      <div class="analogia">
+        <span class="lbl">🧭 Imagina elegir ruta en el GPS…</span>
+        El GPS te pregunta a dónde vas, si quieres lo más rápido o lo más barato, si vas en coche o andando… y según tus respuestas te propone una ruta. El árbol de decisión es ese GPS, pero para elegir <b>cómo</b> hacer la encuesta.
+      </div>
+      <div class="recuerda">📌 4 preguntas en cascada → canal. Y siempre la misma moraleja: <b>ningún canal es el mejor "porque sí"; depende del contexto.</b></div>
+      <button class="understood"></button>
+    </div>
+  </details>
+
+  <!-- CONCEPTO 3 — 6.4 TIPOLOGÍA DE PREGUNTAS (TABLA 3) -->
+  <details class="concept" id="c3">
+    <summary>
+      <span class="c-num">3</span>
+      <span class="c-title">6.4 · Tipología de preguntas del cuestionario (Tabla 3) <span class="cae-badge">CAE</span></span>
+      <span class="c-chevron">▼</span>
+    </summary>
+    <div class="c-body">
+      <img class="inline-img" src="img/t6-a.png" alt="Cada tipo de pregunta sirve para un objetivo distinto">
+      <p class="img-caption">Cada tipo de pregunta tiene su función: ninguna es "la mejor", se combinan.</p>
+      <p>Esta es la <strong>Tabla 3</strong> del tema, el bloque estrella del examen. Para cada tipo memoriza: <strong>características → ventaja → limitación → ejemplo</strong>.</p>
+      <table class="tabla">
+        <thead><tr><th>Tipo</th><th>Características</th><th>Ventaja</th><th>Limitación</th><th>Ejemplo aplicado</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Abiertas</strong></td><td>Respuesta libre, con sus propias palabras</td><td>Riqueza y detalle</td><td>Difíciles de analizar</td><td>"¿Qué factores influyen al elegir una bebida en la universidad?"</td></tr>
+          <tr><td><strong>Cerradas dicotómicas</strong></td><td>Solo 2 opciones excluyentes (Sí / No)</td><td>Facilidad de análisis</td><td>Información limitada</td><td>"¿Ha comprado online en los últimos 3 meses?" Sí / No</td></tr>
+          <tr><td><strong>Cerradas opción múltiple</strong></td><td>Varias opciones de respuesta</td><td>Segmenta preferencias</td><td>Puede condicionar la respuesta</td><td>Atributos valorados en un móvil (precio, diseño, durabilidad…)</td></tr>
+          <tr><td><strong>Escala</strong><br>(Likert, dif. semántico, frecuencia)</td><td>Miden la intensidad de una opinión</td><td>Datos comparables y cuantificables</td><td>Requieren diseño cuidadoso</td><td>Grado de acuerdo con "el servicio es rápido" (1 a 5)</td></tr>
+          <tr><td><strong>Filtro</strong></td><td>Determinan si procede continuar</td><td>Evitan respuestas irrelevantes</td><td>Pueden excluir casos interesantes</td><td>"¿Ha comprado online en los últimos 6 meses?"</td></tr>
+          <tr><td><strong>Clasificación</strong></td><td>Sociodemográficas, van al <b>final</b></td><td>Permiten análisis por perfiles</td><td>Invasivas si van al inicio</td><td>Edad, género, nivel educativo</td></tr>
+          <tr><td><strong>Control</strong></td><td>Verifican la coherencia de respuestas</td><td>Garantizan calidad de los datos</td><td>Generan rechazo si son obvias</td><td>Frecuencia de compra vs. cantidad mensual declarada</td></tr>
+        </tbody>
+      </table>
+      <div class="analogia">
+        <span class="lbl">🧰 Imagina una caja de herramientas…</span>
+        Las preguntas son herramientas: la <b>abierta</b> es una libreta en blanco (lo apuntas todo, pero luego hay que ordenarlo); la <b>dicotómica</b> es un interruptor (Sí/No); la de <b>escala</b> es un termómetro (mides cuánto); el <b>filtro</b> es el portero de la discoteca (decide quién entra); la de <b>control</b> es el detector de mentiras (¿coincide con lo que dijiste antes?).
+      </div>
+      <div class="recuerda">📌 Cerradas = fáciles de analizar pero pobres. Abiertas = ricas pero difíciles. Escala = mide intensidad. Filtro = ¿sigues o no? Clasificación = al final. Control = comprobar coherencia.</div>
+      <button class="understood"></button>
+    </div>
+  </details>
+
+  <!-- CONCEPTO 4 — CONTEXTO: cuestionario (sin badge) -->
+  <details class="concept" id="c4">
+    <summary>
+      <span class="c-num">4</span>
+      <span class="c-title">Contexto: el cuestionario bien hecho</span>
+      <span class="c-chevron">▼</span>
+    </summary>
+    <div class="c-body">
+      <p>El <span class="word">cuestionario</span> es el corazón de la encuesta: traduce los objetivos en preguntas. Para que sea bueno debe cumplir tres principios:</p>
+      <ul>
+        <li><strong>Claridad</strong> — redacción precisa, sin ambigüedad. <em>("¿Con qué frecuencia compra café en supermercados?")</em></li>
+        <li><strong>Neutralidad</strong> — no inducir la respuesta. <em>(mal: "¿No está insatisfecho con su compañía?"; bien: "¿Cómo valora su compañía?")</em></li>
+        <li><strong>Adaptación</strong> — lenguaje del público <em>("móvil", no "dispositivo de telecomunicación")</em>.</li>
+      </ul>
+      <p>Se organiza en 3 bloques: <strong>introducción → preguntas centrales → clasificación sociodemográfica</strong>. Y antes de lanzarlo se hace un <strong>pretest</strong> (prueba con un grupito pequeño) para cazar preguntas mal formuladas.</p>
+      <div class="recuerda">📌 Claridad + neutralidad + adaptación + pretest. (Esto es contexto: lo central del examen son los conceptos 1–3.)</div>
+      <button class="understood"></button>
+    </div>
+  </details>
+
+  <!-- CONCEPTO 5 — CONTEXTO: muestra/fiabilidad/validez (sin badge) -->
+  <details class="concept" id="c5">
+    <summary>
+      <span class="c-num">5</span>
+      <span class="c-title">Contexto: muestra, fiabilidad y validez</span>
+      <span class="c-chevron">▼</span>
+    </summary>
+    <div class="c-body">
+      <img class="inline-img" src="img/t6-b.png" alt="Estudiar a unos pocos (muestra) para conocer a todos (población)">
+      <p class="img-caption">Muestra: estudiar a unos pocos bien elegidos para conocer a toda la población.</p>
+      <ul>
+        <li><span class="word">Población</span> — todos los que interesan. <span class="word">Muestra</span> — el subconjunto que sí encuestamos.</li>
+        <li><strong>Muestreo probabilístico</strong> (aleatorio simple, estratificado, conglomerados): todos tienen probabilidad conocida → permite calcular el error y generalizar.</li>
+        <li><strong>Muestreo no probabilístico</strong> (conveniencia, juicio): más rápido y barato, pero sin garantía estadística.</li>
+        <li><strong>Tamaño de muestra:</strong> con 95% de confianza y ±5% de error, salen ≈ <strong>384 encuestas</strong> (da igual que la población sea de miles).</li>
+        <li><strong>Fiabilidad</strong> = resultados estables al repetir (ej. alfa de Cronbach 0,85). <strong>Validez</strong> = mide lo que dice medir.</li>
+      </ul>
+      <div class="recuerda">📌 Solo el muestreo probabilístico permite calcular el error. Fiabilidad = consistencia; validez = mide lo correcto. (Contexto de apoyo.)</div>
+      <button class="understood"></button>
+    </div>
+  </details>
+
+  <!-- CONCEPTO 6 — CONTEXTO: escalas + procesamiento (sin badge) -->
+  <details class="concept" id="c6">
+    <summary>
+      <span class="c-num">6</span>
+      <span class="c-title">Contexto: escalas y procesamiento de datos</span>
+      <span class="c-chevron">▼</span>
+    </summary>
+    <div class="c-body">
+      <p>Dos escalas de actitud que conviene reconocer (caen como tipo de pregunta "de escala"):</p>
+      <ul>
+        <li><strong>Likert</strong> — grado de acuerdo con una afirmación, de 1 a 5 (o 1 a 7): <em>"El servicio es rápido: 1 = muy en desacuerdo … 5 = muy de acuerdo"</em>.</li>
+        <li><strong>Diferencial semántico (Osgood)</strong> — dos adjetivos opuestos en los extremos y marcas tu posición: <em>Caro ←|—|—|—|→ Barato</em>. Útil para la imagen de marca.</li>
+      </ul>
+      <p>Tras recoger los datos, el <strong>procesamiento</strong> sigue 4 pasos:</p>
+      <div class="callout key"><b>Depuración</b> (quitar lo incoherente) → <b>Codificación</b> (pasar a números) → <b>Tabulación</b> (organizar en tablas) → <b>Análisis estadístico</b> (descriptivo e inferencial).</div>
+      <div class="recuerda">📌 Likert = acuerdo (1-5). Diferencial semántico = entre dos opuestos. Procesamiento: depurar → codificar → tabular → analizar. (Contexto de apoyo.)</div>
+      <button class="understood"></button>
+    </div>
+  </details>
+
+  <!-- FLASHCARDS -->
+  <p class="section-title">🃏 Flashcards</p>
+  <p class="section-intro">Toca cada tarjeta para girarla. Tapa la definición con la mano y comprueba si te la sabes.</p>
+  <div class="flash-grid">
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">¿Dónde encaja la encuesta en el proceso?</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Es la fase 3, de APLICACIÓN/recogida de datos, dentro del proceso: definición del problema → diseño del cuestionario → aplicación → análisis → presentación.</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Las 5 fases del proceso (Figura 1)</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">1) Definición del problema · 2) Diseño del cuestionario · 3) Aplicación de la encuesta · 4) Análisis de datos · 5) Presentación de resultados.</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Canal presencial: ventaja y pega</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Ventaja: alta tasa de respuesta y observación directa. Pega: coste y logística elevados. Ej: encuesta en un supermercado a la salida de caja.</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Canal online: ventaja y pega</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Ventaja: bajo coste y segmentación precisa. Pega: sesgos de acceso y fatiga digital. Ej: encuesta en la app de transporte urbano. Es el más usado hoy.</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Las 4 preguntas del árbol de decisión</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">1) ¿Objetivo de la investigación? 2) ¿Recursos y presupuesto? 3) ¿Perfil de la población? 4) ¿Tiempo disponible? → canal (online / telefónica / presencial / mixta).</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">¿Existe un canal "mejor que todos"?</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">No. No hay canal universalmente superior: la idoneidad depende de la adecuación metodológica y del contexto (objetivo, recursos, público, tiempo).</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Pregunta abierta vs. cerrada</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Abierta: respuesta libre, mucha riqueza pero difícil de analizar. Cerrada: opciones fijas, fácil de tabular pero información limitada.</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">¿Para qué sirve una pregunta filtro?</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Determina si el encuestado debe seguir o no respondiendo (evita respuestas irrelevantes). Ej: "¿Ha comprado online en los últimos 6 meses?".</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Pregunta de clasificación</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Sociodemográficas (edad, género, nivel educativo). Van al FINAL del cuestionario; si van al inicio se perciben invasivas. Permiten analizar por perfiles.</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Pregunta de control</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Verifica la coherencia de las respuestas (detecta contradicciones). Ej: cruzar frecuencia de compra con cantidad mensual declarada. Garantiza calidad.</span></div>
+    </div></div>
+
+  </div>
+
+  <!-- TEST -->
+  <p class="section-title">✅ Test rápido</p>
+  <p class="section-intro">6 preguntas tipo examen. Elige una opción y te corrige al momento con la explicación.</p>
+  <div class="quiz">
+
+    <div class="qcard">
+      <div class="q-num">Pregunta 1</div>
+      <div class="q-text">Dentro del proceso de investigación comercial (Figura 1), ¿qué fase representa la encuesta propiamente dicha?</div>
+      <div class="options">
+        <button class="option"><span class="letter">A</span> Definición del problema</button>
+        <button class="option"><span class="letter">B</span> Diseño del cuestionario</button>
+        <button class="option" data-correct="true"><span class="letter">C</span> Aplicación / recogida de datos</button>
+        <button class="option"><span class="letter">D</span> Presentación de resultados</button>
+      </div>
+      <div class="explain"><b>Correcta: C.</b> La encuesta es la fase de aplicación/recogida de datos (paso 3 de 5), entre el diseño del cuestionario y el análisis. Las demás son fases distintas del mismo proceso.</div>
+    </div>
+
+    <div class="qcard">
+      <div class="q-num">Pregunta 2</div>
+      <div class="q-text">¿Cuál es el orden correcto de las 5 fases del proceso de investigación comercial?</div>
+      <div class="options">
+        <button class="option"><span class="letter">A</span> Cuestionario → problema → aplicación → presentación → análisis</button>
+        <button class="option" data-correct="true"><span class="letter">B</span> Problema → cuestionario → aplicación → análisis → presentación</button>
+        <button class="option"><span class="letter">C</span> Aplicación → problema → cuestionario → análisis → presentación</button>
+        <button class="option"><span class="letter">D</span> Problema → aplicación → cuestionario → presentación → análisis</button>
+      </div>
+      <div class="explain"><b>Correcta: B.</b> Definición del problema → diseño del cuestionario → aplicación de la encuesta → análisis de datos → presentación de resultados. Cada fase alimenta a la siguiente y condiciona la calidad final.</div>
+    </div>
+
+    <div class="qcard">
+      <div class="q-num">Pregunta 3</div>
+      <div class="q-text">Un ayuntamiento quiere conocer la opinión de vecinos dispersos por zonas rurales alejadas, con poco presupuesto y sin prisa. Según la Tabla 1, ¿qué canal encaja mejor pese a su baja tasa de respuesta?</div>
+      <div class="options">
+        <button class="option"><span class="letter">A</span> Presencial</button>
+        <button class="option"><span class="letter">B</span> Telefónica</button>
+        <button class="option" data-correct="true"><span class="letter">C</span> Postal</button>
+        <button class="option"><span class="letter">D</span> Ninguno permite alcance geográfico amplio</button>
+      </div>
+      <div class="explain"><b>Correcta: C.</b> La postal tiene como ventaja el alcance geográfico amplio (llega a zonas alejadas) aunque su limitación sea la baja tasa de respuesta. Es justo el ejemplo de la encuesta vecinal sobre seguridad ciudadana.</div>
+    </div>
+
+    <div class="qcard">
+      <div class="q-num">Pregunta 4</div>
+      <div class="q-text">El árbol de decisión para elegir el canal se basa en 4 preguntas en cascada. ¿Cuál de estas NO es una de ellas?</div>
+      <div class="options">
+        <button class="option"><span class="letter">A</span> ¿Cuál es el objetivo principal de la investigación?</button>
+        <button class="option"><span class="letter">B</span> ¿Qué recursos y presupuesto se tienen?</button>
+        <button class="option" data-correct="true"><span class="letter">C</span> ¿Qué valor de Z usaré para el nivel de confianza?</button>
+        <button class="option"><span class="letter">D</span> ¿Cuánto tiempo hay disponible?</button>
+      </div>
+      <div class="explain"><b>Correcta: C.</b> Las 4 preguntas del árbol son: objetivo, recursos/presupuesto, perfil de la población y tiempo disponible. El valor de Z pertenece al cálculo del tamaño de muestra, no al árbol de decisión del canal.</div>
+    </div>
+
+    <div class="qcard">
+      <div class="q-num">Pregunta 5</div>
+      <div class="q-text">"¿Ha comprado online en los últimos 6 meses?" — según el resultado se le aplica todo el cuestionario o solo una parte. ¿Qué tipo de pregunta es?</div>
+      <div class="options">
+        <button class="option"><span class="letter">A</span> De control</button>
+        <button class="option" data-correct="true"><span class="letter">B</span> De filtro</button>
+        <button class="option"><span class="letter">C</span> De clasificación</button>
+        <button class="option"><span class="letter">D</span> Abierta</button>
+      </div>
+      <div class="explain"><b>Correcta: B.</b> Es una pregunta de filtro: determina si procede continuar y evita respuestas irrelevantes de quien no pertenece a la población objetivo. La de control verifica coherencia; la de clasificación recoge datos sociodemográficos al final.</div>
+    </div>
+
+    <div class="qcard">
+      <div class="q-num">Pregunta 6</div>
+      <div class="q-text">Según la Tabla 3, ¿cuál es la principal limitación de las preguntas abiertas?</div>
+      <div class="options">
+        <button class="option"><span class="letter">A</span> Ofrecen información muy limitada</button>
+        <button class="option"><span class="letter">B</span> Condicionan la respuesta del encuestado</button>
+        <button class="option" data-correct="true"><span class="letter">C</span> Son difíciles de analizar (requieren codificación)</button>
+        <button class="option"><span class="letter">D</span> Solo permiten dos respuestas posibles</button>
+      </div>
+      <div class="explain"><b>Correcta: C.</b> Las abiertas dan riqueza y detalle, pero su limitación es que dificultan el análisis: hay que leerlas todas, agruparlas y codificarlas. "Información limitada" y "dos respuestas" describen a las dicotómicas.</div>
+    </div>
+
+    <div class="quiz-result">
+      <div class="score">0/6</div>
+      <div class="msg"></div>
+    </div>
+  </div>
+
+  <!-- PREGUNTAS DEL EXAMEN -->
+  <p class="section-title">⭐ Preguntas del final de la presentación</p>
+  <p class="section-intro">La presentación del Tema 6 no incluye diapositiva de autoevaluación formal. Se ofrecen <strong>3 preguntas teórico-prácticas</strong> (las de 2 puntos) basadas en los contenidos evaluables del examen, resueltas desde la fuente ESIC. <em>(preguntas de práctica)</em></p>
+  <div class="examen-box">
+    <div class="head">📝 Preguntas de práctica — Tema 6</div>
+    <div class="sub">3 preguntas teórico-prácticas redactadas a partir de los contenidos del tema. (preguntas de práctica)</div>
+
+    <details class="pregunta">
+      <summary><span class="pnum">1</span> Una startup de una <b>app de transporte</b> quiere medir la experiencia de uso justo después de cada trayecto, con poco presupuesto, público joven y digital, y resultados en pocos días. Elige el canal usando el árbol de decisión y justifícalo. <span class="reveal-hint">ver respuesta ▼</span></summary>
+      <div class="answer">
+        <span class="label">Respuesta</span>
+        <p><strong>Canal: ONLINE</strong> (encuesta digital integrada en la app). Aplicando el árbol de decisión:</p>
+        <ul>
+          <li><strong>1) Objetivo:</strong> medir la experiencia de uso de forma masiva e inmediata → favorece un canal digital.</li>
+          <li><strong>2) Recursos/presupuesto:</strong> poco presupuesto → el online es el de menor coste.</li>
+          <li><strong>3) Perfil de la población:</strong> usuarios jóvenes y digitales (ya tienen la app) → no hay barrera de acceso a internet.</li>
+          <li><strong>4) Tiempo:</strong> se quieren resultados en pocos días → el online recoge datos en tiempo real.</li>
+        </ul>
+        <p><strong>Ventaja</strong> (Tabla 1): bajo coste y segmentación precisa. <strong>Limitación a vigilar:</strong> sesgos de acceso y fatiga digital (respuestas apresuradas tras cada trayecto). Es exactamente el ejemplo del tema: la app de transporte urbano tras implantar el pago móvil.</p>
+      </div>
+    </details>
+
+    <details class="pregunta">
+      <summary><span class="pnum">2</span> Diseña un mini-cuestionario para una <b>cafetería universitaria</b> usando al menos cuatro tipos de pregunta de la Tabla 3 (filtro, escala, opción múltiple y clasificación) e indica qué aporta cada uno. <span class="reveal-hint">ver respuesta ▼</span></summary>
+      <div class="answer">
+        <span class="label">Respuesta</span>
+        <ul>
+          <li><strong>Filtro:</strong> "¿Has consumido en esta cafetería en el último mes?" → decide si procede seguir; evita respuestas irrelevantes.</li>
+          <li><strong>Opción múltiple (cerrada):</strong> "¿Qué valoras más? a) precio · b) rapidez · c) sabor · d) ubicación" → segmenta preferencias, fácil de tabular.</li>
+          <li><strong>Escala (Likert):</strong> "El servicio es rápido: 1 (muy en desacuerdo) … 5 (muy de acuerdo)" → mide la intensidad de la opinión; datos comparables.</li>
+          <li><strong>Control:</strong> más adelante, "¿Cuántos cafés compras al mes?" para cruzar con la frecuencia declarada → verifica coherencia.</li>
+          <li><strong>Clasificación (al final):</strong> edad, género, curso → permite analizar por perfiles sin resultar invasivo.</li>
+        </ul>
+        <p><strong>Idea clave:</strong> ningún tipo es "el mejor"; la combinación equilibrada (riqueza + comparabilidad + coherencia) es lo que da validez al cuestionario.</p>
+      </div>
+    </details>
+
+    <details class="pregunta">
+      <summary><span class="pnum">3</span> Un <b>banco</b> quiere conocer la satisfacción de clientes a los que acaba de conceder un crédito, de forma rápida y contactándolos directamente. Elige el canal y explica su principal riesgo y cómo encaja en la Figura 1. <span class="reveal-hint">ver respuesta ▼</span></summary>
+      <div class="answer">
+        <span class="label">Respuesta</span>
+        <p><strong>Canal: TELEFÓNICO.</strong> Según el árbol: el objetivo es un contacto directo y rápido, hay recursos para llamar, el perfil son clientes ya identificados con teléfono, y se quiere rapidez. La ventaja (Tabla 1) es la rapidez en la recogida de datos. Es el ejemplo literal del tema: la entidad bancaria que llama tras conceder un crédito.</p>
+        <p><strong>Riesgo principal:</strong> el rechazo por saturación de llamadas — la tasa de negativa a participar es alta porque la gente está harta de llamadas comerciales.</p>
+        <p><strong>Encaje en la Figura 1:</strong> esta elección de canal y la llamada en sí pertenecen a la <strong>fase 3, "aplicación de la encuesta"</strong>. Antes hubo que definir el problema (medir satisfacción) y diseñar el cuestionario; después vendrán el análisis de datos y la presentación de resultados.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="nav-temas">
+    <a href="index.html">🏠 Índice</a>
+    <a href="T1.html">T1 · Naturaleza</a>
+    <a href="T2.html">T2 · Planificación</a>
+    <a href="T3.html">T3 · Fuentes</a>
+    <a href="T4.html">T4 · Cualitativas</a>
+    <a href="T5.html">T5 · Neuromarketing</a>
+    <a href="#" class="current">T6 · Encuesta</a>
+    <a href="T7.html">T7 · Paneles</a>
+    <a href="T8.html">T8 · Informe</a>
+  </nav>
+
+  <footer class="biblio">
+    <h3>Fuente</h3>
+    <p>Basado en el documento oficial <b>«ESIC-Tema 6 — Encuesta y Cuestionario»</b> (ESIC / Consumidor y Mercado — Investigación Comercial). Figura 1 (proceso) y Figura 2 (árbol de decisión del canal) adaptadas de Malhotra (2020), Díaz de Rada (2019) y Esteban Talaya et al. (2014); Tablas 1 y 3 reproducidas del propio Tema 6.</p>
+  </footer>
+
+</div>
+
+<script src="app.js"></script>
+<script src="../../ayudante/ayudante.js" defer></script>
+</body>
+</html>

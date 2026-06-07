@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marketing Social y Digital · Modo Fácil — EIG</title>
+<link rel="stylesheet" href="estilos-facil.css">
+<style>
+  :root{--accent:#db2777;--accent-dark:#be185d;--accent-soft:#fdf2f8;--accent-soft2:#fbd7e8;}
+  .lesson-grid { display: grid; gap: 14px; margin: 10px 0 30px; }
+  .lesson { display: flex; align-items: center; gap: 16px; text-decoration: none; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow-sm); transition: transform .15s, box-shadow .2s, border-color .2s; color: var(--text); }
+  .lesson:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--accent-soft2); }
+  .lesson .num { flex-shrink: 0; width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: #fff; font-weight: 800; font-size: 19px; display: grid; place-items: center; }
+  .lesson .body { flex: 1; }
+  .lesson .t { font-size: 18px; font-weight: 700; line-height: 1.25; }
+  .lesson .d { font-size: 14.5px; color: var(--text-soft); margin-top: 2px; }
+  .lesson .status { flex-shrink: 0; font-size: 12px; font-weight: 800; padding: 5px 12px; border-radius: 99px; background: var(--green-soft); color: #15803d; }
+  .howto { background: var(--accent-soft); border-radius: var(--radius); padding: 18px 22px; margin: 8px 0 34px; }
+  .howto h3 { font-size: 14px; color: var(--accent-dark); margin-bottom: 8px; }
+  .howto ul { padding-left: 20px; font-size: 15px; } .howto li { margin-bottom: 5px; }
+  .back-btn { display:inline-flex; align-items:center; gap:7px; text-decoration:none; color:var(--accent-dark); background:var(--accent-soft); border:1px solid var(--accent-soft2); border-radius:99px; padding:9px 18px; font-size:13.5px; font-weight:700; margin:22px 0 4px; transition:all .15s; }
+  .back-btn:hover { background:var(--accent-soft2); transform:translateX(-3px); }
+</style>
+</head>
+<body data-page="marketing-index">
+
+<div class="progressbar">
+  <div class="inner">
+    <span class="home" style="pointer-events:none">📕</span>
+    <div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>
+    <span class="progress-label">Modo Fácil</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <a class="back-btn" href="../../index.html">← Todas las asignaturas</a>
+
+  <header class="top">
+    <span class="tag">📕 Marketing Social y Digital</span>
+    <span class="tag warn">📅 Examen 10-jun-2026</span>
+  </header>
+
+  <h1>Marketing Social y Digital · Modo Fácil 🎓</h1>
+  <p class="subtitle">Los 5 bloques explicados fácil, con imágenes, flashcards, test y preguntas resueltas. El examen es muy práctico (POEM, SMART, KPIs): aquí lo machacas.</p>
+
+  <div class="howto">
+    <h3>🧭 Cómo usar esto</h3>
+    <ul>
+      <li><strong>Despliega</strong> cada concepto y márcalo como <em>entendido</em> → la barra sube.</li>
+      <li><strong>Gira</strong> las flashcards para memorizar las definiciones.</li>
+      <li>Haz el <strong>test</strong> al final: te corrige al instante.</li>
+      <li>Practica con las <strong>preguntas tipo examen</strong> de cada tema.</li>
+    </ul>
+  </div>
+
+  <p class="section-title">📚 Las 5 lecciones</p>
+  <div class="lesson-grid">
+    <a class="lesson" href="T1.html"><span class="num">1</span><span class="body"><span class="t">Evolución del Marketing Digital y Social</span><span class="d">Marketing Mix 4P→7P, 4C de Lauterborn, tendencias y el mensaje de marca</span></span><span class="status">LISTO</span></a>
+    <a class="lesson" href="T2.html"><span class="num">2</span><span class="body"><span class="t">El modelo POEM</span><span class="d">Paid + Owned + Earned Media y comunidades virtuales (cae seguro)</span></span><span class="status">LISTO</span></a>
+    <a class="lesson" href="T3.html"><span class="num">3</span><span class="body"><span class="t">Marketing en RRSS y el consumidor</span><span class="d">Perfiles por plataforma (IG, TikTok, LinkedIn…), orgánico vs pagado</span></span><span class="status">LISTO</span></a>
+    <a class="lesson" href="T4.html"><span class="num">4</span><span class="body"><span class="t">Performance: métricas y KPIs</span><span class="d">Objetivos SMART y KPIs por objetivo (CTR, CR, CAC, ROAS, CLV…)</span></span><span class="status">LISTO</span></a>
+    <a class="lesson" href="T5.html"><span class="num">5</span><span class="body"><span class="t">Planificación y campaña</span><span class="d">Calendario editorial, publicación, monitorización y reporting</span></span><span class="status">LISTO</span></a>
+  </div>
+
+  <footer class="biblio">
+    <h3>Sobre este material</h3>
+    <p>Versión «modo fácil» basada en las presentaciones oficiales. Tu progreso se guarda solo en este navegador. Manual base: <b>Solé Moro &amp; Campo Fernández (2025), <i>Social Media Marketing</i> — ESIC.</b></p>
+  </footer>
+</div>
+<script src="../../ayudante/ayudante.js" defer></script>
+</body>
+</html>

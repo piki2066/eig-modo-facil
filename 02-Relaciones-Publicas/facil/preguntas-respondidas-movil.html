@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RRPP · Preguntas de autoevaluación resueltas — EIG</title>
+<style>
+/* ============================================================
+   MODO FÁCIL — Sistema visual interactivo · Resúmenes EIG 2026
+   Pensado para aprender "para tontos": claro, cálido, con tarjetas,
+   acordeones, flashcards, test y barra de progreso.
+   El color de acento se cambia por asignatura con --accent.
+   ============================================================ */
+
+:root {
+  --accent: #2563eb;          /* azul RRPP (se sobreescribe por tema) */
+  --accent-dark: #1e40af;
+  --accent-soft: #eef4ff;
+  --accent-soft2: #dbe7ff;
+
+  --bg: #fbfaf8;
+  --bg-card: #ffffff;
+  --text: #1f2430;
+  --text-soft: #545b6b;
+  --text-mute: #8a92a4;
+  --border: #e7e3dc;
+  --border-soft: #efece6;
+
+  --warm: #f59e0b;
+  --warm-soft: #fff7e6;
+  --green: #16a34a;
+  --green-soft: #ecfdf3;
+  --red: #dc2626;
+  --red-soft: #fef2f2;
+  --purple: #7c3aed;
+  --purple-soft: #f5f0ff;
+
+  --radius: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 2px rgba(30,36,48,.05), 0 1px 3px rgba(30,36,48,.04);
+  --shadow: 0 4px 14px rgba(30,36,48,.07), 0 2px 6px rgba(30,36,48,.05);
+  --shadow-lg: 0 18px 40px rgba(30,36,48,.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter",
+    "Segoe UI", system-ui, sans-serif;
+  font-size: 17.5px;
+  line-height: 1.72;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 500px at 80% -10%, var(--accent-soft), transparent 60%),
+    var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  padding: 0 0 120px;
+}
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 22px; }
+
+/* ===== Barra de progreso fija arriba ===== */
+.progressbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.82);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--border-soft);
+}
+.progressbar .inner {
+  max-width: 760px; margin: 0 auto; padding: 11px 22px;
+  display: flex; align-items: center; gap: 14px;
+}
+.progressbar .home {
+  text-decoration: none; color: var(--text-soft);
+  font-size: 20px; line-height: 1; flex-shrink: 0;
+  transition: transform .15s;
+}
+.progressbar .home:hover { transform: translateX(-2px); }
+.progress-track {
+  flex: 1; height: 9px; border-radius: 99px;
+  background: var(--accent-soft2); overflow: hidden;
+}
+.progress-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--warm));
+  border-radius: 99px;
+  transition: width .5s cubic-bezier(.2,.8,.2,1);
+}
+.progress-label {
+  font-size: 13px; font-weight: 700; color: var(--accent);
+  flex-shrink: 0; font-variant-numeric: tabular-nums; min-width: 92px;
+  text-align: right;
+}
+
+/* ===== Cabecera / Hero ===== */
+header.top { display: flex; align-items: center; gap: 10px; margin: 40px 0 18px; flex-wrap: wrap; }
+.tag {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--accent); color: #fff;
+  padding: 6px 14px; border-radius: 99px;
+  font-size: 12px; font-weight: 700; letter-spacing: .04em;
+}
+.tag.soft { background: var(--accent-soft); color: var(--accent-dark); }
+.tag.warn { background: var(--warm-soft); color: #b45309; }
+
+h1 {
+  font-size: 42px; font-weight: 800; letter-spacing: -.03em;
+  line-height: 1.08; margin: 8px 0 14px;
+}
+.subtitle {
+  color: var(--text-soft); font-size: 19px; line-height: 1.5;
+  margin-bottom: 26px;
+}
+.hero-img {
+  width: 100%; border-radius: var(--radius-lg);
+  box-shadow: var(--shadow); margin: 8px 0 10px; display: block;
+}
+.img-caption {
+  font-size: 13px; color: var(--text-mute); text-align: center;
+  margin: -2px 0 30px; font-style: italic;
+}
+
+/* ===== Caja "En una frase" ===== */
+.en-una-frase {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff; border-radius: var(--radius-lg);
+  padding: 26px 28px; margin: 30px 0;
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.en-una-frase::before {
+  content: "💡"; position: absolute; top: -14px; right: 8px;
+  font-size: 100px; opacity: .14; transform: rotate(12deg);
+}
+.en-una-frase .mini {
+  font-size: 12px; font-weight: 800; letter-spacing: .12em;
+  text-transform: uppercase; opacity: .85; margin-bottom: 8px;
+}
+.en-una-frase p { font-size: 21px; line-height: 1.45; font-weight: 600; position: relative; }
+
+/* ===== Títulos de sección ===== */
+.section-title {
+  font-size: 13px; font-weight: 800; color: var(--accent);
+  text-transform: uppercase; letter-spacing: .12em;
+  margin: 46px 0 4px; display: flex; align-items: center; gap: 10px;
+}
+.section-title::after { content:''; flex:1; height:2px; background: var(--border-soft); border-radius: 2px; }
+.section-intro { color: var(--text-soft); font-size: 16px; margin-bottom: 18px; }
+
+/* ===== Conceptos plegables (acordeón nativo <details>) ===== */
+.concept {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 14px 0; box-shadow: var(--shadow-sm);
+  overflow: hidden; transition: box-shadow .2s, border-color .2s;
+}
+.concept[open] { box-shadow: var(--shadow); border-color: var(--accent-soft2); }
+.concept.done { border-color: var(--green); background: linear-gradient(0deg,var(--green-soft),var(--bg-card) 40%); }
+.concept > summary {
+  list-style: none; cursor: pointer; user-select: none;
+  padding: 18px 20px; display: flex; align-items: center; gap: 14px;
+}
+.concept > summary::-webkit-details-marker { display: none; }
+.concept .c-num {
+  flex-shrink: 0; width: 34px; height: 34px; border-radius: 10px;
+  background: var(--accent-soft); color: var(--accent-dark);
+  font-weight: 800; font-size: 15px;
+  display: grid; place-items: center;
+}
+.concept.done .c-num { background: var(--green); color: #fff; }
+.concept .c-title { font-size: 18.5px; font-weight: 700; flex: 1; line-height: 1.3; }
+.concept .c-chevron {
+  flex-shrink: 0; color: var(--text-mute); font-size: 14px;
+  transition: transform .25s; margin-left: 4px;
+}
+.concept[open] .c-chevron { transform: rotate(180deg); }
+.concept .c-body { padding: 2px 20px 20px; }
+.concept .c-body > *:first-child { margin-top: 4px; }
+.concept p { margin: 0 0 12px; }
+.concept p:last-child { margin-bottom: 0; }
+.concept ul, .concept ol { padding-left: 22px; margin: 4px 0 14px; }
+.concept li { margin-bottom: 6px; }
+.concept li::marker { color: var(--accent); }
+.concept strong { font-weight: 700; }
+.concept .word { color: var(--accent-dark); font-weight: 700; }
+.concept img.inline-img {
+  width: 100%; border-radius: var(--radius); margin: 6px 0 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===== Caja analogía "Imagina que..." ===== */
+.analogia {
+  background: var(--warm-soft); border: 1px solid #fde9b8;
+  border-left: 4px solid var(--warm);
+  border-radius: 12px; padding: 14px 18px; margin: 6px 0 16px;
+  font-size: 16.5px;
+}
+.analogia b { color: #b45309; }
+.analogia .lbl { display:block; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:#b45309; margin-bottom:4px;}
+
+/* ===== Caja "recuerda" ===== */
+.recuerda {
+  background: var(--accent-soft); border-radius: 12px;
+  padding: 12px 16px; margin: 12px 0 4px; font-size: 15.5px;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.recuerda::before { content:"📌"; font-size: 18px; flex-shrink:0; }
+
+/* ===== Botón "lo entiendo" ===== */
+.understood {
+  margin-top: 16px; display: inline-flex; align-items: center; gap: 9px;
+  background: #fff; color: var(--green);
+  border: 1.5px solid var(--green); border-radius: 99px;
+  padding: 8px 18px; font-size: 14.5px; font-weight: 700;
+  cursor: pointer; transition: all .18s; font-family: inherit;
+}
+.understood:hover { background: var(--green-soft); }
+.understood .ico { font-size: 16px; }
+.concept.done .understood { background: var(--green); color: #fff; }
+
+/* ===== Tablas ===== */
+.tabla {
+  width: 100%; border-collapse: collapse; margin: 8px 0 16px;
+  font-size: 15px; border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+}
+.tabla th, .tabla td { padding: 11px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border-soft); }
+.tabla th { background: var(--accent-soft); color: var(--accent-dark); font-weight: 700; font-size: 13px; }
+.tabla tbody tr:last-child td { border-bottom: none; }
+.tabla tbody tr:nth-child(even) { background: #fcfbf9; }
+
+/* ===== Flashcards ===== */
+.flash-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+  gap: 14px; margin: 6px 0 10px;
+}
+.flashcard { perspective: 1100px; height: 175px; cursor: pointer; }
+.flashcard .inner {
+  position: relative; width: 100%; height: 100%;
+  transition: transform .55s cubic-bezier(.2,.8,.25,1);
+  transform-style: preserve-3d;
+}
+.flashcard.is-flipped .inner { transform: rotateY(180deg); }
+.flashcard .face {
+  position: absolute; inset: 0; backface-visibility: hidden;
+  border-radius: var(--radius); padding: 18px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; box-shadow: var(--shadow-sm);
+}
+.flashcard .front {
+  background: var(--bg-card); border: 1px solid var(--border);
+}
+.flashcard .front .q { font-size: 18px; font-weight: 700; color: var(--text); }
+.flashcard .front .hint { font-size: 12px; color: var(--text-mute); margin-top: 12px; }
+.flashcard .back {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff; transform: rotateY(180deg); font-size: 15px; line-height: 1.5;
+}
+.flashcard .back .a { font-weight: 500; }
+
+/* ===== Quiz / Test ===== */
+.quiz { margin: 8px 0; }
+.qcard {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 22px; margin: 14px 0;
+  box-shadow: var(--shadow-sm);
+}
+.qcard .q-num { font-size: 12px; font-weight: 800; color: var(--accent); letter-spacing: .08em; text-transform: uppercase; }
+.qcard .q-text { font-size: 17.5px; font-weight: 700; margin: 6px 0 14px; line-height: 1.4; }
+.options { display: flex; flex-direction: column; gap: 9px; }
+.option {
+  text-align: left; font-family: inherit; font-size: 15.5px;
+  background: #fff; border: 1.5px solid var(--border);
+  border-radius: 11px; padding: 12px 16px; cursor: pointer;
+  transition: all .15s; color: var(--text);
+  display: flex; align-items: center; gap: 11px;
+}
+.option:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+.option .letter {
+  flex-shrink: 0; width: 26px; height: 26px; border-radius: 7px;
+  background: var(--accent-soft); color: var(--accent-dark);
+  font-weight: 800; font-size: 13px; display: grid; place-items: center;
+}
+.option:disabled { cursor: default; }
+.option.correct { border-color: var(--green); background: var(--green-soft); color: #14532d; font-weight: 600; }
+.option.correct .letter { background: var(--green); color: #fff; }
+.option.wrong { border-color: var(--red); background: var(--red-soft); color: #7f1d1d; }
+.option.wrong .letter { background: var(--red); color: #fff; }
+.explain {
+  margin-top: 12px; padding: 12px 16px; border-radius: 11px;
+  background: var(--accent-soft); font-size: 15px; line-height: 1.55;
+  display: none;
+}
+.explain.show { display: block; animation: fadein .3s ease; }
+.explain b { color: var(--accent-dark); }
+@keyframes fadein { from { opacity:0; transform: translateY(-4px);} to {opacity:1; transform:none;} }
+
+.quiz-result {
+  margin-top: 18px; padding: 20px; border-radius: var(--radius);
+  background: var(--bg-card); border: 1px dashed var(--border);
+  text-align: center; font-size: 17px; display: none;
+}
+.quiz-result.show { display: block; }
+.quiz-result .score { font-size: 34px; font-weight: 800; color: var(--accent); }
+.quiz-result .msg { color: var(--text-soft); margin-top: 4px; }
+
+/* ===== Preguntas de examen (reveal) ===== */
+.examen-box {
+  background: var(--red-soft); border: 1px solid #fecaca;
+  border-left: 4px solid var(--red); border-radius: var(--radius-lg);
+  padding: 22px 24px; margin: 14px 0;
+}
+.examen-box > .head { color: var(--red); font-weight: 800; font-size: 18px; margin-bottom: 4px; }
+.examen-box > .sub { color: #9a3a3a; font-size: 14.5px; margin-bottom: 14px; }
+.pregunta {
+  background: #fff; border: 1px solid #f3d3d3; border-radius: 12px;
+  margin: 11px 0; overflow: hidden;
+}
+.pregunta > summary {
+  list-style: none; cursor: pointer; padding: 15px 18px;
+  display: flex; gap: 12px; align-items: flex-start; font-weight: 600; font-size: 16px;
+}
+.pregunta > summary::-webkit-details-marker { display:none; }
+.pregunta .pnum {
+  flex-shrink: 0; width: 28px; height: 28px; border-radius: 8px;
+  background: var(--red); color: #fff; font-weight: 800; font-size: 13px;
+  display: grid; place-items: center;
+}
+.pregunta .reveal-hint { color: var(--red); font-size: 12.5px; font-weight: 700; margin-left: auto; flex-shrink:0; align-self:center; }
+.pregunta[open] .reveal-hint { display: none; }
+.pregunta .answer {
+  padding: 0 18px 18px 58px; font-size: 15.5px; line-height: 1.6;
+  border-top: 1px solid #f3d3d3; margin-top: -2px; padding-top: 14px;
+}
+.pregunta .answer .label { font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color: var(--green); display:block; margin-bottom:6px;}
+.pregunta .answer ul { padding-left: 20px; margin: 8px 0; }
+.pregunta .answer li { margin-bottom: 5px; }
+
+/* ===== Refuerzo: mini-test tipo test bajo cada pregunta de autoevaluación ===== */
+.refuerzo {
+  margin: 9px 0 22px; padding: 14px 18px 6px;
+  background: var(--purple-soft); border: 1px solid #e6dcff;
+  border-left: 4px solid var(--purple); border-radius: 12px;
+}
+.refuerzo-head { color: var(--purple); font-weight: 800; font-size: 14px; margin-bottom: 2px; }
+.refuerzo-sub { color: var(--text-soft); font-size: 13px; margin-bottom: 4px; }
+.refuerzo .qcard { margin: 12px 0; padding: 15px 17px; }
+.refuerzo .qcard .q-text { font-size: 16px; }
+
+/* ===== Callouts genéricos ===== */
+.callout { border-radius: var(--radius); padding: 16px 20px; margin: 16px 0; font-size: 15.5px; }
+.callout.tip { background: var(--green-soft); border-left: 4px solid var(--green); }
+.callout.tip b { color: #15803d; }
+.callout.key { background: var(--purple-soft); border-left: 4px solid var(--purple); }
+.callout.key b { color: var(--purple); }
+
+/* ===== Navegación entre temas ===== */
+.nav-temas {
+  display: flex; gap: 8px; flex-wrap: wrap; margin: 40px 0 0;
+  padding-top: 26px; border-top: 1px solid var(--border-soft);
+}
+.nav-temas a {
+  text-decoration: none; color: var(--text-soft); font-size: 13.5px; font-weight: 600;
+  padding: 8px 15px; border: 1px solid var(--border); border-radius: 99px;
+  background: #fff; transition: all .15s;
+}
+.nav-temas a:hover { color: var(--accent); border-color: var(--accent); }
+.nav-temas a.current { background: var(--accent); color:#fff; border-color: var(--accent); }
+
+/* ===== Footer ===== */
+.biblio { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--border-soft); font-size: 13.5px; color: var(--text-soft); }
+.biblio h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--text-mute); margin-bottom: 10px; }
+.biblio ul { padding-left: 18px; } .biblio li { margin-bottom: 5px; }
+.biblio b { color: var(--text); }
+
+/* ===== Confeti al completar ===== */
+.celebrate {
+  position: fixed; inset: 0; pointer-events: none; z-index: 100;
+  display: none;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  body { font-size: 16.5px; }
+  h1 { font-size: 33px; }
+  .en-una-frase p { font-size: 18px; }
+  .flashcard { height: 160px; }
+}
+
+/* ===== Impresión ===== */
+@media print {
+  body { background: #fff; padding: 12mm; font-size: 11pt; }
+  .progressbar, .understood, .nav-temas, .flashcard .hint, .pregunta .reveal-hint { display: none !important; }
+  .concept, .qcard, .pregunta { box-shadow: none; page-break-inside: avoid; }
+  .concept .c-body, .explain, .pregunta .answer { display: block !important; }
+  .concept .c-chevron { display:none; }
+  .flashcard { height: auto; perspective: none; }
+  .flashcard .inner { transform: none !important; }
+  .flashcard .face { position: static; backface-visibility: visible; transform: none !important; height:auto; }
+  .flashcard .back { margin-top: 6px; }
+  a { color: inherit; text-decoration: none; }
+}
+
+</style>
+<style>
+  .back-btn { display:inline-flex; align-items:center; gap:7px; text-decoration:none; color:var(--accent-dark); background:var(--accent-soft); border:1px solid var(--accent-soft2); border-radius:99px; padding:9px 18px; font-size:13.5px; font-weight:700; margin:22px 0 4px; transition:all .15s; }
+  .back-btn:hover { background:var(--accent-soft2); transform:translateX(-3px); }
+  .themenav { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 10px; }
+  .themenav a { font-size:13px; font-weight:700; text-decoration:none; color:var(--accent-dark); background:var(--accent-soft); border:1px solid var(--accent-soft2); border-radius:99px; padding:7px 14px; transition:all .15s; }
+  .themenav a:hover { background:var(--accent-soft2); transform:translateY(-1px); }
+  .studybar { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:4px 0 8px; }
+  .btn-toggle { cursor:pointer; font-size:13.5px; font-weight:700; color:var(--accent-dark); background:var(--accent-soft); border:1px solid var(--accent-soft2); border-radius:99px; padding:9px 18px; transition:all .15s; }
+  .btn-toggle:hover { background:var(--accent-soft2); }
+  .theme-title { margin-top:36px; scroll-margin-top:16px; }
+  .concept .c-title { font-size:15.5px; }
+
+  /* Tablas con scroll horizontal si no caben (móvil) */
+  .table-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:8px 0 16px; border-radius:12px; }
+  .table-scroll .tabla { margin:0; }
+
+  /* ===== Móvil ===== */
+  @media (max-width:600px) {
+    .wrap { padding:0 13px; }
+    h1 { font-size:25px; line-height:1.2; }
+    .subtitle { font-size:15.5px; }
+    .progress-label { min-width:auto; font-size:11px; }
+    .concept .c-title { font-size:14.5px; line-height:1.35; }
+    .tabla { font-size:13px; }
+    .tabla th, .tabla td { padding:8px 9px; }
+    .analogia, .recuerda { font-size:14.5px; }
+    .themenav { gap:6px; }
+    .themenav a { font-size:12px; padding:6px 11px; }
+    .btn-toggle { width:100%; text-align:center; }
+  }
+  @media (max-width:380px) {
+    h1 { font-size:22px; }
+    .tabla { font-size:12px; }
+    .tabla th, .tabla td { padding:6px 7px; }
+  }
+</style>
+</head>
+<body data-page="rrpp-preguntas-resueltas">
+
+<div class="progressbar">
+  <div class="inner">
+    <span class="home" style="pointer-events:none">📖</span>
+    <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+    <span class="progress-label">30 preguntas resueltas</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <a class="back-btn" href="index.html">← Volver a Modo Fácil RRPP</a>
+
+  <header class="top">
+    <span class="tag">📖 Preguntas resueltas</span>
+    <span class="tag soft">📘 Relaciones Públicas</span>
+    <span class="tag warn">📅 Examen 3-jun-2026</span>
+  </header>
+
+  <h1>Preguntas de autoevaluación resueltas 📖</h1>
+  <p class="subtitle">Las <strong>30 preguntas de autoevaluación</strong> de los 6 temas, explicadas como en las lecciones de Modo Fácil: respuesta <strong>completa</strong>, con lo importante resaltado, analogías y un «recuerda». Pliega las respuestas para autopreguntarte.</p>
+
+  <nav class="themenav">
+    <a href="#t1">T1 · Profesión</a>
+    <a href="#t2">T2 · Organizaciones</a>
+    <a href="#t3">T3 · Campaña</a>
+    <a href="#t4">T4 · Tradicionales</a>
+    <a href="#t5">T5 · Digitales</a>
+    <a href="#t6">T6 · Tácticas</a>
+  </nav>
+  <div class="studybar">
+    <button class="btn-toggle" id="toggleBtn">🙈 Plegar todas (modo examen)</button>
+  </div>
+
+  <!-- ===================== TEMA 1 ===================== -->
+  <p class="section-title theme-title">📗 Tema 1 · La profesión de las RRPP — preguntas de examen</p>
+  <p class="section-intro" id="t1" style="scroll-margin-top:16px">Lee la pregunta, intenta responderla y despliega para comprobar.</p>
+
+  <details class="concept" open>
+    <summary><span class="c-num">1</span><span class="c-title">Explica cómo ha evolucionado la concepción de las RRPP desde la publicity y propaganda del s.XX hasta la comunicación digital integral del s.XXI.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Las RRPP han cambiado muchísimo en poco más de un siglo: han pasado de <strong>«gritar» en una sola dirección</strong> a <strong>conversar con todos a la vez</strong>. Se distinguen cuatro etapas:</p>
+      <ol>
+        <li><strong>Inicio del s.XX — Publicity y propaganda.</strong> Comunicación <span class="word">unidireccional</span>: la organización habla y el público escucha, para moldear la opinión. <em>Ej.: Ivy Lee y su Declaración de Principios (1906); Bernays añade la persuasión psicológica.</em></li>
+        <li><strong>Mediados del s.XX — Comunicación bidireccional.</strong> La organización empieza a <em>escuchar y responder</em> (Grunig y Hunt y sus 4 modelos, hasta el <span class="word">simétrico bidireccional</span>).</li>
+        <li><strong>Años 90 — Gestión de relaciones.</strong> Lo importante pasa a ser la <span class="word">reputación</span> y la confianza a largo plazo.</li>
+        <li><strong>Hoy — Comunicación digital integral.</strong> Todo en red, multicanal y en tiempo real, con datos e IA; el público ya no solo escucha, <em>participa</em>.</li>
+      </ol>
+      <div class="analogia"><span class="lbl">📣 Imagina que…</span> Es pasar del <b>megáfono</b> (yo grito, tú aguantas) → al <b>walkie-talkie</b> (hablamos los dos) → a ser <b>amigos de verdad</b> (relación que dura) → al <b>grupo de WhatsApp</b> donde todos opinan a la vez.</div>
+      <div class="recuerda">De «yo te hablo» (propaganda) → a «hablamos todos, en tiempo real» (digital integral).</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">2</span><span class="c-title">¿En qué se diferencian las RRPP del marketing, la publicidad y el periodismo según objetivos, públicos y temporalidad?</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Se confunden mucho, pero buscan cosas distintas. La clave está en tres preguntas: <strong>¿qué buscan?, ¿con quién?, ¿en cuánto tiempo?</strong></p>
+      <div class="table-scroll"><table class="tabla">
+        <thead><tr><th></th><th>¿Qué busca?</th><th>¿Con quién?</th><th>¿Cuándo?</th></tr></thead>
+        <tbody>
+          <tr><td><strong>RRPP</strong></td><td>Reputación y confianza</td><td>Todos los públicos</td><td>Largo plazo</td></tr>
+          <tr><td><strong>Marketing / Publicidad</strong></td><td>Vender</td><td>Clientes</td><td>Corto plazo</td></tr>
+          <tr><td><strong>Periodismo</strong></td><td>Informar con objetividad</td><td>Audiencia masiva</td><td>Inmediato</td></tr>
+        </tbody>
+      </table></div>
+      <div class="recuerda">La publicidad <b>PAGA</b> por aparecer (paid media); las RRPP se <b>GANAN</b> la aparición (earned media), con más credibilidad.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">3</span><span class="c-title">Analiza el papel del profesional de las RRPP como mediador estratégico entre la organización y sus públicos.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>El profesional de RRPP es un <strong>mediador estratégico</strong>: hace de <span class="word">puente</span> entre la organización y sus públicos, y en <strong>los dos sentidos</strong>. Hacia fuera transmite los mensajes, valores y posición de la organización; hacia dentro <strong>escucha a los públicos</strong> y traslada sus expectativas y preocupaciones a la dirección. Es «estratégico» (y no solo técnico) porque no se limita a redactar notas o montar eventos: <strong>participa en la toma de decisiones</strong> y alinea la comunicación con los objetivos, asesorando a la alta dirección.</p>
+      <div class="analogia"><span class="lbl">🌉 Imagina que…</span> Es el <b>traductor-puente</b> entre dos países: le explica a la empresa lo que la gente espera, y a la gente lo que la empresa hace, para que se entiendan y se fíen.</div>
+      <div class="recuerda">Mediador = puente de doble sentido; «estratégico» = está en la mesa donde se decide. Su meta: <b>confianza mutua</b>.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">4</span><span class="c-title">¿Por qué la confianza se considera un activo clave en las relaciones públicas contemporáneas?</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>En las RRPP modernas, la <strong>confianza</strong> es el activo más valioso de una organización. Es <span class="word">intangible</span>: se construye despacio —con <strong>coherencia, transparencia y cumpliendo lo prometido</strong>— y se puede perder en un instante. Funciona como un <strong>colchón</strong>: la confianza acumulada amortigua el golpe cuando llega una crisis. Y es la base de la <span class="word">reputación</span> y de la <strong>«licencia social»</strong> para operar: sin confianza, los públicos retiran su apoyo y la organización no se sostiene a largo plazo.</p>
+      <div class="analogia"><span class="lbl">🛡️ Imagina que…</span> Es como tu fama entre tus amigos: cuesta años ganártela y, si un día la cagas, esa confianza previa hace que te perdonen. «20 años para construir una reputación y 5 minutos para arruinarla» (Buffett).</div>
+      <div class="recuerda">Confianza = activo intangible y «colchón» ante crisis. Base de la reputación y la sostenibilidad.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">5</span><span class="c-title">Explica con un ejemplo cómo la gestión de crisis en tiempo real ha transformado las competencias del profesional de RRPP.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Las redes sociales han hecho que las crisis se propaguen <strong>en minutos</strong>, y eso ha cambiado las competencias del profesional: ahora necesita <span class="word">escucha activa</span> permanente (<em>social listening</em>), rapidez de respuesta, coordinación y dominio digital. Ya no se gestiona la crisis en días con una nota de prensa, sino <strong>en tiempo real y en varios canales</strong>.</p>
+      <div class="analogia"><span class="lbl">🔥 Ejemplo:</span> Un cliente sube un vídeo quejándose y se hace viral. En las <b>primeras 2 horas</b>: monitorizar el alcance, designar <b>un único portavoz</b> (para no contradecirse) y publicar un <b>mensaje breve con hechos y empatía</b> (disculpa o medidas si procede). En las <b>24 h</b> siguientes: comunicar las medidas concretas. Lo que NO se hace: ni callar, ni negar, ni demandar.</div>
+      <div class="recuerda">Crisis hoy = minutos, no días. Claves: monitorizar + portavoz único + mensaje con hechos y empatía.</div>
+    </div>
+  </details>
+
+  <!-- ===================== TEMA 2 ===================== -->
+  <p class="section-title theme-title">📘 Tema 2 · El papel de las RRPP en las organizaciones — preguntas de examen</p>
+  <p class="section-intro" id="t2" style="scroll-margin-top:16px">Lee la pregunta, intenta responderla y despliega para comprobar.</p>
+
+  <details class="concept" open>
+    <summary><span class="c-num">1</span><span class="c-title">Explica por qué las RRPP son consideradas una función estratégica en la gestión organizacional actual.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Las RRPP son <strong>estratégicas</strong> porque gestionan los <span class="word">intangibles</span> que deciden la supervivencia de la organización: la <strong>reputación, la confianza y las relaciones</strong> con los <span class="word">stakeholders</span>. Esos activos dan la <strong>«licencia social»</strong> para operar y condicionan el éxito a largo plazo. Por eso no son una función de apoyo ni meramente táctica: deben situarse <strong>cerca de la alta dirección</strong>, participar en las decisiones y trabajar de forma <strong>proactiva y planificada</strong> (anticipar, investigar y planificar), no solo reaccionar cuando hay problemas.</p>
+      <div class="recuerda">Estratégica = gestiona intangibles (reputación, confianza) que afectan a la supervivencia → debe estar en la dirección, no apagando fuegos.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">2</span><span class="c-title">¿Qué significa que las RRPP actúan como una función de «gobernanza simbólica»?</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Significa que las RRPP gestionan lo <strong>simbólico</strong> de la organización: los <span class="word">significados, valores, relatos, cultura e imagen</span> que le dan sentido ante sus públicos. No «gobiernan» legalmente la empresa, pero sí administran ese universo de símbolos que construye su <strong>legitimidad</strong>. Comunicando con coherencia la <strong>misión, los valores y el propósito</strong>, logran que la sociedad acepte y apoye a la organización.</p>
+      <div class="analogia"><span class="lbl">🎭 Imagina que…</span> Es quien cuida el «relato» y los valores de la marca, igual que cuidas la <b>reputación y el carácter</b> de una persona: lo que la hace creíble y respetada.</div>
+      <div class="recuerda">Gobernanza simbólica = gestionar significados y valores → genera legitimidad. Ligada a identidad, cultura y reputación.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">3</span><span class="c-title">Describe las principales funciones de las RRPP en una organización e ilustra cómo se relacionan entre sí.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Las RRPP tienen varias funciones, todas <strong>conectadas y coherentes</strong> entre sí: <strong>comunicación interna</strong> (empleados y públicos internos), <strong>comunicación externa</strong> (clientes, medios, sociedad), <strong>comunicación institucional</strong> o corporativa (transmite la identidad y los valores ante la sociedad e instituciones), <strong>gestión de la reputación y de las crisis</strong> y <strong>relación con los stakeholders</strong>. Se relacionan porque todas deben ir <strong>bajo una misma estrategia</strong>: lo que se comunica fuera tiene que coincidir con lo que se vive dentro.</p>
+      <div class="analogia"><span class="lbl">🧩 Imagina que…</span> Son las piezas de un mismo puzle: si la comunicación interna dice una cosa y la externa otra, el dibujo no encaja y se nota el engaño.</div>
+      <div class="recuerda">Interna + externa + institucional + reputación/crisis + stakeholders, todas coordinadas: el dentro y el fuera deben decir lo mismo.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">4</span><span class="c-title">¿Cómo contribuyen las RRPP a la gestión de la reputación institucional y por qué es fundamental para la sostenibilidad organizacional?</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Las RRPP <strong>construyen y protegen la reputación</strong> con coherencia, transparencia, relaciones de confianza y una buena gestión de las crisis. La reputación es un <span class="word">activo intangible</span> que aporta valor y <strong>resiliencia</strong> (aguante ante los problemas). Es fundamental para la <strong>sostenibilidad</strong> porque, sin la confianza y el apoyo de los públicos —la <strong>«licencia social»</strong>—, la organización pierde clientes, talento, inversores y legitimidad y no se mantiene en el tiempo. Además, la reputación es <strong>asimétrica</strong>: cuesta años construirla y se daña en minutos.</p>
+      <div class="recuerda">Reputación = activo que da apoyo y «licencia social» → sin ella no hay continuidad. Lenta de construir, rápida de romper.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">5</span><span class="c-title">Pon un ejemplo de cómo las RRPP asesoran a la alta dirección en la toma de decisiones sensibles.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Las RRPP asesoran a la dirección sobre el <strong>«cómo, cuándo y a quién»</strong> comunicar las decisiones delicadas, anticipando su <span class="word">impacto reputacional</span>. Para poder hacerlo a tiempo, el responsable debe tener <strong>acceso e influencia en la alta dirección</strong> (estar en la mesa donde se decide).</p>
+      <div class="analogia"><span class="lbl">🧭 Ejemplo:</span> Ante un <b>ERE</b> (despido colectivo), recomiendan <b>comunicarlo primero y con transparencia a los empleados afectados</b>, antes de que se enteren por la prensa o las redes, cuidando el tono y el momento para no destrozar la confianza. Igual con una fusión, la retirada de un producto o una crisis.</div>
+      <div class="recuerda">Asesoran el «cómo comunicar» lo sensible, anticipando el daño reputacional. Necesitan asiento en la dirección.</div>
+    </div>
+  </details>
+
+  <!-- ===================== TEMA 3 ===================== -->
+  <p class="section-title theme-title">📙 Tema 3 · Diseño de una campaña de RRPP — preguntas de examen</p>
+  <p class="section-intro" id="t3" style="scroll-margin-top:16px">Lee la pregunta, intenta responderla y despliega para comprobar.</p>
+
+  <details class="concept" open>
+    <summary><span class="c-num">1</span><span class="c-title">Define qué es una campaña de RRPP y señala los elementos esenciales que la componen.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Una <strong>campaña de RRPP</strong> es un <strong>plan completo y coordinado de acciones</strong> de comunicación, dirigido a unos públicos concretos, para lograr unos objetivos en un plazo determinado. <strong>No es una acción suelta</strong> (un anuncio o una nota). Sus <strong>elementos esenciales</strong> son: <span class="word">objetivos</span> (formulados SMART), <span class="word">públicos</span>, <span class="word">mensajes</span> clave, estrategia y <span class="word">tácticas</span> (acciones y canales), <strong>presupuesto</strong>, <strong>cronograma</strong> y <strong>evaluación</strong> con KPIs.</p>
+      <div class="recuerda">Campaña = plan integral con objetivos, públicos, mensajes, tácticas, presupuesto, calendario y evaluación. Fases: <b>Investigación → Planificación → Ejecución → Evaluación</b> (RACE/ROPE/IPEE).</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">2</span><span class="c-title">¿Qué aporta el análisis situacional y el uso de matrices como el DAFO en el diseño de una campaña?</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>El <strong>análisis situacional</strong> es la fase de <span class="word">investigación</span>: sirve para conocer el contexto, los públicos y el problema <strong>antes</strong> de fijar los objetivos. El <strong>DAFO</strong> ordena ese diagnóstico en cuatro bloques: <strong>D</strong>ebilidades y <strong>F</strong>ortalezas (internos de la organización) y <strong>A</strong>menazas y <strong>O</strong>portunidades (externos del entorno). Aporta una <strong>«foto» clara del punto de partida</strong>, y eso permite tomar decisiones fundamentadas y fijar objetivos realistas.</p>
+      <div class="analogia"><span class="lbl">🔍 Imagina que…</span> Es mirar el mapa y el tiempo antes de salir de excursión: si no sabes dónde estás ni qué te vas a encontrar, te pierdes.</div>
+      <div class="recuerda">DAFO = diagnóstico de partida (D/F internas, A/O externas). Sin él, la campaña se diseña «a ciegas».</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">3</span><span class="c-title">Explica las características de los objetivos SMART y su importancia en la planificación de RRPP.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Los objetivos <strong>SMART</strong> son objetivos <strong>concretos y medibles</strong>, no buenos deseos. El acrónimo dice cómo deben ser: e<strong>S</strong>pecífico (claro), <strong>M</strong>edible (con un indicador), <strong>A</strong>lcanzable (realista), <strong>R</strong>elevante (importante) y <strong>T</strong>emporal (con un plazo). Importan porque permiten <strong>planificar y, sobre todo, evaluar</strong> si la campaña ha funcionado: si el objetivo no es medible y con fecha, no se puede saber si se ha cumplido.</p>
+      <div class="analogia"><span class="lbl">🎯 Ejemplo:</span> <b>Mal:</b> «mejorar la imagen». <b>Bien (SMART):</b> «aumentar la notoriedad de marca un <b>15%</b> entre jóvenes de <b>18-25 años</b> en <b>6 meses</b>».</div>
+      <div class="recuerda">SMART = Específico, Medible, Alcanzable, Relevante, Temporal. Si no se mide, no se evalúa.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">4</span><span class="c-title">A partir del caso «Compromiso Verde», identifica las lecciones aprendidas sobre la coherencia entre discurso y práctica.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>La lección clave es que el <strong>discurso debe ir respaldado por hechos reales</strong>. Si una organización comunica un compromiso (por ejemplo, ambiental) que <strong>no se corresponde con su práctica</strong>, cae en <span class="word">greenwashing</span>: aparenta ser sostenible sin serlo. Cuando los públicos lo descubren, <strong>pierde credibilidad</strong> y sufre un daño reputacional grave. Por eso la <strong>coherencia entre lo que se dice y lo que se hace</strong> es un principio básico de unas RRPP éticas y eficaces.</p>
+      <div class="analogia"><span class="lbl">🌿 Imagina que…</span> Es como presumir de dieta sana mientras te ven comiendo bollería: cuando te pillan, ya no te cree nadie. La comunicación tiene que ir con hechos detrás.</div>
+      <div class="recuerda">Discurso sin hechos = greenwashing = pérdida de credibilidad. Coherencia discurso-práctica = principio básico.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">5</span><span class="c-title">¿Cómo se mide la efectividad de una campaña de RRPP? Da ejemplos de métricas o indicadores.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>La efectividad se mide <strong>comparando los resultados con los objetivos</strong> fijados, usando <span class="word">KPIs</span> (indicadores). Ejemplos de métricas: <strong>alcance e impactos</strong> en medios, <strong>share of voice</strong> (cuota de menciones frente a la competencia), <strong>análisis de sentimiento</strong> (tono positivo/negativo/neutro), <strong>engagement</strong> (interacciones) y <strong>AVE</strong> (el valor que en publicidad tendría la cobertura conseguida). Lo importante: cada métrica se compara con el <strong>objetivo SMART</strong> de partida.</p>
+      <div class="recuerda">Se mide con KPIs (alcance, share of voice, sentimiento, engagement, AVE) <b>frente a los objetivos</b>. Una métrica aislada no dice nada.</div>
+    </div>
+  </details>
+
+  <!-- ===================== TEMA 4 ===================== -->
+  <p class="section-title theme-title">📕 Tema 4 · Herramientas tradicionales — preguntas de examen</p>
+  <p class="section-intro" id="t4" style="scroll-margin-top:16px">Lee la pregunta, intenta responderla y despliega para comprobar.</p>
+
+  <details class="concept" open>
+    <summary><span class="c-num">1</span><span class="c-title">Explica por qué las herramientas tradicionales siguen teniendo vigencia en la era digital.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Las herramientas tradicionales <strong>siguen vivas</strong> porque aportan algo que lo digital no da del todo: <strong>credibilidad, cercanía y contacto humano directo</strong>. Una <span class="word">rueda de prensa</span> o una entrevista en un medio dan <strong>credibilidad de tercero</strong> (<em>earned media</em>): lo dice el medio, no la marca, y eso convence más. Además, hay públicos y contextos institucionales que siguen valorando los medios tradicionales. No compiten con lo digital: se <strong>complementan</strong> en una estrategia mixta.</p>
+      <div class="recuerda">Lo tradicional aporta credibilidad y contacto humano; lo digital, alcance y medición. Se combinan, no se excluyen.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">2</span><span class="c-title">Compara las principales diferencias entre herramientas tradicionales y digitales de RRPP.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Cambian sobre todo en cuatro cosas:</p>
+      <div class="table-scroll"><table class="tabla">
+        <thead><tr><th></th><th>Tradicionales</th><th>Digitales</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Dirección</strong></td><td>Unidireccional (emiten)</td><td>Bidireccional (dialogan)</td></tr>
+          <tr><td><strong>Segmentación</strong></td><td>Masiva, general</td><td>Precisa, segmentada</td></tr>
+          <tr><td><strong>Medición</strong></td><td>Difícil</td><td>En tiempo real</td></tr>
+          <tr><td><strong>Velocidad</strong></td><td>Lenta</td><td>Instantánea y global</td></tr>
+        </tbody>
+      </table></div>
+      <div class="recuerda">Aun con estas diferencias, son <b>complementarias</b> dentro de una estrategia integrada.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">3</span><span class="c-title">¿Qué valor simbólico aportan los eventos presenciales a la construcción de relaciones con los públicos?</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Los <strong>eventos presenciales</strong> (ruedas de prensa, inauguraciones, desayunos con periodistas, jornadas) tienen un <strong>valor simbólico</strong> porque el <strong>cara a cara</strong> crea <span class="word">experiencias y vínculos emocionales</span>. El simple hecho de reunirse en persona transmite <strong>cercanía, importancia y compromiso</strong> de la organización hacia sus públicos, y deja una experiencia memorable que <strong>refuerza la relación y la confianza</strong>. Por eso ayudan a construir relaciones a <strong>largo plazo</strong>, más allá del resultado inmediato.</p>
+      <div class="analogia"><span class="lbl">🎟️ Imagina que…</span> Es la diferencia entre felicitar por WhatsApp o ir en persona: el gesto de presentarte dice mucho más y se recuerda.</div>
+      <div class="recuerda">Lo presencial = experiencia + emoción + cercanía → símbolo de la relación y confianza a largo plazo.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">4</span><span class="c-title">Describe un ejemplo de aplicación estratégica de un medio impreso en una campaña institucional.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Un buen ejemplo es la <strong>memoria anual</strong> o la <strong>revista corporativa</strong>. La memoria anual sirve para <strong>rendir cuentas</strong> y transmitir transparencia, logros y valores a los <span class="word">stakeholders</span> (empleados, inversores, instituciones), reforzando la imagen institucional. También valen un <strong>dossier</strong> o un <strong>publirreportaje</strong> en una revista del sector, estratégicos cuando se quiere impactar a un <strong>público profesional concreto</strong> que lee ese medio. El impreso aporta <strong>seriedad, permanencia y credibilidad</strong>.</p>
+      <div class="recuerda">Memoria anual / revista corporativa / publirreportaje = imagen institucional, seriedad y credibilidad. Es estratégico cuando <b>responde a un objetivo</b>, no por usarlo.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">5</span><span class="c-title">Analiza la importancia del ciclo productivo (planificación, verificación, ejecución) en la gestión de herramientas institucionales.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>El <strong>ciclo productivo</strong> es importante porque garantiza la <strong>calidad, la coherencia y el control</strong>, reduciendo errores. La <strong>planificación</strong> define los objetivos, los mensajes, los recursos y el calendario antes de actuar; la <strong>verificación</strong> comprueba que todo está correcto (datos, textos, coherencia) antes de publicar; la <strong>ejecución</strong> pone en marcha la acción. Saltarse la verificación puede provocar <strong>errores que dañan la imagen</strong> (erratas, datos falsos, mensajes incoherentes).</p>
+      <div class="analogia"><span class="lbl">🔧 Imagina que…</span> Es como revisar el examen antes de entregarlo: si no lo verificas, se te cuela una errata que da mala imagen.</div>
+      <div class="recuerda">Planificar → Verificar → Ejecutar = control de calidad y mejora continua. Saltarte la verificación = errores que dañan la imagen.</div>
+    </div>
+  </details>
+
+  <!-- ===================== TEMA 5 ===================== -->
+  <p class="section-title theme-title">📒 Tema 5 · Herramientas digitales — preguntas de examen</p>
+  <p class="section-intro" id="t5" style="scroll-margin-top:16px">Lee la pregunta, intenta responderla y despliega para comprobar.</p>
+
+  <details class="concept" open>
+    <summary><span class="c-num">1</span><span class="c-title">Explica cómo la digitalización ha transformado el rol del profesional de RRPP.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>La digitalización ha convertido al profesional de RRPP de un <strong>«emisor de mensajes»</strong> en un <strong>gestor de relaciones y conversaciones bidireccionales</strong> en tiempo real. Ahora debe <strong>escuchar y dialogar</strong> con los públicos en muchos canales, <strong>analizar datos y métricas</strong> para decidir (<em>data-driven</em>), <strong>monitorizar la reputación online</strong> y reaccionar con inmediatez, porque la comunicación es <strong>permanente, 24/7</strong>.</p>
+      <div class="recuerda">De emisor a gestor de conversaciones: escucha + datos + monitorización, multicanal y en tiempo real.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">2</span><span class="c-title">¿Cuáles son las principales categorías de herramientas digitales y qué aportan a la gestión de las RRPP?</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Las principales <strong>categorías de herramientas digitales</strong> son: las <strong>redes sociales</strong> (interacción bidireccional y difusión amplia), la <strong>web y el blog corporativo</strong>, las <strong>newsletters</strong> (relación directa), las <strong>salas de prensa virtuales</strong> o <span class="word">newsroom</span> (recursos para periodistas: notas, dosieres, imágenes), las herramientas de <strong>monitorización y analítica</strong> (escuchar a la marca, medir reputación, detectar crisis) y las de <strong>automatización</strong> (comunicaciones segmentadas a escala). También los <span class="word">dark sites</span> (web de crisis pre-construida que se activa solo cuando hace falta).</p>
+      <div class="recuerda">RRSS, web/blog, newsletters, newsroom, monitorización, automatización y dark sites. Cada una aporta interacción, difusión, relación o medición.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">3</span><span class="c-title">¿Por qué la analítica y el monitoreo digital son fundamentales en la gestión de la reputación?</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>La <strong>analítica y el monitoreo</strong> son fundamentales porque permiten <strong>escuchar en tiempo real</strong> lo que se dice de la marca (<span class="word">social listening</span>), <strong>detectar a tiempo</strong> las señales de una crisis para reaccionar antes de que escale, <strong>medir el sentimiento</strong> (tono positivo/negativo/neutro) y tomar <strong>decisiones basadas en datos</strong> en lugar de en intuiciones. Son, en el fondo, un sistema de <strong>alerta temprana</strong> de la reputación.</p>
+      <div class="recuerda">Como dice el tema: <b>«de las intuiciones a las decisiones basadas en datos».</b> Escuchar + medir sentimiento + alerta de crisis.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">4</span><span class="c-title">Da un ejemplo de cómo la automatización contribuye a mantener relaciones duraderas con stakeholders.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>La <strong>automatización</strong> permite mantener un <strong>contacto constante y a escala</strong> con muchos stakeholders sin perder la regularidad. Por ejemplo, un flujo de <strong>newsletters o respuestas automáticas segmentadas</strong> según el perfil de cada stakeholder (clientes, prensa, empleados), que envía la información adecuada en el momento oportuno. Esto <strong>mantiene viva la relación</strong> en el tiempo y libera al profesional de tareas repetitivas para dedicarse a lo estratégico. El <strong>riesgo</strong> es despersonalizar o caer en spam, así que hay que cuidar la segmentación y la relevancia.</p>
+      <div class="recuerda">Automatizar = contacto constante, segmentado y a escala → relaciones duraderas. Ojo: cuidar la personalización para no parecer spam.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">5</span><span class="c-title">Analiza el impacto del marketing de influencers y el storytelling inmersivo sobre la reputación: oportunidades, riesgos y 3 KPIs.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>El <strong>marketing de influencers</strong> y el <strong>storytelling inmersivo</strong> amplifican el mensaje y conectan emocionalmente con los públicos. <strong>Oportunidades:</strong> el influencer aporta <strong>alcance y credibilidad</strong> como prescriptor de confianza, y el storytelling inmersivo (vídeo, realidad aumentada/virtual, interactividad) <strong>implica al público con relatos y experiencias</strong>. <strong>Riesgos reputacionales/éticos:</strong> la falta de <strong>transparencia</strong> (no señalar la colaboración), la <strong>incoherencia</strong> con los valores de la marca o que el influencer protagonice una <strong>polémica</strong> que la salpique. Para medir, tres <span class="word">KPIs</span> adecuados serían <strong>alcance, engagement y sentimiento</strong> (o share of voice).</p>
+      <div class="recuerda">Oportunidad (alcance + emoción) · Riesgo (transparencia, coherencia, polémica) · 3 KPIs (alcance, engagement, sentimiento).</div>
+    </div>
+  </details>
+
+  <!-- ===================== TEMA 6 ===================== -->
+  <p class="section-title theme-title">📓 Tema 6 · Tácticas de RRPP — preguntas de examen</p>
+  <p class="section-intro" id="t6" style="scroll-margin-top:16px">Lee la pregunta, intenta responderla y despliega para comprobar.</p>
+
+  <details class="concept" open>
+    <summary><span class="c-num">1</span><span class="c-title">Pon un ejemplo de táctica de RRPP bien alineada con un objetivo estratégico.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Una <strong>táctica</strong> está bien alineada cuando <strong>contribuye directamente a un objetivo estratégico</strong>. La estrategia es el «qué/para qué» y la táctica es el «cómo» (la acción concreta), así que cada acción debe responder a una meta, no «publicar por publicar».</p>
+      <div class="analogia"><span class="lbl">🎯 Ejemplo:</span> Si el objetivo es <b>mejorar la reputación ambiental</b>, una táctica coherente es una <b>jornada de puertas abiertas</b> mostrando las instalaciones sostenibles + una <b>nota de prensa</b> sobre acciones reales. Si el objetivo es <b>notoriedad</b>, un evento o acción mediática con cobertura en prensa y redes.</div>
+      <div class="recuerda">Táctica alineada = cada acción concreta sirve a un objetivo estratégico claro.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">2</span><span class="c-title">Explica por qué las tácticas deben definirse en coherencia con los objetivos estratégicos y menciona un criterio clave para evaluarlas.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Las tácticas deben ir <strong>en coherencia con los objetivos</strong> porque la táctica es el <strong>medio</strong> para alcanzar el <strong>fin</strong> (el objetivo): si no responde a un objetivo, es esfuerzo disperso e ineficaz. El <strong>criterio clave</strong> para evaluarlas es su <strong>eficacia o contribución medible al objetivo</strong> (los resultados), no la mera actividad: estar muy ocupado o tener muchos «me gusta» no significa ser eficaz.</p>
+      <div class="recuerda">Táctica = medio; objetivo = fin. Se evalúa por su <b>aporte al objetivo</b>, no por la cantidad de actividad.</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">3</span><span class="c-title">Describe dos tácticas habituales de RRPP con medios de comunicación y en qué situaciones son más adecuadas.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>Dos <strong>tácticas habituales con los medios</strong> son: la <strong>nota de prensa</strong> (o convocatoria), adecuada cuando hay una <strong>noticia o información relevante</strong> que difundir a varios medios a la vez; y la <strong>rueda de prensa o entrevista</strong> con un portavoz, adecuada cuando el tema requiere <strong>dar contexto, contar con un portavoz y responder preguntas</strong> (un lanzamiento importante, una crisis…). Como apoyo se usa el <span class="word">press kit</span> o dossier (materiales para periodistas).</p>
+      <div class="recuerda">Nota de prensa = hay una noticia que difundir · Rueda de prensa = hace falta portavoz y responder preguntas. Base: buena relación con los medios (info veraz y a tiempo).</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">4</span><span class="c-title">¿Qué papel desempeñan los indicadores KPI en la fase de implementación de una estrategia de RRPP? Menciona al menos dos tipos.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>En la <strong>fase de implementación</strong>, los <span class="word">KPI</span> sirven para <strong>monitorizar el avance en tiempo real</strong> y poder <strong>corregir</strong> las tácticas a tiempo si algo no funciona, en lugar de esperar al final. Hay dos tipos: los <strong>KPI de output</strong>, que miden lo producido o difundido (impactos en medios, alcance, publicaciones), y los <strong>KPI de outcome</strong>, que miden el <strong>efecto real en el público</strong> (cambio de percepción, sentimiento, engagement).</p>
+      <div class="recuerda">KPI en implementación = vigilar y corregir sobre la marcha. <b>Output</b> = lo difundido (actividad) · <b>Outcome</b> = el efecto real (impacto).</div>
+    </div>
+  </details>
+
+  <details class="concept" open>
+    <summary><span class="c-num">5</span><span class="c-title">Justifica por qué la flexibilidad táctica es un elemento clave en la gestión de las RRPP en entornos digitales.</span><span class="c-chevron">▼</span></summary>
+    <div class="c-body">
+      <p>La <strong>flexibilidad táctica</strong> es clave en lo digital porque el entorno <strong>cambia muy rápido</strong>: aparecen tendencias, virales, cambios de algoritmo y crisis imprevistas. Hay que poder <strong>adaptar las tácticas en tiempo real</strong> —por ejemplo, aprovechar una tendencia del momento (<span class="word">newsjacking</span>) o reaccionar de inmediato ante una crisis— <strong>sin perder la coherencia</strong> con la estrategia, los valores y la identidad. Flexibilidad <strong>no es improvisar sin rumbo</strong>: es ajustar el «cómo» manteniendo el «para qué».</p>
+      <div class="recuerda">Entorno digital = cambia rápido → adaptar tácticas sin perder coherencia. Flexibilidad ≠ improvisar a lo loco.</div>
+    </div>
+  </details>
+
+  <footer class="biblio">
+    <h3>Sobre este material</h3>
+    <p>Respuestas desarrolladas a partir de las <b>diapositivas oficiales de los 6 temas</b> de Principios de Relaciones Públicas (las preguntas de «Autoevaluación»), con el mismo estilo didáctico de las lecciones de Modo Fácil.</p>
+  </footer>
+
+</div>
+
+<script>
+/* Mejora opcional (si el navegador ejecuta JS): botón plegar/desplegar todas.
+   El contenido se ve igual aunque el JS no corra: las tarjetas están abiertas por defecto. */
+(function () {
+  "use strict";
+  var btn = document.getElementById("toggleBtn");
+  if (!btn) return;
+  var allOpen = true;
+  btn.addEventListener("click", function () {
+    allOpen = !allOpen;
+    Array.prototype.forEach.call(document.querySelectorAll("details.concept"), function (d) { d.open = allOpen; });
+    btn.textContent = allOpen ? "🙈 Plegar todas (modo examen)" : "📖 Desplegar todas las respuestas";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+})();
+</script>
+</body>
+</html>

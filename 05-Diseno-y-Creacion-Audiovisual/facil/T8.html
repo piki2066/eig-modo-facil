@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 8 · Herramientas de producción digital — Modo Fácil</title>
+<link rel="stylesheet" href="estilos-facil.css">
+<style>:root{--accent:#ea580c;--accent-dark:#c2410c;--accent-soft:#fff5ee;--accent-soft2:#fed8bf;}</style>
+</head>
+<body data-page="audiovisual-t8">
+
+<!-- Barra de progreso -->
+<div class="progressbar">
+  <div class="inner">
+    <a class="home" href="index.html" title="Volver al índice">←</a>
+    <div class="progress-track"><div class="progress-fill"></div></div>
+    <span class="progress-label">0% · 0/0</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="top">
+    <span class="tag">🎬 Audiovisual · Tema 8</span>
+    <span class="tag warn">📅 Examen 12-jun</span>
+  </header>
+
+  <h1>Herramientas de producción digital</h1>
+  <p class="subtitle">Preproducción, producción y postproducción; software profesional; sonido avanzado; VFX; y cómo la <strong>IA generativa está cambiando el vídeo</strong> para siempre.</p>
+
+  <img class="hero-img" src="img/t8-hero.png" alt="De la cámara al render: producir y postproducir vídeo">
+  <p class="img-caption">De la cámara al render: producir y postproducir vídeo.</p>
+
+  <!-- En una frase -->
+  <div class="en-una-frase">
+    <div class="mini">El tema en una frase</div>
+    <p>Hacer un vídeo profesional es como construir una casa: primero diseñas los planos (preproducción), luego la edificas (producción) y al final la pintas y decoras (postproducción) — y hoy la IA hace de <strong>herramienta que acelera cada fase</strong>.</p>
+  </div>
+
+  <p class="section-title">🧠 Los conceptos</p>
+  <p class="section-intro">Despliega cada tarjeta, léela con calma y márcala como <em>entendida</em>. La barra de arriba irá subiendo.</p>
+
+  <!-- CONCEPTO 1 -->
+  <details class="concept" id="c1" open>
+    <summary>
+      <span class="c-num">1</span>
+      <span class="c-title">Las 3 fases: preproducción, producción y postproducción</span>
+      <span class="c-chevron">▼</span>
+    </summary>
+    <div class="c-body">
+      <p>Todo proyecto audiovisual —desde un anuncio de TikTok hasta una película de Netflix— pasa por tres etapas. <strong>En qué fase estés</strong> determina qué herramientas usas y qué errores puedes cometer.</p>
+
+      <img class="inline-img" src="img/t8-a.png" alt="Las 3 fases: preproducción, producción y postproducción">
+      <p class="img-caption">Las 3 fases: preproducción, producción y postproducción.</p>
+
+      <table class="tabla">
+        <thead><tr><th>Fase</th><th>¿Qué se hace?</th><th>Herramientas típicas</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Preproducción</strong></td>
+            <td>Guion, storyboard, casting, localización, planning de rodaje, presupuesto</td>
+            <td>Word, Google Docs, Milanote, storyboard IA (Midjourney)</td>
+          </tr>
+          <tr>
+            <td><strong>Producción</strong></td>
+            <td>Rodaje: cámara, luces, sonido en directo, dirección de actores</td>
+            <td>Cámara (ARRI, Sony FX3, iPhone), micrófono (pértiga, lavalier), gimbal</td>
+          </tr>
+          <tr>
+            <td><strong>Postproducción</strong></td>
+            <td>Montaje, color grading, VFX, mezcla de sonido, render y exportación</td>
+            <td>DaVinci Resolve, Adobe Premiere, After Effects, Pro Tools, Dolby Atmos</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="analogia">
+        <span class="lbl">🏠 Imagina que…</span>
+        Preproducción = <b>planos del arquitecto</b>. Producción = <b>obra con obreros</b>. Postproducción = <b>pintar y amueblar el piso</b>. Si los planos están mal, la obra sale torcida; si la obra es un desastre, ni pintándola bien te salvas.
+      </div>
+      <div class="recuerda">📌 Los errores de <b>preproducción</b> son los más caros: se pagan el día del rodaje.</div>
+      <button class="understood"></button>
+    </div>
+  </details>
+
+  <!-- CONCEPTO 2 -->
+  <details class="concept" id="c2">
+    <summary>
+      <span class="c-num">2</span>
+      <span class="c-title">Cámaras y lentes: decisión narrativa, no solo técnica</span>
+      <span class="c-chevron">▼</span>
+    </summary>
+    <div class="c-body">
+      <p>La cámara y el objetivo no son simples herramientas de grabación. Son <strong>herramientas de narración</strong>: cada decisión técnica cambia cómo el espectador siente la escena.</p>
+
+      <table class="tabla">
+        <thead><tr><th>Categoría</th><th>Ejemplos</th><th>Cuándo se usa</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Cine digital alta gama</strong></td><td>ARRI Alexa, RED, Sony Venice</td><td>Películas, spots de TV premium</td></tr>
+          <tr><td><strong>Mirrorless / DSLR</strong></td><td>Sony FX3, Canon R5, Panasonic GH7</td><td>Documentales, YouTube, contenido de marca</td></tr>
+          <tr><td><strong>Cámara de acción</strong></td><td>GoPro, Insta360</td><td>Deportes, primera persona, exteriores</td></tr>
+          <tr><td><strong>Smartphone</strong></td><td>iPhone, Pixel</td><td>Reels, TikTok, vídeo vertical, UGC</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Lentes y su efecto emocional:</strong></p>
+      <ul>
+        <li><strong>Gran angular (&lt;28 mm):</strong> amplitud, dinamismo, inmediatez — riesgo de distorsión.</li>
+        <li><strong>Normal (35–50 mm):</strong> parecido al ojo humano, neutral.</li>
+        <li><strong>Teleobjetivo (&gt;85 mm):</strong> comprime el espacio, transmite tensión o intimidad.</li>
+        <li><strong>Anamórfico:</strong> formato cine panorámico, con los famosos flares horizontales.</li>
+        <li><strong>Apertura amplia (f/1.4–2.8):</strong> bokeh — el fondo se desenfoca, el sujeto destaca.</li>
+        <li><strong>Lentes vintage:</strong> viñeteo suave, calidez y nostalgia intencional.</li>
+      </ul>
+
+      <div class="analogia">
+        <span class="lbl">🔍 Imagina que…</span>
+        Elegir un objetivo es como elegir el ángulo desde el que cuentas un chiste: con distancia (teleobjetivo) suena frío y misterioso; de cerca con un gran angular resulta cómico y urgente. <b>La misma escena, emociones distintas</b>.
+      </div>
+      <div class="recuerda">📌 <b>Bokeh</b> = desenfoque selectivo. <b>ISO</b> = sensibilidad a la luz (ISO alto = más ruido visual). <b>Rango dinámico</b> = cuántos detalles conservas en luces y sombras.</div>
+      <button class="understood"></button>
+    </div>
+  </details>
+
+  <!-- CONCEPTO 3 -->
+  <details class="concept" id="c3">
+    <summary>
+      <span class="c-num">3</span>
+      <span class="c-title">Software de edición: el corazón del montaje</span>
+      <span class="c-chevron">▼</span>
+    </summary>
+    <div class="c-body">
+      <p>El montaje es donde el material en bruto se convierte en relato. El editor decide el <span class="word">ritmo</span>, las <span class="word">transiciones</span> y la <span class="word">atmósfera</span>. La edición digital no lineal (NLE) permite experimentar sin destruir el material original — como trabajar con capas en Photoshop.</p>
+
+      <table class="tabla">
+        <thead><tr><th>Programa</th><th>Su punto fuerte</th><th>Quién lo usa</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Adobe Premiere Pro</strong></td><td>Integración con After Effects, Photoshop y todo el ecosistema Adobe</td><td>Agencias, YouTube, contenido digital</td></tr>
+          <tr><td><strong>DaVinci Resolve</strong></td><td>El mejor etalonaje del mercado; versión básica gratuita</td><td>Cine indie, coloristas profesionales</td></tr>
+          <tr><td><strong>Final Cut Pro</strong></td><td>Velocidad en Mac, interfaz muy ágil</td><td>YouTubers, freelancers con Mac</td></tr>
+          <tr><td><strong>Avid Media Composer</strong></td><td>Estándar Hollywood: robustez y flujos colaborativos complejos</td><td>Grandes producciones, broadcast TV</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Para redes sociales y equipos pequeños:</strong> CapCut (el más popular para TikTok/Reels), Descript (editas el vídeo editando el texto de la transcripción), Runway y Veed.io (IA integrada).</p>
+
+      <div class="analogia">
+        <span class="lbl">🍳 Imagina que…</span>
+        El material rodado son los ingredientes crudos. El editor es el cocinero: decide cuánto de cada cosa, en qué orden y con qué fuego. <b>DaVinci</b> es el restaurante michelin de la cocina del color; <b>CapCut</b> es el microondas rápido pero sorprendentemente bueno para lo que pide el día a día de las redes.
+      </div>
+      <div class="recuerda">📌 NLE = edición No Lineal: puedes tocar cualquier parte del vídeo sin destruir el original. La edición lineal analógica era como cortar cinta de cassette — sin vuelta atrás.</div>
+      <button class="understood"></button>
+    </div>
+  </details>
+
+  <!-- CONCEPTO 4 -->
+  <details class="concept" id="c4">
+    <summary>
+      <span class="c-num">4</span>
+      <span class="c-title">Sonido: el 50% (que nadie ve, pero todos sienten)</span>
+      <span class="c-chevron">▼</span>
+    </summary>
+    <div class="c-body">
+      <p>El sonido se infravalora, pero determina la experiencia emocional <strong>tanto o más que la imagen</strong>. Un vídeo con imagen mediocre y sonido profesional funciona mejor que al revés.</p>
+
+      <p><strong>Las 4 fases del sonido:</strong></p>
+      <ol>
+        <li><strong>Captura en rodaje:</strong> micrófono de pértiga, lavalier (corbatero), sistemas inalámbricos.</li>
+        <li><strong>Sound design / postproducción:</strong> efectos, foleys (sonidos fabricados), ambientes.</li>
+        <li><strong>Mezcla:</strong> integrar diálogo + música + FX + ambiente en el balance correcto.</li>
+        <li><strong>Masterización:</strong> normalizar para cada plataforma (cine, TV, móvil, redes).</li>
+      </ol>
+
+      <table class="tabla">
+        <thead><tr><th>Elemento</th><th>Qué es</th><th>Truco</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Diálogo</strong></td><td>Lo principal: debe entenderse siempre</td><td>Siempre en el centro del mix</td></tr>
+          <tr><td><strong>Música</strong></td><td>Tono emocional de la escena</td><td><em>Sidechain</em>: baja sola cuando habla alguien</td></tr>
+          <tr><td><strong>Efectos (FX)</strong></td><td>Pasos, puertas, golpes… muchos son fabricados (foley)</td><td>Se «inventan» en estudio</td></tr>
+          <tr><td><strong>Ambiente</strong></td><td>Fondo continuo (tráfico, viento, pájaros)</td><td>Sin él la escena «suena a vacío»</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Formatos envolventes:</strong></p>
+      <ul>
+        <li><strong>5.1 / 7.1:</strong> canales de altavoces alrededor. El clásico del cine.</li>
+        <li><strong>Dolby Atmos:</strong> sonido en 3D total — puedes colocar un sonido exactamente encima de tu cabeza.</li>
+        <li><strong>Binaural:</strong> sonido 3D con auriculares (para podcasts inmersivos y VR).</li>
+      </ul>
+
+      <div class="analogia">
+        <span class="lbl">🎭 Imagina que…</span>
+        Ver una película sin sonido es como leer una novela con la mitad de las palabras borradas. El sonido no acompaña a la imagen — <b>la completa</b>. El susto de terror casi nunca viene de lo que ves: viene del sonido que lo anticipa.
+      </div>
+      <div class="recuerda">📌 <b>Foley</b> = efectos de sonido fabricados en estudio. <b>Sidechain</b> = la música baja automáticamente cuando hay diálogo. <b>Dolby Atmos</b> = sonido posicionable en 3D real.</div>
+      <button class="understood"></button>
+    </div>
+  </details>
+
+  <!-- CONCEPTO 5 -->
+  <details class="concept" id="c5">
+    <summary>
+      <span class="c-num">5</span>
+      <span class="c-title">Etalonaje (color grading): la piel del vídeo</span>
+      <span class="c-chevron">▼</span>
+    </summary>
+    <div class="c-body">
+      <p>El <span class="word">etalonaje</span> —también llamado <span class="word">color grading</span> o corrección de color— es el proceso de ajustar el color y la luz de todas las tomas para que: (1) sean coherentes entre sí y (2) transmitan la atmósfera emocional deseada.</p>
+      <p>No es simplemente «poner un filtro». Es una disciplina entera: el colorista puede convertir un mediodía luminoso en un atardecer cálido, o dar a una comedia romántica ese aspecto «pastel» tan reconocible.</p>
+
+      <p><strong>¿Por qué se graba en LOG o RAW?</strong> Porque captura más información (imagen plana, sin contraste), que luego el colorista moldea a placer. Es como disparar en RAW con una cámara fotográfica.</p>
+
+      <div class="callout key"><b>Herramienta reina del etalonaje:</b> DaVinci Resolve. Usado desde producciones de Hollywood hasta youtubers serios.</div>
+
+      <div class="analogia">
+        <span class="lbl">🎨 Imagina que…</span>
+        Grabar en LOG es como pintar con un lienzo en blanco y colores sin mezclar. El etalonaje es cuando el artista <b>mezcla y aplica los colores reales</b>. Sin ese paso, solo tienes una mancha gris.
+      </div>
+      <div class="recuerda">📌 <b>Etalonaje</b> = corrección y creación de color. <b>LOG/RAW</b> = formato de grabación «plano» con máxima información. <b>LUT</b> = preset de color aplicado de una vez (como un filtro profesional).</div>
+      <button class="understood"></button>
+    </div>
+  </details>
+
+  <!-- CONCEPTO 6 -->
+  <details class="concept" id="c6">
+    <summary>
+      <span class="c-num">6</span>
+      <span class="c-title">VFX y postproducción visual avanzada</span>
+      <span class="c-chevron">▼</span>
+    </summary>
+    <div class="c-body">
+      <p>Los <span class="word">efectos visuales</span> (VFX) son mucho más que explosiones de Hollywood. Incluyen cualquier elemento que se añada, modifique o elimine digitalmente después del rodaje. Su objetivo no es impresionar: es que <strong>no se noten</strong>.</p>
+
+      <ul>
+        <li><strong>Compositing:</strong> combinar capas (imagen real + CGI). Ej.: quitar un cable del plano.</li>
+        <li><strong>Chroma key (fondo verde):</strong> cambiar el fondo por cualquier imagen digital.</li>
+        <li><strong>Tracking:</strong> seguir un punto de la imagen para «pegar» un elemento digital a él.</li>
+        <li><strong>Rotoscopia:</strong> recortar a mano un sujeto del fondo (el trabajo más tedioso del VFX).</li>
+        <li><strong>Clean-up:</strong> borrar cables, micrófonos, marcas de continuidad visibles.</li>
+        <li><strong>CGI:</strong> objetos o personajes completamente generados por ordenador (dinosaurios de Jurassic Park).</li>
+      </ul>
+
+      <p><strong>Software VFX:</strong> After Effects (Adobe, VFX nivel medio), Nuke (estándar de industria para compositing pro), Blender (3D gratuito y potente), Houdini y Maya (simulaciones complejas).</p>
+
+      <div class="analogia">
+        <span class="lbl">🪄 Imagina que…</span>
+        Los VFX son como los trucos de un mago: cuando están bien hechos, <b>no los ves</b>. Solo ves el resultado. Si los ves, el truco ha fallado. El 80% de los VFX de una película son invisibles: borrar un cable, limpiar una peca, añadir un cielo más dramático.
+      </div>
+      <div class="recuerda">📌 La <b>postproducción</b> incluye: etalonaje + montaje + VFX + mezcla de sonido + masterización. No es solo «el final» — es donde la pieza cobra vida definitiva.</div>
+      <button class="understood"></button>
+    </div>
+  </details>
+
+  <!-- CONCEPTO 7 -->
+  <details class="concept" id="c7">
+    <summary>
+      <span class="c-num">7</span>
+      <span class="c-title">IA generativa de vídeo: Sora y la nueva era</span>
+      <span class="c-chevron">▼</span>
+    </summary>
+    <div class="c-body">
+      <p>La <span class="word">inteligencia artificial generativa</span> ya no solo ayuda en la edición — ahora <strong>crea vídeo desde cero</strong>. Esto cambia las reglas del sector de forma tan profunda como lo hizo la cámara de vídeo digital en los años 90.</p>
+
+      <img class="inline-img" src="img/t8-b.png" alt="La IA generativa ya crea vídeo (Sora y similares)">
+      <p class="img-caption">La IA generativa ya crea vídeo (Sora y similares).</p>
+
+      <table class="tabla">
+        <thead><tr><th>Herramienta</th><th>Empresa</th><th>¿Qué hace?</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sora</strong></td><td>OpenAI</td><td>Genera vídeo realista desde texto (hasta 60 s). El más potente en calidad fotorrealista.</td></tr>
+          <tr><td><strong>Runway Gen-3</strong></td><td>Runway ML</td><td>Generación de vídeo + edición IA + motion brush. Muy usado en publicidad.</td></tr>
+          <tr><td><strong>Veo</strong></td><td>Google DeepMind</td><td>Vídeo de alta calidad, integrado con YouTube.</td></tr>
+          <tr><td><strong>Kling</strong></td><td>Kuaishou (China)</td><td>Alta fidelidad, movimientos naturales, disponible en occidente.</td></tr>
+          <tr><td><strong>Pika Labs</strong></td><td>Pika</td><td>Rápido y accesible, bueno para animar imágenes.</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Otras aplicaciones de IA en audiovisual:</strong></p>
+      <ul>
+        <li><strong>Edición asistida:</strong> elimina silencios, sugiere cortes, estabiliza tomas automáticamente (Premiere AI, Descript).</li>
+        <li><strong>Subtitulado automático:</strong> transcripción en segundos, en cualquier idioma.</li>
+        <li><strong>Restauración de audio:</strong> aísla diálogos, limpia ruido (Adobe Enhance, iZotope RX).</li>
+        <li><strong>Voice cloning / doblaje:</strong> ElevenLabs clona una voz con pocos segundos de muestra.</li>
+        <li><strong>Color grading IA:</strong> DaVinci Resolve ya hace matching de color automático entre tomas.</li>
+        <li><strong>Storyboards:</strong> Midjourney, DALL-E generan concept art para previsualizar escenas.</li>
+        <li><strong>Personalización:</strong> versiones automáticas del mismo vídeo adaptadas a cada plataforma y audiencia.</li>
+      </ul>
+
+      <div class="callout tip"><b>Clave para el examen:</b> La IA <strong>no sustituye el criterio narrativo humano</strong>. Aporta eficiencia y velocidad, pero las decisiones estéticas y emocionales siguen siendo del creador. <em>«La tecnología es un medio, no un fin»</em> (ESIC, Tema 8).</div>
+
+      <div class="analogia">
+        <span class="lbl">🤖 Imagina que…</span>
+        La IA generativa es como tener un asistente de producción que trabaja 24/7, no se cansa y puede renderizar en minutos lo que antes costaba semanas. Pero sigue necesitando un <b>director</b> que le diga qué quiere contar y por qué.
+      </div>
+      <div class="recuerda">📌 <b>Sora</b> = genera vídeo realista desde texto (OpenAI). <b>Runway Gen-3</b> = edición IA + generación de vídeo. <b>Veo</b> = Google. La IA amplifica al creador, no lo reemplaza.</div>
+      <button class="understood"></button>
+    </div>
+  </details>
+
+  <!-- CONCEPTO 8 -->
+  <details class="concept" id="c8">
+    <summary>
+      <span class="c-num">8</span>
+      <span class="c-title">Render y exportación: el último paso (no lo arruines)</span>
+      <span class="c-chevron">▼</span>
+    </summary>
+    <div class="c-body">
+      <p>El <span class="word">render</span> es el proceso por el que el ordenador procesa todas las capas (vídeo, efectos, color, sonido) y genera el archivo final. La <span class="word">exportación</span> es adaptar ese archivo al canal donde se va a distribuir. <strong>Un error aquí puede tirar meses de trabajo</strong>.</p>
+
+      <table class="tabla">
+        <thead><tr><th>Destino</th><th>Resolución</th><th>Aspecto</th><th>Frame rate</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Cine</strong></td><td>4K DCI (4096×2160)</td><td>2.39:1 o 1.85:1</td><td>24 fps</td></tr>
+          <tr><td><strong>TV broadcast</strong></td><td>Full HD (1920×1080)</td><td>16:9</td><td>25 fps (Europa) / 30 fps (EE.UU.)</td></tr>
+          <tr><td><strong>YouTube</strong></td><td>4K (3840×2160) ideal</td><td>16:9</td><td>30 / 60 fps</td></tr>
+          <tr><td><strong>TikTok / Instagram Reels</strong></td><td>1080×1920</td><td>9:16 (vertical)</td><td>30 fps</td></tr>
+          <tr><td><strong>Instagram feed</strong></td><td>1080×1080 o 1080×1350</td><td>1:1 o 4:5</td><td>30 fps</td></tr>
+          <tr><td><strong>Netflix / Streaming premium</strong></td><td>4K HDR</td><td>16:9</td><td>24–25 fps</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Errores típicos que destrozan un proyecto:</strong> compresión excesiva (vídeo pixelado), perfil de color incorrecto (los colores cambian al publicar), frame rate mal ajustado (el vídeo va a cámara lenta o rápida sin querer).</p>
+
+      <div class="analogia">
+        <span class="lbl">📦 Imagina que…</span>
+        El render es imprimir una foto: da igual lo buena que sea la foto en cámara si la imprimes en papel de mala calidad o al tamaño equivocado. <b>Para TikTok necesitas el «sobre» vertical (9:16); para el cine, el panorámico (2.39:1)</b>. Enviar lo incorrecto hace que el canal lo recorte o lo deforme.
+      </div>
+      <div class="recuerda">📌 <b>fps</b> = fotogramas por segundo. Cine = 24 fps (ese «look cinematográfico»). <b>9:16</b> = formato vertical (TikTok). <b>16:9</b> = horizontal clásico (TV, YouTube). <b>HDR</b> = más brillo y colores vivos en pantallas compatibles.</div>
+      <button class="understood"></button>
+    </div>
+  </details>
+
+  <!-- CONCEPTO 9 -->
+  <details class="concept" id="c9">
+    <summary>
+      <span class="c-num">9</span>
+      <span class="c-title">La tecnología al servicio de la historia (no al revés)</span>
+      <span class="c-chevron">▼</span>
+    </summary>
+    <div class="c-body">
+      <p>Este es el principio más importante del tema: toda la tecnología —cámaras, software, VFX, IA— solo tiene sentido si está al <strong>servicio de la historia y del mensaje</strong>. Un efecto espectacular que no aporta nada narrativo es un error, no una virtud.</p>
+
+      <p><strong>¿Qué implica esto en la práctica?</strong></p>
+      <ul>
+        <li>Un color frío y desaturado puede transmitir tristeza sin que el personaje diga nada.</li>
+        <li>Un gran angular en cámara en mano da urgencia e inmediatez a una persecución.</li>
+        <li>Un silencio repentino puede ser más aterrador que cualquier efecto sonoro.</li>
+        <li>La IA que edita automáticamente puede optimizar el formato, pero no sabe <em>qué plano te eriza la piel</em>.</li>
+      </ul>
+
+      <div class="callout key"><b>Frase clave del tema (ESIC):</b> «La tecnología es un medio, no un fin: su verdadero potencial se activa cuando está al servicio de una idea clara y de una ejecución sensible al contexto y al público objetivo».</div>
+
+      <div class="analogia">
+        <span class="lbl">🔨 Imagina que…</span>
+        Un martillo de titanio último modelo no hace mejores casas que un carpintero mediocre. El oficio sigue siendo la clave. La tecnología audiovisual es igual: <b>amplifica al creador, pero no lo sustituye</b>.
+      </div>
+      <div class="recuerda">📌 La pregunta que debes hacerte con cada efecto, filtro o herramienta IA: <b>«¿Esto sirve a la historia o solo queda chulo?»</b>. Si no sirve, quítalo.</div>
+      <button class="understood"></button>
+    </div>
+  </details>
+
+  <!-- FLASHCARDS -->
+  <p class="section-title">🃏 Flashcards</p>
+  <p class="section-intro">Toca cada tarjeta para girarla. Tapa la definición con la mano y comprueba si te la sabes.</p>
+  <div class="flash-grid">
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Preproducción</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Fase previa al rodaje: guion, storyboard, casting, localización, planning y presupuesto. Los errores aquí son los más caros.</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Producción</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">El rodaje propiamente dicho: cámara, luces, sonido en directo y dirección de actores o presentadores.</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Postproducción</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Todo lo que ocurre después del rodaje: montaje, etalonaje, VFX, mezcla de sonido, render y exportación.</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Etalonaje / Color grading</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Proceso de ajuste del color y la luz en postproducción para unificar todas las tomas y generar la atmósfera emocional deseada.</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Montaje / Edición NLE</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Edición no lineal: permite organizar y cortar el material en cualquier orden sin destruir el original. Define el ritmo y la estructura narrativa.</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Dolby Atmos</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Formato de sonido envolvente inmersivo que posiciona cada sonido en un espacio 3D completo (incluyendo el eje vertical). Supera al 5.1 o 7.1 clásico.</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Foley</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Técnica de postproducción de sonido que consiste en fabricar en estudio los efectos de sonido (pasos, puertas, golpes…) sincronizados con la imagen.</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">IA generativa de vídeo</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Herramientas que crean o editan vídeo usando inteligencia artificial: Sora (OpenAI), Runway Gen-3, Veo (Google), Kling. Generan planos desde texto o imágenes.</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Sora</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Modelo de IA de OpenAI que genera vídeo fotorrealista a partir de una descripción de texto (prompt). Puede crear escenas de hasta 60 segundos con gran coherencia.</span></div>
+    </div></div>
+
+    <div class="flashcard"><div class="inner">
+      <div class="face front"><span class="q">Render</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Proceso por el que el ordenador procesa y combina todas las capas del proyecto (vídeo, efectos, color, sonido) para generar el archivo final de vídeo.</span></div>
+    </div></div>
+
+  </div>
+
+  <!-- TEST -->
+  <p class="section-title">✅ Test rápido</p>
+  <p class="section-intro">5 preguntas tipo examen. Elige una opción y te corrige al momento con la explicación.</p>
+  <div class="quiz">
+
+    <div class="qcard">
+      <div class="q-num">Pregunta 1</div>
+      <div class="q-text">¿En qué fase de la producción audiovisual se realiza el guion, el storyboard y el casting?</div>
+      <div class="options">
+        <button class="option" data-correct="true"><span class="letter">A</span> Preproducción</button>
+        <button class="option"><span class="letter">B</span> Producción</button>
+        <button class="option"><span class="letter">C</span> Postproducción</button>
+        <button class="option"><span class="letter">D</span> Distribución</button>
+      </div>
+      <div class="explain"><b>Correcta: A.</b> La preproducción es la fase de planificación: guion, storyboard, casting, localización y presupuesto. Los errores en preproducción son los más caros porque se pagan el día del rodaje.</div>
+    </div>
+
+    <div class="qcard">
+      <div class="q-num">Pregunta 2</div>
+      <div class="q-text">¿Qué es el etalonaje o color grading?</div>
+      <div class="options">
+        <button class="option"><span class="letter">A</span> El proceso de grabar el sonido en el set de rodaje</button>
+        <button class="option"><span class="letter">B</span> La generación de vídeo con inteligencia artificial</button>
+        <button class="option" data-correct="true"><span class="letter">C</span> El ajuste del color y la luz en postproducción para unificar tomas y crear atmósfera</button>
+        <button class="option"><span class="letter">D</span> El proceso de exportar el vídeo al formato final</button>
+      </div>
+      <div class="explain"><b>Correcta: C.</b> El etalonaje (color grading) ajusta color y luz de todas las tomas para que sean coherentes entre sí y transmitan la atmósfera emocional deseada. No es poner un filtro: es una disciplina completa, con DaVinci Resolve como herramienta reina.</div>
+    </div>
+
+    <div class="qcard">
+      <div class="q-num">Pregunta 3</div>
+      <div class="q-text">¿Cuál de estas herramientas de IA generativa de vídeo es de OpenAI?</div>
+      <div class="options">
+        <button class="option"><span class="letter">A</span> Runway Gen-3</button>
+        <button class="option"><span class="letter">B</span> Veo</button>
+        <button class="option"><span class="letter">C</span> Kling</button>
+        <button class="option" data-correct="true"><span class="letter">D</span> Sora</button>
+      </div>
+      <div class="explain"><b>Correcta: D.</b> Sora es el modelo de generación de vídeo de OpenAI. Runway Gen-3 es de Runway ML, Veo es de Google DeepMind y Kling es de Kuaishou (empresa china).</div>
+    </div>
+
+    <div class="qcard">
+      <div class="q-num">Pregunta 4</div>
+      <div class="q-text">¿Qué diferencia principal ofrece Dolby Atmos respecto al sonido envolvente 5.1 tradicional?</div>
+      <div class="options">
+        <button class="option"><span class="letter">A</span> Dolby Atmos solo funciona con auriculares, el 5.1 con altavoces</button>
+        <button class="option"><span class="letter">B</span> Dolby Atmos tiene más canales fijos, el 5.1 es más flexible</button>
+        <button class="option" data-correct="true"><span class="letter">C</span> Dolby Atmos posiciona sonidos en 3D real (incluido el eje vertical), el 5.1 los distribuye en canales fijos horizontales</button>
+        <button class="option"><span class="letter">D</span> Dolby Atmos es exclusivo para el cine; el 5.1 puede usarse en cualquier plataforma</button>
+      </div>
+      <div class="explain"><b>Correcta: C.</b> Dolby Atmos permite colocar y mover cualquier sonido en un espacio 3D completo, incluyendo el eje vertical (arriba/abajo). El 5.1 o 7.1 clásico distribuye el audio en canales fijos en el plano horizontal.</div>
+    </div>
+
+    <div class="qcard">
+      <div class="q-num">Pregunta 5</div>
+      <div class="q-text">Un vídeo para Instagram Reels o TikTok se exporta en formato…</div>
+      <div class="options">
+        <button class="option"><span class="letter">A</span> 4K DCI (4096×2160) a 24 fps, aspecto 2.39:1</button>
+        <button class="option"><span class="letter">B</span> Full HD (1920×1080) a 25 fps, aspecto 16:9</button>
+        <button class="option"><span class="letter">C</span> 4K (3840×2160) a 60 fps, aspecto 16:9</button>
+        <button class="option" data-correct="true"><span class="letter">D</span> 1080×1920 a 30 fps, aspecto 9:16 (vertical)</button>
+      </div>
+      <div class="explain"><b>Correcta: D.</b> TikTok e Instagram Reels son plataformas de vídeo vertical: la resolución es 1080×1920, aspecto 9:16 y frame rate de 30 fps. El formato 4K DCI es para cine; el 16:9 Full HD para TV; el 4K 16:9 para YouTube.</div>
+    </div>
+
+    <div class="qcard">
+      <div class="q-num">Pregunta 6</div>
+      <div class="q-text">Según el tema, ¿cuál es el papel correcto de la IA en la creación audiovisual?</div>
+      <div class="options">
+        <button class="option"><span class="letter">A</span> Sustituir al director y al editor en todas las decisiones creativas</button>
+        <button class="option" data-correct="true"><span class="letter">B</span> Amplificar las capacidades del creador humano liberándolo de tareas repetitivas, sin sustituir el criterio narrativo</button>
+        <button class="option"><span class="letter">C</span> Solo sirve para el marketing digital, no para el cine o la televisión</button>
+        <button class="option"><span class="letter">D</span> Garantizar que todos los vídeos tengan la misma estética visual</button>
+      </div>
+      <div class="explain"><b>Correcta: B.</b> La IA amplifica y acelera, pero no tiene intuición narrativa ni sensibilidad estética. El creador humano sigue siendo quien decide el tono, el ritmo emocional y la intención comunicativa. «La tecnología es un medio, no un fin» (ESIC, Tema 8).</div>
+    </div>
+
+    <div class="quiz-result">
+      <div class="score">0/6</div>
+      <div class="msg"></div>
+    </div>
+  </div>
+
+  <!-- PREGUNTAS DEL FINAL DE LA PRESENTACIÓN -->
+  <p class="section-title">⭐ Preguntas de autoevaluación</p>
+  <p class="section-intro">El PDF del Tema 8 no incluye una diapositiva de autoevaluación formal. Las siguientes son <strong>3 preguntas de práctica</strong> elaboradas a partir de los contenidos clave del tema, al nivel y formato del examen.</p>
+  <div class="examen-box">
+    <div class="head">📝 Autoevaluación — Tema 8 <span style="font-weight:400;font-size:.85em">(preguntas de práctica)</span></div>
+    <div class="sub">Elaboradas a partir del contenido oficial de la presentación ESIC. Intenta responder de memoria antes de desplegar.</div>
+
+    <details class="pregunta">
+      <summary><span class="pnum">1</span> Explica las tres fases del proceso de producción audiovisual, indicando qué se hace en cada una y qué herramientas se utilizan. <span class="reveal-hint">ver respuesta ▼</span></summary>
+      <div class="answer">
+        <span class="label">Respuesta</span>
+        El proceso audiovisual se divide en tres etapas interdependientes:
+        <ul>
+          <li><strong>Preproducción:</strong> planificación completa previa al rodaje. Incluye la escritura del guion y el storyboard, el casting, la búsqueda de localizaciones, el planning de rodaje y el presupuesto. Herramientas: procesadores de texto, Milanote, IA para storyboards (Midjourney). Los errores en esta fase son los más costosos: se pagan durante el rodaje.</li>
+          <li><strong>Producción:</strong> el rodaje propiamente dicho. Se captura la imagen con cámaras (desde ARRI Alexa hasta smartphone), se gestiona la iluminación y se registra el sonido en directo (pértiga, lavalier, sistemas inalámbricos). Las decisiones de cámara y lente tienen impacto directo en la narrativa visual.</li>
+          <li><strong>Postproducción:</strong> transformación del material bruto en la obra definitiva. Incluye montaje (edición no lineal), etalonaje (color grading), efectos visuales (VFX), mezcla de sonido y masterización, y renderizado y exportación adaptada al canal de distribución. Herramientas: DaVinci Resolve, Adobe Premiere Pro, After Effects, Pro Tools.</li>
+        </ul>
+        Principio clave: «cualquier decisión técnica en una etapa repercute directamente en el resultado final» (ESIC, T8).
+      </div>
+    </details>
+
+    <details class="pregunta">
+      <summary><span class="pnum">2</span> ¿Qué es la IA generativa de vídeo? Cita al menos tres herramientas y explica cómo afecta al trabajo del creador audiovisual. <span class="reveal-hint">ver respuesta ▼</span></summary>
+      <div class="answer">
+        <span class="label">Respuesta</span>
+        La <strong>IA generativa de vídeo</strong> es el conjunto de modelos de inteligencia artificial capaces de crear, editar o transformar contenido audiovisual a partir de texto, imágenes o vídeo existente.
+        <p><strong>Herramientas principales:</strong></p>
+        <ul>
+          <li><strong>Sora (OpenAI):</strong> genera vídeo fotorrealista de alta calidad a partir de un prompt de texto. Hasta 60 segundos con coherencia visual.</li>
+          <li><strong>Runway Gen-3:</strong> generación y edición de vídeo con IA, muy usado en publicidad y videoclips.</li>
+          <li><strong>Veo (Google DeepMind):</strong> alternativa de alta calidad integrada con el ecosistema Google/YouTube.</li>
+          <li><strong>Kling (Kuaishou):</strong> destacado por la naturalidad de los movimientos.</li>
+        </ul>
+        <p><strong>Impacto en el creador:</strong> la IA amplifica las capacidades del profesional liberándolo de tareas repetitivas (subtitulado, eliminación de silencios, estabilización, color matching) y permitiéndole generar versiones personalizadas para distintas plataformas de forma automatizada. Sin embargo, <strong>no sustituye el criterio narrativo, la sensibilidad estética ni la intención comunicativa</strong>: solo el creador humano puede decidir qué plano transmite una emoción concreta o qué ritmo conecta con el público objetivo.</p>
+      </div>
+    </details>
+
+    <details class="pregunta">
+      <summary><span class="pnum">3</span> Analiza la importancia del sonido en la producción audiovisual. Menciona sus fases, los formatos envolventes y su relación con la narrativa. <span class="reveal-hint">ver respuesta ▼</span></summary>
+      <div class="answer">
+        <span class="label">Respuesta</span>
+        El sonido es un elemento narrativo igual de relevante que la imagen —en muchos casos, más decisivo para la experiencia emocional del espectador.
+        <p><strong>Las 4 fases del sonido:</strong></p>
+        <ul>
+          <li><strong>Captura en rodaje:</strong> micrófonos de pértiga, lavalier y sistemas inalámbricos para registrar el diálogo de forma limpia y controlada.</li>
+          <li><strong>Sound design / postproducción:</strong> creación o selección de efectos sonoros (foley), diseño de paisajes sonoros y ambientes.</li>
+          <li><strong>Mezcla:</strong> integración equilibrada de diálogos, música, efectos y ambiente. La técnica <em>sidechain</em> reduce automáticamente la música cuando hay diálogo para mantener la inteligibilidad.</li>
+          <li><strong>Masterización:</strong> normalización de niveles para que el producto suene igual de bien en cine, televisión, móvil o auriculares.</li>
+        </ul>
+        <p><strong>Formatos envolventes:</strong></p>
+        <ul>
+          <li><strong>5.1 / 7.1:</strong> canales discretos alrededor del espectador, estándar del cine tradicional.</li>
+          <li><strong>Dolby Atmos:</strong> sonido posicionable en 3D real (incluido el eje vertical). Permite situar un susurro encima de la cabeza del espectador.</li>
+          <li><strong>Binaural:</strong> sonido 3D con auriculares, ideal para experiencias VR y podcasts inmersivos.</li>
+        </ul>
+        <p><strong>Relación con la narrativa:</strong> el sonido guía la atención (un crujido anticipa el peligro), genera atmósferas (el silencio antes de un impacto puede ser más aterrador que el propio impacto) y refuerza el tono emocional (la música sidechain apoya sin competir con el diálogo). El objetivo es que el espectador <em>sienta</em> el sonido sin ser consciente de él.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="nav-temas">
+    <a href="index.html">🏠 Índice</a>
+    <a href="T1.html">T1 · Lenguaje</a>
+    <a href="T2.html">T2 · Relato</a>
+    <a href="T3.html">T3 · Personaje</a>
+    <a href="T4.html">T4 · Narrador</a>
+    <a href="T5.html">T5 · Espacio</a>
+    <a href="T6.html">T6 · Tiempo</a>
+    <a href="T7.html">T7 · Guion</a>
+    <a href="#" class="current">T8 · Producción</a>
+  </nav>
+
+  <footer class="biblio">
+    <h3>Fuente</h3>
+    <p>Basado en la presentación oficial <b>«Tema 8: Herramientas de producción digital»</b> (EIG / ESIC, Diseño y Creación Audiovisual). Referencias del tema: Álvarez Monzoncillo (2024), <em>Innovación y postproducción en el audiovisual español</em>; Robles (2019); Jódar Marín (2025); Bordwell &amp; Thompson (2019), <em>El arte cinematográfico</em>; Liu et al. (2024), <em>Sora: A Review</em>, arxiv:2402.17177.</p>
+  </footer>
+
+</div>
+
+<script src="app.js"></script>
+<script src="../../ayudante/ayudante.js" defer></script>
+</body>
+</html>

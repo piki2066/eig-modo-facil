@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fbfaf8">
+<title>Modo Fácil · Móvil — Exámenes junio 2026 · EIG</title>
+<style>
+  :root{
+    --bg:#fbfaf8; --card:#fff; --text:#1f2430; --soft:#545b6b; --mute:#8a92a4;
+    --border:#e7e3dc; --radius:18px;
+    --shadow:0 6px 22px rgba(30,36,48,.08);
+    --green:#16a34a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Segoe UI",system-ui,sans-serif;
+    color:var(--text); background:
+      radial-gradient(700px 320px at 90% -10%, #eef4ff, transparent 60%),
+      radial-gradient(600px 280px at 0% 2%, #fff5ee, transparent 55%),
+      var(--bg);
+    -webkit-font-smoothing:antialiased; line-height:1.55;
+    padding:0 16px calc(64px + env(safe-area-inset-bottom));
+  }
+  .wrap{max-width:480px;margin:0 auto}
+
+  /* ---- cabecera ---- */
+  header{padding:calc(34px + env(safe-area-inset-top)) 2px 4px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+  .kicker{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+  .desktop-link{font-size:12px;font-weight:700;color:var(--soft);text-decoration:none;
+    border:1px solid var(--border);background:var(--card);padding:6px 12px;border-radius:99px}
+  h1{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin:2px 0 10px}
+  .sub{font-size:16px;color:var(--soft)}
+
+  /* ---- aviso próximo examen ---- */
+  .next-banner{
+    display:none; margin:22px 0 4px; padding:16px 18px; border-radius:var(--radius);
+    background:linear-gradient(135deg,#1f2430,#3a4254); color:#fff; box-shadow:var(--shadow);
+  }
+  .next-banner.on{display:block}
+  .next-banner .nb-k{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+  .next-banner .nb-name{font-size:20px;font-weight:800;letter-spacing:-.02em;margin:3px 0 2px}
+  .next-banner .nb-when{font-size:14px;opacity:.85}
+  .next-banner .nb-when b{color:#ffd9a8}
+
+  /* ---- tarjetas ---- */
+  .grid{display:grid;gap:14px;margin:24px 0 18px}
+  .card{
+    display:block;text-decoration:none;color:var(--text);
+    background:var(--card);border:1px solid var(--border);border-left:6px solid var(--c);
+    border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);
+    transition:transform .12s ease, box-shadow .2s;
+  }
+  .card:active{transform:scale(.985)}
+  .card .row{display:flex;align-items:center;gap:14px}
+  .ico{flex-shrink:0;width:48px;height:48px;border-radius:13px;display:grid;place-items:center;
+    background:var(--c);color:#fff;font-size:24px}
+  .meat{flex:1;min-width:0}
+  .name{display:block;font-size:18px;font-weight:750;letter-spacing:-.01em;line-height:1.2}
+  .desc{display:block;font-size:13.5px;color:var(--soft);margin-top:3px}
+  .arrow{flex-shrink:0;color:var(--mute);font-size:20px}
+  /* pie de tarjeta SIEMPRE visible en móvil (la versión de escritorio lo ocultaba) */
+  .foot-row{display:flex;align-items:center;gap:10px;margin-top:13px;
+    padding-top:11px;border-top:1px solid var(--border)}
+  .date{font-size:13px;font-weight:800;color:var(--c);font-variant-numeric:tabular-nums}
+  .lessons{font-size:12px;color:var(--mute)}
+  .pill{margin-left:auto;font-size:11px;font-weight:800;letter-spacing:.03em;
+    padding:3px 10px;border-radius:99px;background:#f1efe9;color:var(--mute)}
+
+  /* estados */
+  .card.next{border-color:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 22%,transparent),var(--shadow)}
+  .card.next .pill{background:var(--c);color:#fff}
+  .card.done{opacity:.62;filter:saturate(.5)}
+  .card.done .date{color:var(--mute)}
+  .card.done .pill{background:var(--green);color:#fff}
+
+  .foot{font-size:13px;color:var(--mute);text-align:center;margin-top:28px;line-height:1.65}
+  .foot b{color:var(--soft)}
+</style>
+</head>
+<body data-page="hub-movil">
+<div class="wrap">
+  <header>
+    <div class="topbar">
+      <span class="kicker">EIG · 1º TSDMG · 2º cuatri</span>
+      <a class="desktop-link" href="index.html">🖥️ Escritorio</a>
+    </div>
+    <h1>Modo Fácil 🎓</h1>
+    <p class="sub">Tu temario explicado fácil, en el móvil. Toca una asignatura para repasar imágenes, tarjetas, test y las preguntas resueltas.</p>
+  </header>
+
+  <a class="next-banner" id="nextBanner" href="#">
+    <div class="nb-k">⏰ Tu próximo examen</div>
+    <div class="nb-name" id="nbName">—</div>
+    <div class="nb-when" id="nbWhen">—</div>
+  </a>
+
+  <div class="grid" id="grid">
+    <a class="card" style="--c:#2563eb" href="02-Relaciones-Publicas/facil/index.html" data-name="Relaciones Públicas" data-date="2026-06-03">
+      <div class="row">
+        <span class="ico">📘</span>
+        <span class="meat"><span class="name">Relaciones Públicas</span><span class="desc">Profesión, campañas, herramientas y tácticas de RRPP</span></span>
+        <span class="arrow">›</span>
+      </div>
+      <div class="foot-row"><span class="date">3 jun</span><span class="lessons">6 lecciones</span><span class="pill">—</span></div>
+    </a>
+
+    <a class="card" style="--c:#0d9488" href="03-Consumidor-y-Mercado/facil/index.html" data-name="Consumidor y Mercado" data-date="2026-06-08">
+      <div class="row">
+        <span class="ico">📗</span>
+        <span class="meat"><span class="name">Consumidor y Mercado</span><span class="desc">Investigación comercial: técnicas, encuestas, neuromarketing, paneles</span></span>
+        <span class="arrow">›</span>
+      </div>
+      <div class="foot-row"><span class="date">8 jun</span><span class="lessons">8 lecciones</span><span class="pill">—</span></div>
+    </a>
+
+    <a class="card" style="--c:#db2777" href="04-Marketing-Social-y-Digital/facil/index.html" data-name="Marketing Social y Digital" data-date="2026-06-10">
+      <div class="row">
+        <span class="ico">📕</span>
+        <span class="meat"><span class="name">Marketing Social y Digital</span><span class="desc">Marketing mix, modelo POEM, redes, KPIs y campañas</span></span>
+        <span class="arrow">›</span>
+      </div>
+      <div class="foot-row"><span class="date">10 jun</span><span class="lessons">5 lecciones</span><span class="pill">—</span></div>
+    </a>
+
+    <a class="card" style="--c:#ea580c" href="05-Diseno-y-Creacion-Audiovisual/facil/index.html" data-name="Diseño y Creación Audiovisual" data-date="2026-06-12">
+      <div class="row">
+        <span class="ico">🎬</span>
+        <span class="meat"><span class="name">Diseño y Creación Audiovisual</span><span class="desc">Lenguaje, relato, personaje, narrador, espacio, tiempo, guion</span></span>
+        <span class="arrow">›</span>
+      </div>
+      <div class="foot-row"><span class="date">12 jun</span><span class="lessons">8 lecciones</span><span class="pill">—</span></div>
+    </a>
+  </div>
+
+  <p class="foot">27 lecciones interactivas · tu progreso se guarda en este móvil.<br>
+  <b>Consejo:</b> empieza por el examen más cercano y ve marcando lo que entiendes.</p>
+</div>
+
+<script>
+/* Marca solo cada día: examen pasado → ✅ hecho, el más próximo → PRÓXIMO con cuenta atrás. */
+(function(){
+  var today = new Date(); today.setHours(0,0,0,0);
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#grid .card'));
+  var next = null, nextDays = Infinity;
+
+  cards.forEach(function(c){
+    var d = c.getAttribute('data-date').split('-');
+    var ex = new Date(+d[0], +d[1]-1, +d[2]); ex.setHours(0,0,0,0);
+    var days = Math.round((ex - today) / 86400000);
+    var pill = c.querySelector('.pill');
+    c.classList.remove('done','next');
+    if (days < 0){ c.classList.add('done'); pill.textContent = '✅ hecho'; }
+    else { pill.textContent = days===0 ? '¡HOY!' : days===1 ? 'mañana' : 'en '+days+' días';
+           if (days < nextDays){ nextDays = days; next = {card:c, days:days}; } }
+  });
+
+  if (next){
+    next.card.classList.add('next');
+    var b = document.getElementById('nextBanner');
+    b.classList.add('on');
+    b.setAttribute('href', next.card.getAttribute('href'));
+    document.getElementById('nbName').textContent = next.card.getAttribute('data-name');
+    var when = next.days===0 ? 'Es <b>HOY</b> — último repaso 💪'
+            : next.days===1 ? 'Es <b>mañana</b> — toca cerrar el temario'
+            : 'En <b>'+next.days+' días</b> — vas con tiempo';
+    document.getElementById('nbWhen').innerHTML = when;
+  }
+})();
+</script>
+<script src="ayudante/ayudante.js" defer></script>
+</body>
+</html>
