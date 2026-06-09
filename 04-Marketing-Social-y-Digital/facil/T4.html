@@ -187,7 +187,7 @@
   <details class="concept" id="c5">
     <summary>
       <span class="c-num">5</span>
-      <span class="c-title">KPIs de Consideración y Conversión: CTR, CR, CAC, ROAS</span>
+      <span class="c-title">KPIs de Consideración y Conversión: CTR, CR, CPA, ROAS</span>
       <span class="c-chevron">▼</span>
     </summary>
     <div class="c-body">
@@ -209,22 +209,16 @@
             <td>50 compras en 1 000 visitas → CR = 5%. Mide si tu web convierte a los que llegan.</td>
           </tr>
           <tr>
-            <td><strong>CAC</strong></td>
-            <td>Customer Acquisition Cost<br><small>Coste por captar 1 cliente</small></td>
-            <td>Gasto total ÷ Clientes nuevos</td>
-            <td>Gastas 1 000€ y consigues 50 clientes → CAC = 20€ por cliente.</td>
-          </tr>
-          <tr>
-            <td><strong>CPA</strong></td>
-            <td>Cost Per Action<br><small>Coste por conversión / acción</small></td>
-            <td>Gasto total ÷ Conversiones</td>
-            <td>500€ en ads y 25 compras → CPA = 20€. Similar al CAC, pero puede ser cualquier acción (lead, registro…).</td>
+            <td><strong>CPA / CPL</strong></td>
+            <td>Cost Per Action / Lead<br><small>Coste por conversión, acción o lead</small></td>
+            <td>Coste ÷ Conversiones (o leads)</td>
+            <td>500€ en ads y 25 compras → CPA = 20€. La "acción" puede ser una compra, un lead o un registro.</td>
           </tr>
           <tr>
             <td><strong>ROAS</strong></td>
             <td>Return On Ad Spend<br><small>Retorno sobre la inversión en publicidad</small></td>
-            <td>Ingresos generados ÷ Gasto en ads</td>
-            <td>Gastas 500€ y generas 2 000€ de ventas → ROAS = 4×. Un ROAS de 4× o más se considera bueno.</td>
+            <td>Ingresos atribuidos ÷ Gasto en social</td>
+            <td>Gastas 500€ y generas 2 000€ de ventas → ROAS = 4×. El PDF lo define como «ingresos generados por euro invertido».</td>
           </tr>
         </tbody>
       </table>
@@ -251,7 +245,7 @@
   <details class="concept" id="c6">
     <summary>
       <span class="c-num">6</span>
-      <span class="c-title">KPIs de Fidelización: CLV y churn</span>
+      <span class="c-title">KPIs de Fidelización: LTV, recurrencia y retención</span>
       <span class="c-chevron">▼</span>
     </summary>
     <div class="c-body">
@@ -261,16 +255,16 @@
         <thead><tr><th>Sigla</th><th>Nombre completo</th><th>Qué mide</th><th>Ejemplo</th></tr></thead>
         <tbody>
           <tr>
-            <td><strong>CLV / LTV</strong></td>
-            <td>Customer Lifetime Value<br><small>Valor de vida del cliente</small></td>
+            <td><strong>LTV</strong></td>
+            <td>Life-Time Value<br><small>Valor de vida del cliente</small></td>
             <td>Cuánto dinero te da un cliente <em>en toda su relación</em> contigo</td>
-            <td>Un cliente compra 3 veces/año, cada vez gasta 40€ y te dura 2 años → CLV = 240€.</td>
+            <td>Un cliente compra 3 veces/año, cada vez gasta 40€ y te dura 2 años → LTV = 240€.</td>
           </tr>
           <tr>
-            <td><strong>Churn</strong></td>
-            <td>Churn rate<br><small>Tasa de abandono / fuga</small></td>
-            <td>% de clientes que se van en un periodo</td>
-            <td>Tenías 200 clientes en enero y en febrero te quedaron 180 → churn = 10% mensual.</td>
+            <td><strong>Recurrencia</strong></td>
+            <td>Recompra<br><small>Repetición y frecuencia de compra</small></td>
+            <td>Si el cliente vuelve a comprar y cada cuánto</td>
+            <td>De 100 clientes nuevos, 40 repiten compra en 3 meses → buena señal de retención.</td>
           </tr>
           <tr>
             <td><strong>NPS</strong></td>
@@ -278,17 +272,23 @@
             <td>¿Te recomendarían del 0 al 10?</td>
             <td>NPS alto = clientes que te recomiendan solos (marketing gratis).</td>
           </tr>
+          <tr>
+            <td><strong>LTV/CAC</strong></td>
+            <td>Ratio LTV/CAC<br><small>Valor del cliente vs coste de captarlo</small></td>
+            <td>Relaciona lo que vale un cliente con lo que costó captarlo</td>
+            <td>Aparece literal como KPI de Fidelización en la tabla del PDF, junto a Recurrencia, Reseñas y NPS.</td>
+          </tr>
         </tbody>
       </table>
 
       <div class="callout tip">
-        <b>Regla de oro CLV vs CAC:</b> un negocio sano necesita <strong>CLV &gt; 3× CAC</strong>. Si captar a un cliente te cuesta 30€ y ese cliente solo te va a dar 40€ en toda su vida, el negocio no escala. Necesitas que te dé al menos 90€ (3 × 30€).
+        <b>Lo que dice el PDF, literal:</b> en fidelización «los KPI deben capturar la <strong>repetición</strong>, la <strong>frecuencia de compra</strong> y la <strong>retención</strong>. El propósito de esta fase es construir relaciones sostenibles y rentables, más allá de la transacción inicial». Y remata: «las organizaciones que logran medir y gestionar el <strong>ciclo completo del cliente</strong> alcanzan ventajas competitivas significativas».
       </div>
       <div class="analogia">
         <span class="lbl">📱 Imagina una app de suscripción…</span>
-        Gastas 15€ en captar cada usuario (CAC). Si el usuario paga 5€/mes y se queda 12 meses → CLV = 60€. 60 ÷ 15 = 4×. ¡Negocio sano! Ahora, si el <b>churn</b> sube y los usuarios se van a los 3 meses → CLV = 15€ = mismo que el CAC. Ya no ganas nada.
+        Si el usuario paga 5€/mes y se queda 12 meses → LTV = 60€. Si solo se queda 3 meses → LTV = 15€. Mismo cliente, cuatro veces menos valor: por eso en fidelización lo que mides es la <b>retención</b> y la <b>recurrencia</b> — cuánto tiempo se queda y cuántas veces vuelve a comprar.
       </div>
-      <div class="recuerda">📌 CLV = valor total de un cliente en el tiempo. Churn = cuántos se van. CLV debe ser &gt; 3× el CAC.</div>
+      <div class="recuerda">📌 LTV = valor total de un cliente en el tiempo. La fidelización se mide con Recurrencia, Reseñas, NPS y el ratio LTV/CAC (tabla del PDF).</div>
       <div class="vocab-oficial">
         <span class="lbl">🎓 En el PDF lo llaman así</span>
         <p><strong>LTV (life-time value)</strong> — el PDF usa la sigla LTV, «valor de vida del cliente». En social lo concreta como <strong>LTV social (estimado)</strong>: «valor de vida del cliente captado vía social» = Ingresos totales esperados ÷ Clientes sociales. En la tabla de fidelización aparece junto al CAC como ratio <strong>LTV/CAC</strong>.</p>
@@ -309,13 +309,13 @@
       <p>Las redes tienen sus propias métricas que van más allá de los KPIs genéricos. Son las más típicas en preguntas sobre Instagram o TikTok.</p>
 
       <table class="tabla">
-        <thead><tr><th>Métrica</th><th>Qué mide</th><th>Fórmula</th><th>Benchmark (referencia)</th></tr></thead>
+        <thead><tr><th>Métrica</th><th>Qué mide</th><th>Fórmula</th><th>Para qué sirve</th></tr></thead>
         <tbody>
           <tr>
             <td><strong>Engagement Rate</strong></td>
             <td>% de interacción real (likes + comentarios + guardados + compartidos) sobre el alcance</td>
             <td>(Interacciones ÷ Alcance) × 100</td>
-            <td>IG: 3-6% bueno (cuentas pequeñas). TikTok: 5-9%.</td>
+            <td>Según el PDF, «es un indicador clave del compromiso del público con tu contenido» (junto al Alcance, las dos métricas ⭐ del social orgánico).</td>
           </tr>
           <tr>
             <td><strong>Reach (alcance)</strong></td>
@@ -383,7 +383,7 @@
           <tr><td>"Mejorar la comunidad en Instagram"</td><td>Consideración</td><td>Engagement rate, save rate, crecimiento orgánico</td></tr>
           <tr><td>"Vender más en e-commerce"</td><td>Conversión</td><td>CR (tasa de conversión), CPA, ROAS, ticket medio</td></tr>
           <tr><td>"Captar leads B2B"</td><td>Conversión</td><td>CPL (coste por lead), CR, calidad del lead</td></tr>
-          <tr><td>"Fidelizar clientes existentes"</td><td>Fidelización</td><td>CLV, churn, NPS, tasa de recompra</td></tr>
+          <tr><td>"Fidelizar clientes existentes"</td><td>Fidelización</td><td>Recurrencia, reseñas, NPS, LTV/CAC</td></tr>
         </tbody>
       </table>
 
@@ -392,46 +392,13 @@
         ¿Habla de <em>conocer/ver/llegar</em>? → Awareness → alcance/impresiones.<br>
         ¿Habla de <em>clic/interés/visitar</em>? → Consideración → CTR/engagement.<br>
         ¿Habla de <em>comprar/vender/convertir</em>? → Conversión → CR/CPA/ROAS.<br>
-        ¿Habla de <em>repetir/retener/recomendar</em>? → Fidelización → CLV/churn/NPS.
+        ¿Habla de <em>repetir/retener/recomendar</em>? → Fidelización → recurrencia/reseñas/NPS/LTV-CAC.
       </div>
       <div class="recuerda">📌 En el examen: primero identifica la fase del funnel, luego elige el KPI correspondiente.</div>
       <div class="vocab-oficial">
         <span class="lbl">🎓 En el PDF lo llaman así</span>
         <p><strong>Tabla oficial Objetivo → KPIs del PDF</strong> (diapositiva «Ejercicio en clase») — <strong>Descubrimiento / Alcance</strong>: Nº Usuarios Únicos, Visualizaciones, Impresiones (CPM). <strong>Consideración / Interacción</strong>: Click (CTR); Like, comentario, guardar, repost; Pageview, tiempo web; Tasa rebote. <strong>Conversión / Ventas</strong>: Conversión (CPA), Lead (CPL), Añadir carrito &gt; Pago, Ticket medio. <strong>Fidelización / Recompra y Recomendación</strong>: Recurrencia, Reseñas, NPS, LTV/CAC.</p>
         <p><strong>Modelo omnicanal</strong> — «la integración de KPI entre el entorno físico y el digital se convierte en una necesidad estructural» (ej.: sincronizar tráfico en tienda con conversión en e-commerce).</p>
-      </div>
-      <button class="understood"></button>
-    </div>
-  </details>
-
-  <!-- CONCEPTO 9 -->
-  <details class="concept" id="c9">
-    <summary>
-      <span class="c-num">9</span>
-      <span class="c-title">Modelos de atribución: ¿quién se lleva el mérito?</span>
-      <span class="c-chevron">▼</span>
-    </summary>
-    <div class="c-body">
-      <p>Antes de comprar, una persona suele ver muchos anuncios e impactos distintos. La <span class="word">atribución</span> es la forma de decidir <strong>a qué canal se le atribuye el mérito de la venta</strong>. No es fácil porque la realidad es compleja.</p>
-
-      <table class="tabla">
-        <thead><tr><th>Modelo</th><th>¿Cómo reparte el mérito?</th><th>Cuándo usarlo</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Last click</strong></td><td>100% al último clic antes de comprar</td><td>Cuando solo te importa el cierre de la venta</td></tr>
-          <tr><td><strong>First click</strong></td><td>100% al primer contacto con la marca</td><td>Cuando quieres valorar el awareness</td></tr>
-          <tr><td><strong>Lineal</strong></td><td>Reparto igual entre todos los canales</td><td>Cuando todos los pasos importan igual</td></tr>
-          <tr><td><strong>Decaimiento temporal</strong></td><td>Más mérito a los canales más cercanos a la compra</td><td>Ciclos de compra largos</td></tr>
-          <tr><td><strong>Data-driven</strong></td><td>La IA (GA4) calcula qué canal contribuyó más de verdad</td><td>El modelo recomendado hoy en día</td></tr>
-        </tbody>
-      </table>
-      <div class="analogia">
-        <span class="lbl">⚽ Imagina un gol…</span>
-        Hay un partido en el que el portero la saca larga, el centrocampista la recoge, la pasa al extremo, que centra, y el delantero remata. ¿A quién le das el mérito del gol? El modelo <b>last click</b> solo se lo daría al delantero. El modelo <b>lineal</b> la repartiría entre los cuatro. El modelo <b>data-driven</b> analizaría miles de jugadas pasadas y decidiría según datos reales.
-      </div>
-      <div class="recuerda">📌 Data-driven = modelo recomendado en GA4. Last click es el más simple pero el más injusto con el awareness.</div>
-      <div class="vocab-oficial">
-        <span class="lbl">🎓 En el PDF lo llaman así</span>
-        <p><strong>Google Analytics 4, «con su modelo de medición basado en eventos y atribución»</strong> — es la formulación exacta del PDF (apartado de herramientas). El PDF cita GA4 junto a las plataformas publicitarias (Meta Ads y YouTube Ads) como fuentes de «definiciones oficiales de KPI». Los nombres de los modelos concretos (last click, lineal, data-driven…) vienen de GA4/clase, no aparecen detallados en el PDF.</p>
       </div>
       <button class="understood"></button>
     </div>
@@ -484,28 +451,28 @@
     </div></div>
 
     <div class="flashcard"><div class="inner">
-      <div class="face front"><span class="q">CAC</span><span class="hint">toca para girar ↻</span></div>
-      <div class="face back"><span class="a">Customer Acquisition Cost = Gasto total ÷ Clientes nuevos. Cuánto cuesta captar 1 cliente. Debe ser menor a CLV / 3 para que el negocio sea rentable.</span></div>
+      <div class="face front"><span class="q">¿Por qué se divide el Applause / Save rate?</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Por el ALCANCE: Likes o guardados ÷ Alcance × 100. Mide la «valoración positiva o utilidad percibida del contenido». Igual que la Conversación (comentarios) y la Amplificación (compartidos): las tres dividen por alcance, no por impresiones.</span></div>
     </div></div>
 
     <div class="flashcard"><div class="inner">
       <div class="face front"><span class="q">ROAS</span><span class="hint">toca para girar ↻</span></div>
-      <div class="face back"><span class="a">Return On Ad Spend = Ingresos ÷ Gasto en ads. Ej: gastas 500€, generas 2 000€ → ROAS = 4×. Por encima de 4× se considera rentable.</span></div>
+      <div class="face back"><span class="a">Return On Ad Spend = Ingresos atribuidos ÷ Gasto en social. Según el PDF: «ingresos generados por euro invertido». Ej: gastas 500€, generas 2 000€ → ROAS = 4×. KPI de conversión.</span></div>
     </div></div>
 
     <div class="flashcard"><div class="inner">
-      <div class="face front"><span class="q">CLV / LTV</span><span class="hint">toca para girar ↻</span></div>
-      <div class="face back"><span class="a">Customer Lifetime Value = valor total que un cliente genera a lo largo de toda su relación con la empresa. Debe ser &gt; 3× el CAC para que el negocio escale.</span></div>
+      <div class="face front"><span class="q">LTV (life-time value)</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">Valor de vida del cliente = valor total que genera en toda su relación con la empresa. LTV social (estimado) = Ingresos totales esperados ÷ Clientes sociales. En la tabla de Fidelización del PDF aparece como ratio LTV/CAC.</span></div>
     </div></div>
 
     <div class="flashcard"><div class="inner">
-      <div class="face front"><span class="q">Churn</span><span class="hint">toca para girar ↻</span></div>
-      <div class="face back"><span class="a">Tasa de abandono o fuga = % de clientes que dejan de serlo en un periodo. Ej: 200 clientes en enero → 180 en febrero → churn = 10%. KPI de fidelización.</span></div>
+      <div class="face front"><span class="q">Tasa de rebote social</span><span class="hint">toca para girar ↻</span></div>
+      <div class="face back"><span class="a">«Calidad del tráfico social recibido» = Sesiones con rebote ÷ Sesiones desde social × 100. KPI de consideración (familia C: métricas de tráfico y consideración).</span></div>
     </div></div>
 
     <div class="flashcard"><div class="inner">
       <div class="face front"><span class="q">Engagement Rate</span><span class="hint">toca para girar ↻</span></div>
-      <div class="face back"><span class="a">(Interacciones ÷ Alcance) × 100. Mide el % de personas que interactuaron. Benchmark: 3-6% en IG (cuentas pequeñas), 5-9% en TikTok.</span></div>
+      <div class="face back"><span class="a">El PDF da dos versiones: por alcance (Interacciones ÷ Alcance × 100, «personas realmente expuestas al contenido») y por impresiones (Interacciones ÷ Impresiones × 100). Junto al Alcance, es métrica ⭐ del social orgánico.</span></div>
     </div></div>
 
     <div class="flashcard"><div class="inner">
@@ -526,10 +493,10 @@
       <div class="options">
         <button class="option"><span class="letter">A</span> Tasa de conversión (CR) y coste por acción (CPA)</button>
         <button class="option" data-correct="true"><span class="letter">B</span> Alcance (reach), impresiones y CPM</button>
-        <button class="option"><span class="letter">C</span> CLV y churn rate</button>
+        <button class="option"><span class="letter">C</span> Recurrencia, NPS y LTV/CAC</button>
         <button class="option"><span class="letter">D</span> Engagement rate y save rate</button>
       </div>
-      <div class="explain"><b>Correcta: B.</b> El objetivo es awareness (que te conozcan). Los KPIs de awareness son alcance, impresiones y CPM. CR/CPA son de conversión; CLV/churn son de fidelización; engagement rate es de consideración.</div>
+      <div class="explain"><b>Correcta: B.</b> El objetivo es Descubrimiento (awareness: que te conozcan). Según la tabla del PDF, sus KPIs son Nº usuarios únicos, visualizaciones e impresiones (CPM). CR/CPA son de conversión; recurrencia, NPS y LTV/CAC son de fidelización; engagement rate es de consideración.</div>
     </div>
 
     <div class="qcard">
@@ -553,19 +520,19 @@
         <button class="option" data-correct="true"><span class="letter">C</span> 5×</button>
         <button class="option"><span class="letter">D</span> 18×</button>
       </div>
-      <div class="explain"><b>Correcta: C.</b> ROAS = Ingresos ÷ Gasto = 3 000 ÷ 600 = 5×. Un ROAS de 5× es muy bueno (por encima del umbral de 4×). No confundas con el beneficio — el ROAS mide ingresos totales, no margen.</div>
+      <div class="explain"><b>Correcta: C.</b> ROAS = Ingresos atribuidos ÷ Gasto en social = 3 000 ÷ 600 = 5×. Es decir, 5€ de ingresos por cada euro invertido — el PDF lo define como «ingresos generados por euro invertido». No confundas con el beneficio: el ROAS mide ingresos totales, no margen.</div>
     </div>
 
     <div class="qcard">
       <div class="q-num">Pregunta 4</div>
-      <div class="q-text">Una app de streaming tiene 500 suscriptores en enero. En febrero tienen 425. ¿Cuál es su churn rate mensual?</div>
+      <div class="q-text">Según la tabla «Ejercicio en clase» del PDF, ¿qué KPIs corresponden a la etapa de <strong>Fidelización</strong> (objetivo: recompra y recomendación)?</div>
       <div class="options">
-        <button class="option"><span class="letter">A</span> 5%</button>
-        <button class="option" data-correct="true"><span class="letter">B</span> 15%</button>
-        <button class="option"><span class="letter">C</span> 85%</button>
-        <button class="option"><span class="letter">D</span> 75%</button>
+        <button class="option"><span class="letter">A</span> Conversión (CPA), Lead (CPL) y ticket medio</button>
+        <button class="option"><span class="letter">B</span> Nº usuarios únicos, visualizaciones e impresiones (CPM)</button>
+        <button class="option" data-correct="true"><span class="letter">C</span> Recurrencia, reseñas, NPS y LTV/CAC</button>
+        <button class="option"><span class="letter">D</span> Click (CTR), pageviews, tiempo web y tasa de rebote</button>
       </div>
-      <div class="explain"><b>Correcta: B.</b> Churn = clientes perdidos ÷ clientes iniciales × 100. Perdieron 75 (500 – 425), sobre 500 iniciales → 75 ÷ 500 × 100 = 15%. Un 15% de churn mensual es muy alto: en 7 meses habrán perdido más de la mitad.</div>
+      <div class="explain"><b>Correcta: C.</b> En la tabla del PDF, la etapa de Fidelización tiene como objetivo «Recompra y Recomendación» y sus KPIs son Recurrencia, Reseñas, NPS y LTV/CAC. La A son KPIs de Conversión, la B de Descubrimiento y la D de Consideración. Ojo: el PDF habla de retención y recurrencia, no de "churn".</div>
     </div>
 
     <div class="qcard">
@@ -577,19 +544,19 @@
         <button class="option"><span class="letter">C</span> 40%</button>
         <button class="option"><span class="letter">D</span> 25%</button>
       </div>
-      <div class="explain"><b>Correcta: B.</b> ER = (Interacciones ÷ Alcance) × 100 = (800 ÷ 20 000) × 100 = 4%. Para Instagram, un 4% está en el rango bueno (3-6% para cuentas medianas). ¡Buen contenido!</div>
+      <div class="explain"><b>Correcta: B.</b> Engagement rate por alcance = Interacciones ÷ Alcance × 100 = (800 ÷ 20 000) × 100 = 4%. Justo el nivel del objetivo de ejemplo del PDF: «incrementar el engagement rate hasta un 4 % en las próximas 10 publicaciones orgánicas en Instagram».</div>
     </div>
 
     <div class="qcard">
       <div class="q-num">Pregunta 6</div>
-      <div class="q-text">El modelo de atribución «data-driven» en Google Analytics 4 se caracteriza porque…</div>
+      <div class="q-text">Según el <strong>mapa de fuentes de datos</strong> del PDF, ¿cuál es el riesgo principal de las <strong>plataformas de anuncios</strong> y su mitigación recomendada?</div>
       <div class="options">
-        <button class="option"><span class="letter">A</span> Da el 100% del mérito al último clic antes de la compra</button>
-        <button class="option"><span class="letter">B</span> Reparte el mérito por igual entre todos los canales</button>
-        <button class="option"><span class="letter">C</span> Da más mérito a los canales más cercanos en el tiempo a la conversión</button>
-        <button class="option" data-correct="true"><span class="letter">D</span> Usa machine learning para calcular la contribución real de cada canal</button>
+        <button class="option"><span class="letter">A</span> Reidentificación → agregación y minimización de datos</button>
+        <button class="option" data-correct="true"><span class="letter">B</span> Opacidad algorítmica → auditoría y experimentación incremental</button>
+        <button class="option"><span class="letter">C</span> Uso secundario no consentido → consentimiento granular y gobernanza</button>
+        <button class="option"><span class="letter">D</span> Perfilado excesivo → límites de segmentación y transparencia</button>
       </div>
-      <div class="explain"><b>Correcta: D.</b> Data-driven usa IA/ML para analizar el historial de conversiones y calcular cuánto contribuyó realmente cada canal. Es el modelo recomendado por GA4 porque es el más preciso y el que menos sesgos introduce.</div>
+      <div class="explain"><b>Correcta: B.</b> En el mapa de fuentes de datos, las plataformas de anuncios aportan eficiencia de inversión (métrica típica: ROAS), su riesgo es la opacidad algorítmica y se mitiga con auditoría y experimentación incremental. La A corresponde a analítica web/app, la C a CRM/ventas y la D a redes sociales.</div>
     </div>
 
     <div class="quiz-result">
@@ -642,15 +609,14 @@
     </details>
 
     <details class="pregunta">
-      <summary><span class="pnum">3</span> Una empresa de software SaaS invierte 6 000€ al mes en captar clientes (CAC = 60€). Los clientes pagan 25€/mes y de media permanecen 8 meses. ¿Es rentable el negocio según la regla CLV vs CAC? ¿Qué KPI deberían mejorar urgentemente? <em>(preguntas de práctica)</em> <span class="reveal-hint">ver respuesta ▼</span></summary>
+      <summary><span class="pnum">3</span> Una campaña de vídeo en paid social cuesta 1 200€ y genera 600 000 impresiones con un alcance de 200 000 personas. Se inician 60 000 visualizaciones, 90 000 impresiones llegan a ≥ 3 segundos de vídeo y 12 000 visualizaciones se completan al 100%. Calcula <strong>CPM, frecuencia media, hook rate y VCR</strong> con las fórmulas del PDF. <em>(preguntas de práctica)</em> <span class="reveal-hint">ver respuesta ▼</span></summary>
       <div class="answer">
         <span class="label">Respuesta</span>
-        <p><strong>Cálculo del CLV:</strong> 25€/mes × 8 meses = <strong>CLV = 200€</strong>.</p>
-        <p><strong>CAC = 60€.</strong></p>
-        <p><strong>Ratio CLV/CAC = 200 ÷ 60 = 3,3×.</strong></p>
-        <p>Según la regla CLV &gt; 3× CAC, el negocio es <strong>mínimamente rentable</strong> (por encima de 3×, pero solo por poco). Hay margen de mejora.</p>
-        <p><strong>KPI a mejorar urgentemente: el churn.</strong> Si los clientes se fueran de media en 12 meses en vez de 8, el CLV subiría a 300€ (ratio 5×), lo que daría margen para invertir más en adquisición o reducir el CPA. Reducir el churn es más barato que bajar el CAC.</p>
-        <p><strong>Acciones propuestas:</strong> programa de onboarding mejorado, soporte proactivo en los primeros 60 días (cuando el churn es más alto), y medir el NPS para detectar clientes en riesgo de irse.</p>
+        <p><strong>CPM</strong> («coste por mil impresiones») = Coste ÷ Impresiones × 1.000 = 1 200 ÷ 600 000 × 1 000 = <strong>2€</strong>.</p>
+        <p><strong>Frecuencia media</strong> («número medio de exposiciones por usuario») = Impresiones ÷ Alcance = 600 000 ÷ 200 000 = <strong>3</strong> (cada persona vio el anuncio 3 veces de media).</p>
+        <p><strong>Hook rate</strong> («capacidad de captar atención en los primeros segundos») = Visualizaciones ≥ 3 s ÷ Impresiones × 100 = 90 000 ÷ 600 000 × 100 = <strong>15%</strong>.</p>
+        <p><strong>VCR (Completion rate)</strong> («proporción de visualizaciones completas») = Visualizaciones al 100% ÷ Visualizaciones iniciadas × 100 = 12 000 ÷ 60 000 × 100 = <strong>20%</strong>.</p>
+        <p><strong>Ojo en el examen:</strong> el Hook rate divide por <em>impresiones</em>, pero el VCR y la retención de vídeo (VTR-X) dividen por <em>visualizaciones iniciadas</em>. La frecuencia media y el CPM son KPIs de la etapa de <strong>Descubrimiento</strong>; el VCR es de <strong>Consideración</strong>.</p>
       </div>
     </details>
   </div>
@@ -667,7 +633,7 @@
 
   <footer class="biblio">
     <h3>Fuente</h3>
-    <p>Basado en la presentación oficial <b>«Tema 4: Performance, métricas y analítica de marketing digital»</b> (EIG / ESIC, 2025-2026). Referencias: Solé Moro &amp; Campo Fernández (2025), <em>Social Media Marketing</em>, ESIC; Chaffey, D. (2022), <em>Digital Marketing</em>, Pearson; Google Analytics 4 Help Center &amp; Skillshop; IAB Spain, guías y benchmarks 2024.</p>
+    <p>Basado en la presentación oficial <b>«Tema 4: Performance, métricas y analítica de marketing digital»</b> (EIG / ESIC, 2025-2026). Fuentes citadas en el propio PDF: IAB Spain (definiciones consensuadas), WARC (informes y benchmarks), Nielsen y GfK (medición cross-media), Google Analytics 4, Meta Ads y YouTube Ads.</p>
   </footer>
 
 </div>
