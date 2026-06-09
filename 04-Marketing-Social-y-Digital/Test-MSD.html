@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test · Marketing Social y Digital · T1–T5 — Modo Fácil EIG</title>
+<style>
+  /* ============================================================
+     TEST MARKETING SOCIAL Y DIGITAL — estilo Modo Fácil EIG
+     Sistema visual de /examenes: fuente del sistema, fondo cálido,
+     acento por asignatura (Marketing = magenta #db2777), tarjetas,
+     barra de progreso fija y componentes de quiz de estilos-facil.css
+     ============================================================ */
+  :root{
+    --accent:#db2777; --accent-dark:#be185d; --accent-soft:#fce7f3; --accent-soft2:#fbcfe8;
+    --bg:#fbfaf8; --bg-card:#ffffff;
+    --text:#1f2430; --text-soft:#545b6b; --text-mute:#8a92a4;
+    --border:#e7e3dc; --border-soft:#efece6;
+    --warm:#f59e0b; --warm-soft:#fff7e6;
+    --ok:#16a34a; --ok-bg:#ecfdf3; --ok-ink:#14532d;
+    --no:#dc2626; --no-bg:#fef2f2; --no-ink:#7f1d1d;
+    --t1:#db2777; --t2:#7c3aed; --t3:#0891b2; --t4:#b45309; --t5:#16a34a;
+    --radius:14px; --radius-lg:20px;
+    --shadow-sm:0 1px 2px rgba(30,36,48,.05),0 1px 3px rgba(30,36,48,.04);
+    --shadow:0 4px 14px rgba(30,36,48,.07),0 2px 6px rgba(30,36,48,.05);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Segoe UI",system-ui,sans-serif;
+    font-size:17.5px; line-height:1.65; color:var(--text);
+    background:
+      radial-gradient(1200px 520px at 82% -10%, var(--accent-soft), transparent 60%),
+      radial-gradient(760px 360px at 6% 2%, var(--warm-soft), transparent 55%),
+      var(--bg);
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    padding:0 0 110px;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+
+  /* ===== Header / Hero ===== */
+  header.top{padding:46px 0 4px}
+  .kicker{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mute);margin-bottom:12px}
+  .tag{display:inline-flex;align-items:center;gap:7px;background:var(--accent);color:#fff;padding:6px 14px;border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.04em}
+  .tag::before{content:'';width:7px;height:7px;border-radius:50%;background:currentColor}
+  h1{font-size:42px;font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:14px 0 12px}
+  .subtitle{color:var(--text-soft);font-size:18.5px;line-height:1.5;max-width:620px}
+  .subtitle b{color:var(--text);font-weight:700}
+
+  /* ===== Tarjeta ===== */
+  .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:24px 26px;margin-top:26px}
+  .card h2{font-size:21px;font-weight:800;letter-spacing:-.01em;margin-bottom:3px}
+  .card .note{color:var(--text-soft);font-size:15px;margin-bottom:4px}
+
+  /* ===== Inicio ===== */
+  .field-label{display:block;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mute);margin:22px 0 10px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{font-family:inherit;font-size:14.5px;font-weight:600;color:var(--text);background:#fff;border:1.5px solid var(--border);border-radius:99px;padding:9px 16px;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center}
+  .chip:hover{border-color:var(--accent);color:var(--accent-dark)}
+  .chip[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .chip[aria-pressed="true"] .dot{background:#fff!important}
+  .chip .dot{width:9px;height:9px;border-radius:50%;margin-right:8px}
+
+  .seg{display:inline-flex;border:1.5px solid var(--border);border-radius:12px;overflow:hidden;background:#fff}
+  .seg button{font-family:inherit;font-size:14.5px;font-weight:600;border:0;background:transparent;color:var(--text-soft);padding:10px 18px;cursor:pointer;transition:all .15s;border-right:1px solid var(--border-soft)}
+  .seg button:last-child{border-right:0}
+  .seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
+
+  .btn{font-family:inherit;font-weight:700;border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:transform .15s,box-shadow .2s,background .15s}
+  .btn-primary{background:var(--accent);color:#fff;font-size:16.5px;padding:15px 26px;border-radius:13px;width:100%;margin-top:26px;box-shadow:0 8px 20px -8px rgba(219,39,119,.55)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 26px -10px rgba(219,39,119,.6)}
+  .btn-primary:active{transform:translateY(0)}
+  .btn-ghost{background:#fff;color:var(--text-soft);border:1.5px solid var(--border);padding:11px 18px;border-radius:11px;font-size:14px}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent-dark)}
+
+  .start-meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid var(--border-soft)}
+  .start-meta div{font-size:13.5px;color:var(--text-mute)}
+  .start-meta b{display:block;font-size:26px;font-weight:800;color:var(--accent);line-height:1;margin-bottom:2px}
+
+  /* ===== Barra de progreso fija (quiz) ===== */
+  .quiz-bar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:13px;margin:0 -22px 0;padding:12px 22px;background:rgba(251,250,248,.86);backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--border-soft)}
+  .bar-quit{flex-shrink:0;width:34px;height:34px;border-radius:9px;border:1px solid var(--border);background:#fff;color:var(--text-soft);font-size:15px;cursor:pointer;font-family:inherit;transition:all .15s;line-height:1}
+  .bar-quit:hover{border-color:var(--no);color:var(--no)}
+  .progress-track{flex:1;height:9px;border-radius:99px;background:var(--accent-soft2);overflow:hidden}
+  .progress-fill{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--warm));border-radius:99px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+  .progress-label{flex-shrink:0;font-size:13px;font-weight:800;color:var(--accent-dark);font-variant-numeric:tabular-nums}
+  .qscore{flex-shrink:0;font-size:13px;font-weight:800;color:var(--ok);font-variant-numeric:tabular-nums}
+
+  /* ===== Contenido de la pregunta ===== */
+  #qcard{animation:fadein .3s ease both}
+  @keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .qtema{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-dark);background:var(--accent-soft);padding:6px 12px;border-radius:99px;margin-bottom:15px}
+  .qtema .dot{width:8px;height:8px;border-radius:50%}
+  .qtext{font-size:21px;font-weight:700;line-height:1.34;margin-bottom:20px;letter-spacing:-.01em}
+  .qtext .frm{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.8em;background:var(--accent-soft);color:var(--accent-dark);padding:1px 7px;border-radius:5px}
+
+  .options{display:flex;flex-direction:column;gap:10px}
+  .opt{font-family:inherit;font-size:16px;text-align:left;width:100%;background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;cursor:pointer;color:var(--text);display:flex;align-items:flex-start;gap:12px;line-height:1.4;transition:all .15s}
+  .opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+  .opt:disabled{cursor:default}
+  .opt .key{flex-shrink:0;width:28px;height:28px;border-radius:8px;background:var(--accent-soft);color:var(--accent-dark);font-weight:800;font-size:13px;display:grid;place-items:center}
+  .opt .txt{flex:1;padding-top:3px}
+  .opt .mark{margin-left:auto;font-weight:800;font-size:17px;align-self:center}
+  .opt.correct{border-color:var(--ok);background:var(--ok-bg);color:var(--ok-ink);font-weight:600}
+  .opt.correct .key{background:var(--ok);color:#fff}
+  .opt.wrong{border-color:var(--no);background:var(--no-bg);color:var(--no-ink)}
+  .opt.wrong .key{background:var(--no);color:#fff}
+  .opt.dim{opacity:.5}
+
+  .explain{margin-top:14px;padding:14px 17px;border-radius:12px;background:var(--accent-soft);font-size:15.5px;line-height:1.55;display:none;border-left:4px solid var(--accent)}
+  .explain.show{display:block;animation:fadein .3s ease}
+  .explain.good{background:var(--ok-bg);border-color:var(--ok)}
+  .explain.bad{background:var(--no-bg);border-color:var(--no)}
+  .explain .lead{display:block;font-weight:800;margin-bottom:3px}
+  .explain.good .lead{color:var(--ok)}
+  .explain.bad .lead{color:var(--no)}
+  .explain b{color:var(--text)}
+
+  .qfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:20px}
+  .qfoot .hint{font-size:13px;color:var(--text-mute);font-weight:600}
+  .btn-next{background:var(--accent);color:#fff;padding:13px 24px;border-radius:11px;font-size:15.5px}
+  .btn-next:hover:not(:disabled){transform:translateY(-2px)}
+  .btn-next:disabled{opacity:.4;cursor:not-allowed}
+
+  /* ===== Resultados ===== */
+  .result-head{text-align:center;padding:6px 0 2px}
+  .donut{width:150px;height:150px;margin:6px auto 14px;position:relative}
+  .donut svg{transform:rotate(-90deg)}
+  .donut .pct{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .donut .pct b{font-size:38px;font-weight:800;line-height:1}
+  .donut .pct span{font-size:12px;font-weight:700;color:var(--text-mute);font-variant-numeric:tabular-nums;margin-top:4px}
+  .verdict{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-bottom:3px}
+  .verdict-sub{color:var(--text-soft);font-size:15px;max-width:46ch;margin:0 auto}
+
+  .section-label{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);margin:28px 0 14px;display:flex;align-items:center;gap:10px}
+  .section-label::after{content:'';flex:1;height:2px;background:var(--border-soft);border-radius:2px}
+
+  .trow{display:flex;align-items:center;gap:12px;margin-bottom:11px}
+  .trow .tlabel{flex-shrink:0;width:132px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px}
+  .trow .tlabel .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+  .trow .tbar{flex:1;height:9px;border-radius:99px;background:var(--accent-soft2);overflow:hidden}
+  .trow .tbar>i{display:block;height:100%;border-radius:99px}
+  .trow .tnum{flex-shrink:0;width:48px;text-align:right;font-size:13.5px;font-weight:700;color:var(--text-soft);font-variant-numeric:tabular-nums}
+
+  .ritem{border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:10px;background:#fff;box-shadow:var(--shadow-sm)}
+  .ritem .rtag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-dark);background:var(--accent-soft);padding:3px 9px;border-radius:7px;margin-bottom:9px}
+  .ritem .rq{font-weight:700;font-size:15.5px;margin-bottom:9px;line-height:1.4}
+  .ritem .rline{font-size:14.5px;display:flex;gap:8px;margin:3px 0;line-height:1.45}
+  .ritem .rline .ic{flex-shrink:0;font-weight:800}
+  .ritem .ryour{color:var(--no)}
+  .ritem .rcorr{color:var(--ok)}
+
+  .result-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .result-actions .btn{flex:1;min-width:150px}
+  .result-actions .btn-primary{margin-top:0}
+
+  .biblio{margin-top:30px;padding-top:22px;border-top:1px solid var(--border-soft);font-size:13.5px;color:var(--text-soft);text-align:center;line-height:1.7}
+  .biblio b{color:var(--accent-dark)}
+
+  .hidden{display:none!important}
+
+  @media(max-width:600px){
+    h1{font-size:32px}
+    .card{padding:20px 18px}
+    .quiz-bar{margin:0 -18px}
+    .qtext{font-size:19px}
+    .opt{font-size:15.5px}
+    .trow .tlabel{width:106px;font-size:13px}
+    .start-meta{gap:16px}
+    .start-meta b{font-size:22px}
+    .progress-label{display:none}
+  }
+  @media print{
+    body{background:#fff;padding:14mm}
+    .quiz-bar,.btn,.result-actions,.bar-quit,.qfoot{display:none!important}
+    .explain{display:block!important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="kicker">EIG · 1º TSDMG · Examen 10 jun 2026 · Rayko Lorenzo</div>
+    <span class="tag">📕 Marketing Social y Digital</span>
+    <h1>Test de repaso</h1>
+    <p class="subtitle">Tipo test de <b>todo el temario (T1–T5)</b>. Las cuatro opciones están equilibradas y la respuesta correcta cambia de sitio en cada partida: tendrás que <b>saberla, no adivinarla</b>.</p>
+  </header>
+
+  <!-- ============ PANTALLA INICIO ============ -->
+  <section id="start" class="card">
+    <h2>Configura tu test</h2>
+    <p class="note">Elige los temas que quieres practicar y cuántas preguntas.</p>
+
+    <span class="field-label">Temas</span>
+    <div class="chips" id="temaChips">
+      <button class="chip" data-tema="todo" aria-pressed="true">Todo el temario</button>
+      <button class="chip" data-tema="T1" aria-pressed="false"><span class="dot" style="background:var(--t1)"></span>T1 · Marketing Mix</button>
+      <button class="chip" data-tema="T2" aria-pressed="false"><span class="dot" style="background:var(--t2)"></span>T2 · POEM</button>
+      <button class="chip" data-tema="T3" aria-pressed="false"><span class="dot" style="background:var(--t3)"></span>T3 · RRSS</button>
+      <button class="chip" data-tema="T4" aria-pressed="false"><span class="dot" style="background:var(--t4)"></span>T4 · Métricas</button>
+      <button class="chip" data-tema="T5" aria-pressed="false"><span class="dot" style="background:var(--t5)"></span>T5 · Campaña</button>
+    </div>
+
+    <span class="field-label">Nº de preguntas</span>
+    <div class="seg" id="countSeg">
+      <button data-n="10" aria-pressed="false">10</button>
+      <button data-n="20" aria-pressed="true">20</button>
+      <button data-n="30" aria-pressed="false">30</button>
+      <button data-n="0" aria-pressed="false">Todas</button>
+    </div>
+
+    <button class="btn btn-primary" id="startBtn">Empezar test →</button>
+
+    <div class="start-meta">
+      <div><b id="poolCount">—</b>preguntas en el banco</div>
+      <div><b>5</b>bloques del temario</div>
+      <div><b>4</b>opciones por pregunta</div>
+    </div>
+  </section>
+
+  <!-- ============ PANTALLA QUIZ ============ -->
+  <section id="quiz" class="hidden">
+    <div class="quiz-bar">
+      <button class="bar-quit" id="quitBtn" title="Salir">✕</button>
+      <div class="progress-track"><i id="qBar" class="progress-fill"></i></div>
+      <span class="progress-label" id="qProgress">1 / 20</span>
+      <span class="qscore" id="qScore">0 ✓</span>
+    </div>
+    <div class="card">
+      <div id="qcard"><!-- inyectado por JS --></div>
+    </div>
+  </section>
+
+  <!-- ============ PANTALLA RESULTADOS ============ -->
+  <section id="results" class="hidden">
+    <div class="card">
+      <div class="result-head">
+        <div class="donut">
+          <svg width="150" height="150" viewBox="0 0 160 160">
+            <circle cx="80" cy="80" r="68" fill="none" stroke="#fbcfe8" stroke-width="15"/>
+            <circle id="donutArc" cx="80" cy="80" r="68" fill="none" stroke="#db2777" stroke-width="15"
+              stroke-linecap="round" stroke-dasharray="427" stroke-dashoffset="427"/>
+          </svg>
+          <div class="pct"><b id="rPct">0%</b><span id="rRatio">0 / 0</span></div>
+        </div>
+        <div class="verdict" id="rVerdict">—</div>
+        <div class="verdict-sub" id="rVerdictSub">—</div>
+      </div>
+
+      <div class="section-label">Desglose por tema</div>
+      <div id="rByTema"></div>
+
+      <div id="reviewBlock">
+        <div class="section-label">Repasa tus fallos</div>
+        <div id="rReview"></div>
+      </div>
+
+      <div class="result-actions">
+        <button class="btn btn-ghost" id="reviewToggle">Ocultar repaso</button>
+        <button class="btn btn-primary" id="againBtn">Hacer otro test →</button>
+      </div>
+    </div>
+    <p class="biblio">
+      Banco de <b><span id="fPool">—</span> preguntas</b> · Fundamentos del Marketing Social y Digital · 1º TSDMG<br>
+      Distractores extraídos del propio temario · opciones equilibradas y barajadas en cada partida
+    </p>
+  </section>
+
+</div>
+
+<script>
+/* =====================================================================
+   BANCO DE PREGUNTAS  —  Marketing Social y Digital (T1–T5)
+   formato: { t:tema, q:enunciado, o:[4 opciones], c:índice correcto, e:explicación }
+   Diseño de opciones: longitud equilibrada · distractores reales del temario ·
+   la correcta NO es sistemáticamente la más larga. Además se barajan en runtime.
+   ===================================================================== */
+const BANK = [
+/* ---------------- TEMA 1 · Marketing Mix y mensaje ---------------- */
+{t:"T1", q:"¿Quién formuló las 4P del marketing mix y en qué año?", o:[
+  "Jerome McCarthy, en 1960",
+  "Philip Kotler, en 1967",
+  "Robert Lauterborn, en 1990",
+  "Booms y Bitner, en 1981"], c:0,
+  e:"Las 4P (Product, Price, Place, Promotion) las creó <b>Jerome McCarthy en 1960</b> y siguen siendo la base, también en digital."},
+
+{t:"T1", q:"¿Cuáles son las cuatro variables que componen las 4P clásicas?", o:[
+  "Producto, Precio, Distribución y Comunicación",
+  "Producto, Personas, Proceso y Posicionamiento",
+  "Público, Precio, Plataforma y Promoción",
+  "Producto, Precio, Propuesta y Personas"], c:0,
+  e:"Las 4P son <b>Product, Price, Place (distribución) y Promotion (comunicación)</b>. Personas y Proceso pertenecen a las 7P de servicios."},
+
+{t:"T1", q:"Las 7P de Booms y Bitner añaden tres variables a las 4P. ¿Cuáles son?", o:[
+  "Personas, Proceso y Evidencia física",
+  "Precio, Posicionamiento y Propósito",
+  "Público, Plataforma y Performance",
+  "Promoción, Packaging y Propuesta"], c:0,
+  e:"Para los <b>servicios</b>, las 7P suman <b>People, Process y Physical evidence</b> (personas, procesos y evidencias físicas)."},
+
+{t:"T1", q:"En el modelo 4C de Lauterborn, ¿en qué se transforma la \"Promotion\"?", o:[
+  "En Communication (conversación)",
+  "En Convenience (comodidad)",
+  "En Cost to customer (coste)",
+  "En Customer needs (necesidades)"], c:0,
+  e:"Las 4C ponen al cliente en el centro: Promotion pasa a <b>Communication</b> — una conversación, no un monólogo."},
+
+{t:"T1", q:"En las 4C, el \"Place\" (distribución) se reinterpreta como…", o:[
+  "Convenience: lo fácil que es comprarlo",
+  "Cost: lo que le cuesta al cliente",
+  "Communication: el diálogo con la marca",
+  "Customer: las necesidades del cliente"], c:0,
+  e:"Place → <b>Convenience</b>: ya no es dónde vendo yo, sino qué fácil le resulta al cliente acceder y comprar."},
+
+{t:"T1", q:"Según los apuntes, ¿qué papel juega lo digital dentro del marketing mix?", o:[
+  "Atraviesa y transforma las 4P existentes",
+  "Es una quinta P independiente",
+  "Sustituye por completo a la Promotion",
+  "Solo afecta a la variable Place"], c:0,
+  e:"Lo digital <b>no es la quinta P</b>: transforma las cuatro (producto, precio, distribución y comunicación) y añade la capa de conversación social."},
+
+{t:"T1", q:"¿Qué es el \"comercio social\" como tendencia actual?", o:[
+  "La compra ocurre dentro de la propia red social",
+  "Vender solo a través de ONG y causas sociales",
+  "Usar datos zero-party en lugar de cookies",
+  "Comparar precios en webs y apps de terceros"], c:0,
+  e:"Comercio social = la transacción sucede <b>dentro de la red</b> sin salir de ella (TikTok Shop, IG Shopping, lives)."},
+
+{t:"T1", q:"La tendencia \"privacy-first\" se caracteriza sobre todo por…", o:[
+  "Fin de las cookies de terceros y datos zero-party",
+  "La compra integrada y nativa dentro de las redes",
+  "El uso de IA para personalizar contenido a escala",
+  "Evitar la fatiga digital y el exceso de pantallas"], c:0,
+  e:"Privacy-first: desaparecen las cookies de terceros y crece el dato <b>zero-party</b> (el que el usuario cede voluntariamente: encuestas, newsletters opt-in)."},
+
+{t:"T1", q:"En el mensaje persuasivo, el \"logos\" apela a…", o:[
+  "Argumentos racionales, datos y beneficios",
+  "La conexión emocional y los valores",
+  "La credibilidad y autoridad del emisor",
+  "La urgencia y el miedo a perderse algo"], c:0,
+  e:"Logos = <b>razón</b> (datos, cifras, comparativas). Pathos = emoción; ethos = credibilidad del emisor."},
+
+{t:"T1", q:"¿Qué dimensión persuasiva representan las reseñas verificadas, los sellos y los expertos?", o:[
+  "Ethos (credibilidad del emisor)",
+  "Pathos (conexión emocional)",
+  "Logos (argumentos racionales)",
+  "Kairos (oportunidad del momento)"], c:0,
+  e:"El <b>ethos</b> es la credibilidad y autoridad de quien emite: reseñas verificadas, expertos, sellos, influencers de confianza."},
+
+{t:"T1", q:"En la planificación del mensaje, ¿qué se define primero?", o:[
+  "El mensaje, y solo después el canal",
+  "El canal, y luego se adapta el mensaje",
+  "El presupuesto antes que el objetivo",
+  "Los KPIs antes que el público objetivo"], c:0,
+  e:"Regla del temario: <b>primero el mensaje, después el canal</b>. Nunca al revés."},
+
+{t:"T1", q:"\"Volvo = seguridad\" es un ejemplo clásico de qué elemento del mensaje de marca?", o:[
+  "Posicionamiento",
+  "Propuesta de valor",
+  "Key message",
+  "Storytelling"], c:0,
+  e:"El <b>posicionamiento</b> (Ries & Trout) es el lugar mental que ocupa la marca frente a la competencia: Volvo ocupa \"seguridad\"."},
+
+{t:"T1", q:"¿Qué describe mejor la \"propuesta de valor\"?", o:[
+  "El beneficio diferencial y el problema que resuelve",
+  "La narrativa emocional que envuelve al producto",
+  "El lugar que ocupa la marca en la mente del cliente",
+  "La personalidad de la marca al comunicarse hoy"], c:0,
+  e:"La propuesta de valor responde <b>para quién, qué problema resuelve y por qué tú</b> (p. ej. \"tu restaurante en 30 min\")."},
+
+{t:"T1", q:"El \"storytelling\" en el mensaje de marca sirve para…", o:[
+  "Dar sentido emocional a un mensaje racional",
+  "Ocupar un lugar mental frente a rivales",
+  "Fijar el tono y el estilo de la marca",
+  "Definir el precio percibido del producto"], c:0,
+  e:"El storytelling es la <b>narrativa</b> que aporta sentido emocional al argumento racional (el anuncio de la Lotería de Navidad es el ejemplo típico)."},
+
+/* ---------------- TEMA 2 · POEM ---------------- */
+{t:"T2", q:"¿Qué significan las siglas del modelo POEM?", o:[
+  "Paid, Owned, Earned Media",
+  "Public, Online, External Marketing",
+  "Promotion, Owned, Editorial Media",
+  "Paid, Organic, Earned Marketing"], c:0,
+  e:"POEM = <b>Paid + Owned + Earned Media</b>: clasifica toda acción digital según quién controla el canal."},
+
+{t:"T2", q:"¿Quién propuso el modelo POEM y desde qué consultora?", o:[
+  "Sean Corcoran, en Forrester (2009)",
+  "Gini Dietrich, en Spin Sucks (2014)",
+  "Philip Kotler, en Kellogg (2010)",
+  "Robert Lauterborn, en la AMA (1990)"], c:0,
+  e:"El POEM lo formuló <b>Sean Corcoran (Forrester, 2009)</b>. Gini Dietrich es quien luego añadió el \"Shared\" del modelo PESO."},
+
+{t:"T2", q:"Tu web, tu blog y tus perfiles propios en redes pertenecen a…", o:[
+  "Owned media (propio)",
+  "Earned media (ganado)",
+  "Paid media (pagado)",
+  "Shared media (compartido)"], c:0,
+  e:"<b>Owned</b> = lo que controlas sin pagar: web, blog, app, newsletter y tus propios perfiles."},
+
+{t:"T2", q:"Las reseñas espontáneas, el UGC y las menciones orgánicas son…", o:[
+  "Earned media (ganado)",
+  "Owned media (propio)",
+  "Paid media (pagado)",
+  "Boosted media (amplificado)"], c:0,
+  e:"<b>Earned</b> = lo que terceros dicen de ti sin pagar: reseñas, UGC, PR editorial, hashtags virales. Su fuerte es la credibilidad."},
+
+{t:"T2", q:"En el examen, un influencer con contrato de pago se clasifica como…", o:[
+  "Paid media",
+  "Earned media",
+  "Owned media",
+  "Shared media"], c:0,
+  e:"Aunque un influencer puede generar las tres cosas, el <b>acuerdo de pago lo convierte en Paid</b>. Esa es la respuesta de examen."},
+
+{t:"T2", q:"De los tres tipos de POEM, ¿cuál ofrece mayor credibilidad?", o:[
+  "Earned, porque actúa como prueba social",
+  "Paid, porque llega a más gente",
+  "Owned, porque lo controlas tú",
+  "Shared, porque lo difunden tus pares"], c:0,
+  e:"El <b>Earned</b> es el de mayor credibilidad: viene de terceros (social proof). A cambio, no lo controlas."},
+
+{t:"T2", q:"\"Si dejas de pagar, desapareces\" describe la principal debilidad de…", o:[
+  "Paid media",
+  "Owned media",
+  "Earned media",
+  "Shared media"], c:0,
+  e:"El <b>Paid</b> es rápido y escalable, pero en cuanto cortas la inversión deja de llegar a la gente."},
+
+{t:"T2", q:"¿Qué KPIs son propios del Earned media?", o:[
+  "Menciones, Share of Voice y sentimiento",
+  "Visitas, suscriptores y conversión",
+  "CPM, CPC, CTR y ROAS",
+  "Frecuencia, alcance y CPA"], c:0,
+  e:"El Earned se mide por <b>menciones, Share of Voice y sentimiento</b>. CPM/CPC/ROAS son de Paid; visitas/suscriptores de Owned."},
+
+{t:"T2", q:"Una comunidad de profesionales que comparten conocimiento es una comunidad…", o:[
+  "De práctica (LinkedIn, Stack Overflow)",
+  "De interés (Reddit, Discord)",
+  "De marca (Harley Owners, Sephora)",
+  "Geográfica (NextDoor, grupos de barrio)"], c:0,
+  e:"Las comunidades <b>de práctica</b> giran en torno al conocimiento profesional (LinkedIn, Stack Overflow)."},
+
+{t:"T2", q:"El modelo PESO añade al POEM una cuarta categoría. ¿Cuál?", o:[
+  "Shared media (difusión entre pares)",
+  "Promoted media (contenido patrocinado)",
+  "Editorial media (prensa pagada)",
+  "Personal media (perfiles del equipo)"], c:0,
+  e:"El <b>PESO</b> (Gini Dietrich, 2014) suma <b>Shared</b>: la redifusión entre pares (RTs, reposts, duets). PESO = POEM + Shared."},
+
+{t:"T2", q:"En la sinergia del POEM, ¿cuál es el circuito correcto?", o:[
+  "El Paid atrae tráfico al Owned, que genera Earned",
+  "El Earned compra espacio para el Owned",
+  "El Owned paga al Earned para que sea Paid",
+  "El Paid sustituye al Owned cuando hay crisis"], c:0,
+  e:"Circuito: <b>Paid</b> atrae → llega a <b>Owned</b> → buena experiencia → genera <b>Earned</b> → trae público nuevo, y vuelve a empezar."},
+
+{t:"T2", q:"¿Qué ventaja distingue al Owned media frente a los otros dos?", o:[
+  "Control total y datos de primera parte",
+  "La máxima credibilidad ante el público",
+  "El alcance más rápido y escalable",
+  "La difusión gratuita entre pares"], c:0,
+  e:"El <b>Owned</b> da control total del canal y <b>datos 1st-party</b>; su límite es que solo llega a quien ya te conoce."},
+
+/* ---------------- TEMA 3 · RRSS y consumidor ---------------- */
+{t:"T3", q:"El momento en que el usuario decide influido por la red antes de pisar la tienda se llama…", o:[
+  "ZMOT (Zero Moment of Truth)",
+  "FMOT (First Moment of Truth)",
+  "FOMO (Fear of Missing Out)",
+  "POEM (Paid, Owned, Earned)"], c:0,
+  e:"El <b>ZMOT</b> (Zero Moment of Truth) es la decisión que se forma online, antes de llegar al producto físico."},
+
+{t:"T3", q:"\"Solo quedan 3 unidades\" o \"todo el mundo lo tiene\" activan el efecto…", o:[
+  "FOMO (miedo a perderse algo)",
+  "Prueba social (validación)",
+  "Familiaridad afectiva (repetición)",
+  "Disonancia cognitiva (incomodidad)"], c:0,
+  e:"El <b>FOMO</b> (Fear of Missing Out) genera urgencia: el miedo a quedarse fuera empuja a actuar rápido."},
+
+{t:"T3", q:"Muchos likes y comentarios hacen que el cerebro lea el contenido como señal de calidad. Eso es…", o:[
+  "Prueba social",
+  "FOMO",
+  "ZMOT",
+  "Storytelling"], c:0,
+  e:"La <b>prueba social</b>: si muchos lo aprueban, lo interpretamos como bueno. Es uno de los tres efectos clave de las RRSS."},
+
+{t:"T3", q:"¿Qué red es la prioritaria para llegar a decisores B2B?", o:[
+  "LinkedIn",
+  "TikTok",
+  "Instagram",
+  "Facebook"], c:0,
+  e:"<b>LinkedIn</b> reúne a profesionales y decisores B2B (software, consultoría, RRHH); su formato son posts expertos y webinars."},
+
+{t:"T3", q:"El público predominante de TikTok según el temario es…", o:[
+  "Gen Z y millennials jóvenes (13-30)",
+  "Profesionales y decisores de 25-55",
+  "Familias y mayores de 35-65+",
+  "Líderes de opinión de 25-45"], c:0,
+  e:"TikTok concentra a la <b>Gen Z / millennial (13-30)</b> con vídeo vertical; ideal para marcas jóvenes y FMCG."},
+
+{t:"T3", q:"Según el dato del IAB 2024 citado, ¿cuál es la red más usada en España?", o:[
+  "WhatsApp (87%)",
+  "Instagram (71%)",
+  "YouTube (85%)",
+  "TikTok (53%)"], c:0,
+  e:"En España (IAB 2024) lidera <b>WhatsApp (87%)</b>, seguida de YouTube (85%) e Instagram (71%)."},
+
+{t:"T3", q:"En el contenido orgánico, ¿qué limita principalmente el alcance?", o:[
+  "El algoritmo de la plataforma",
+  "El presupuesto de medios disponible",
+  "El número de hashtags utilizados",
+  "La hora exacta de publicación"], c:0,
+  e:"El orgánico depende del <b>algoritmo</b> (IG suele mostrar <5-10%, FB ~2%); el pagado, en cambio, es predecible y escalable."},
+
+{t:"T3", q:"¿Qué pasos componen el modelo clásico AIDA?", o:[
+  "Atención, Interés, Deseo, Acción",
+  "Aware, Appeal, Ask, Act",
+  "Alcance, Interacción, Decisión, Adhesión",
+  "Atraer, Implicar, Decidir, Avalar"], c:0,
+  e:"<b>AIDA</b> = Atención → Interés → Deseo → Acción. Es lineal y pre-digital; las 5As lo actualizan."},
+
+{t:"T3", q:"En las 5As de Kotler, ¿cuál es la quinta fase que recoge la era digital?", o:[
+  "Advocate (recomendar)",
+  "Act (comprar)",
+  "Appeal (atraer)",
+  "Ask (investigar)"], c:0,
+  e:"Las 5As son Aware → Appeal → Ask → Act → <b>Advocate</b>. El cliente embajador recomienda y genera Earned natural."},
+
+{t:"T3", q:"Convertir un post orgánico de TikTok en anuncio manteniendo sus likes y comentarios se hace con…", o:[
+  "Spark Ads",
+  "Lookalike audience",
+  "Retargeting",
+  "Custom audience"], c:0,
+  e:"Los <b>Spark Ads</b> (TikTok) amplifican un post orgánico como anuncio sin perder las interacciones que ya tenía."},
+
+{t:"T3", q:"En el targeting de Meta, los \"gemelos estadísticos\" de tus mejores clientes son la audiencia…", o:[
+  "Lookalike",
+  "Core",
+  "Custom",
+  "Retargeting"], c:0,
+  e:"La audiencia <b>Lookalike</b> busca usuarios parecidos a tus mejores clientes para escalar la captación."},
+
+{t:"T3", q:"Mostrar anuncios a quienes ya visitaron tu web o dejaron el carrito es…", o:[
+  "Retargeting",
+  "Core audience",
+  "Lookalike audience",
+  "Prospección en frío"], c:0,
+  e:"El <b>retargeting</b> reimpacta a quienes ya interactuaron (visita, carrito) para recuperarlos."},
+
+{t:"T3", q:"Una \"custom audience\" en publicidad se construye a partir de…", o:[
+  "Tu propia base de datos de clientes",
+  "Intereses y demografía en frío",
+  "Gemelos estadísticos de tus clientes",
+  "Quienes abandonaron el carrito"], c:0,
+  e:"La <b>custom audience</b> se carga desde tu BBDD (emails/teléfonos) para impactar a clientes actuales."},
+
+/* ---------------- TEMA 4 · Métricas y analítica ---------------- */
+{t:"T4", q:"¿Qué significan las siglas de un objetivo SMART?", o:[
+  "Específico, Medible, Alcanzable, Relevante, con Plazo",
+  "Social, Móvil, Analítico, Rápido, Targetizado",
+  "Estratégico, Medible, Ambicioso, Realista, Trazable",
+  "Simple, Medible, Adaptable, Rentable, Temporal"], c:0,
+  e:"SMART = <b>Specific, Measurable, Achievable, Relevant, Time-bound</b> (específico, medible, alcanzable, relevante y con plazo)."},
+
+{t:"T4", q:"¿Cuál es la diferencia entre una métrica y un KPI?", o:[
+  "El KPI es la métrica que responde a tu objetivo",
+  "El KPI siempre es un número absoluto, la métrica un %",
+  "La métrica mide ventas; el KPI mide alcance",
+  "Son sinónimos: cualquier dato medible es un KPI"], c:0,
+  e:"Toda métrica es medible, pero el <b>KPI</b> es la que responde directamente a tu objetivo. No todo lo medible importa."},
+
+{t:"T4", q:"¿Qué mide el \"alcance\" (reach) frente a las \"impresiones\"?", o:[
+  "Usuarios únicos que vieron el contenido",
+  "El total de veces que se mostró",
+  "El coste por cada mil visualizaciones",
+  "El número medio de veces que lo ve cada uno"], c:0,
+  e:"El <b>alcance</b> son personas <b>únicas</b>; las impresiones son las veces totales (una persona puede sumar varias)."},
+
+{t:"T4", q:"Con 2.000 impresiones y un alcance de 1.000 personas, la frecuencia es…", o:[
+  "2",
+  "0,5",
+  "20",
+  "1.000"], c:0,
+  e:"Frecuencia = Impresiones ÷ Alcance = <b>2.000 ÷ 1.000 = 2</b> (cada persona lo vio de media 2 veces)."},
+
+{t:"T4", q:"Si inviertes 20 € y logras 10.000 impresiones, ¿cuál es el CPM?", o:[
+  "2 €",
+  "0,2 €",
+  "20 €",
+  "5 €"], c:0,
+  e:"CPM = coste por mil impresiones = (20 € ÷ 10.000) × 1.000 = <b>2 €</b>."},
+
+{t:"T4", q:"¿Cuál es la fórmula del CTR (Click-Through Rate)?", o:[
+  "(Clics ÷ Impresiones) × 100",
+  "(Conversiones ÷ Visitas) × 100",
+  "(Ingresos ÷ Gasto en ads)",
+  "(Interacciones ÷ Alcance) × 100"], c:0,
+  e:"CTR = <b>(Clics ÷ Impresiones) × 100</b>. P. ej. 100 clics sobre 10.000 impresiones = 1%."},
+
+{t:"T4", q:"Con 50 compras sobre 1.000 visitas a la web, la tasa de conversión (CR) es…", o:[
+  "5%",
+  "0,5%",
+  "20%",
+  "50%"], c:0,
+  e:"CR = (Conversiones ÷ Visitas) × 100 = (50 ÷ 1.000) × 100 = <b>5%</b>."},
+
+{t:"T4", q:"Gastas 1.000 € y consigues 50 clientes nuevos. ¿Cuál es el CAC?", o:[
+  "20 € por cliente",
+  "50 € por cliente",
+  "2 € por cliente",
+  "1.050 € por cliente"], c:0,
+  e:"CAC = Gasto total ÷ Clientes nuevos = 1.000 € ÷ 50 = <b>20 € por cliente</b>."},
+
+{t:"T4", q:"Una campaña ingresa 2.000 € con un gasto en ads de 500 €. ¿Cuál es el ROAS?", o:[
+  "4× (por cada euro, cuatro)",
+  "0,25× (pierde dinero)",
+  "1.500× de retorno",
+  "40% de retorno"], c:0,
+  e:"ROAS = Ingresos ÷ Gasto = 2.000 ÷ 500 = <b>4×</b>. Un ROAS ≥ 4× se considera bueno."},
+
+{t:"T4", q:"¿Qué mide el CLV (o LTV) de un cliente?", o:[
+  "El dinero que aporta durante toda su relación",
+  "El coste de captarlo por primera vez",
+  "El porcentaje de clientes que se marchan",
+  "Su disposición a recomendar la marca"], c:0,
+  e:"El <b>CLV/LTV</b> es el valor total que deja un cliente en toda su vida con la marca (recompra × ticket × tiempo)."},
+
+{t:"T4", q:"Si en enero tienes 200 clientes y en febrero quedan 180, el churn es…", o:[
+  "10%",
+  "20%",
+  "90%",
+  "2%"], c:0,
+  e:"Churn = clientes perdidos ÷ iniciales = 20 ÷ 200 = <b>10%</b> de fuga en el periodo."},
+
+{t:"T4", q:"La regla de oro de rentabilidad que relaciona valor y captación dice que…", o:[
+  "El CLV debe ser mayor que 3 veces el CAC",
+  "El ROAS debe ser igual al CPM",
+  "El churn no debe superar al engagement",
+  "El CAC debe ser mayor que el CLV"], c:0,
+  e:"Regla de oro: <b>CLV > 3× CAC</b>. Si captar cuesta 30 €, el cliente debe dejar ≥ 90 € para que el negocio escale."},
+
+{t:"T4", q:"¿Cuál es la fórmula del engagement rate en redes sociales?", o:[
+  "(Interacciones ÷ Alcance) × 100",
+  "(Clics ÷ Impresiones) × 100",
+  "(Guardados ÷ Impresiones) × 100",
+  "(Conversiones ÷ Visitas) × 100"], c:0,
+  e:"Engagement rate = <b>(Interacciones ÷ Alcance) × 100</b>. En IG un 3-6% se considera bueno."},
+
+{t:"T4", q:"Para un objetivo de awareness (que conozcan un lanzamiento), los KPIs adecuados son…", o:[
+  "Alcance, impresiones, CPM y frecuencia",
+  "CR, CPA, ROAS y conversión total",
+  "CLV, churn, NPS y recompra",
+  "Engagement rate, save y share rate"], c:0,
+  e:"En la fase de <b>awareness</b> se mide difusión: alcance, impresiones, CPM y frecuencia. Usar KPIs de conversión aquí es el error clásico."},
+
+{t:"T4", q:"\"Vender más en e-commerce\" se mide sobre todo con…", o:[
+  "CR, CPA y ROAS",
+  "Alcance, impresiones y CPM",
+  "Share of Voice y menciones",
+  "Save rate y completion rate"], c:0,
+  e:"La fase de <b>conversión</b> usa CR, CPA y ROAS (más ticket medio): mide ventas y rentabilidad, no difusión."},
+
+{t:"T4", q:"En GA4, ¿qué modelo de atribución es el recomendado actualmente?", o:[
+  "Data-driven (lo calcula la IA)",
+  "Last click (todo al último clic)",
+  "First click (todo al primer contacto)",
+  "Lineal (reparto igual entre canales)"], c:0,
+  e:"El recomendado hoy es el <b>data-driven</b>: GA4 calcula con IA qué canal contribuyó de verdad. El last click es el más simple pero injusto con el awareness."},
+
+{t:"T4", q:"El \"save rate\" se considera, según los apuntes, la métrica…", o:[
+  "De calidad más honesta del contenido",
+  "Que mide la rentabilidad de la inversión",
+  "De viralidad orgánica más pura",
+  "Que indica el coste por adquisición"], c:0,
+  e:"El <b>save rate</b> (guardados ÷ impresiones) revela contenido de referencia: es la señal de calidad más honesta porque guardar exige valor real."},
+
+/* ---------------- TEMA 5 · Campaña y calendario ---------------- */
+{t:"T5", q:"¿Qué define el calendario editorial?", o:[
+  "Qué publicas, en qué canal, cuándo y con qué objetivo",
+  "El presupuesto total destinado a publicidad pagada",
+  "El público objetivo y su segmentación demográfica",
+  "Los KPIs de rentabilidad de cada campaña pagada"], c:0,
+  e:"El calendario editorial es el documento maestro: dice <b>qué publicas, dónde, cuándo y con qué objetivo</b>, planificado con antelación."},
+
+{t:"T5", q:"Los \"pilares de contenido\" de un plan orgánico son…", o:[
+  "3-5 ejes temáticos que rotan para dar coherencia",
+  "Los niveles de medición diaria, semanal y mensual",
+  "Las fases del funnel de marketing digital",
+  "Los formatos disponibles en cada plataforma"], c:0,
+  e:"Los <b>pilares</b> son 3-5 ejes (producto, educativo, cultura, comunidad…) que rotan para combinar coherencia y variedad."},
+
+{t:"T5", q:"¿Qué significan las fases del ciclo PDCA de Deming?", o:[
+  "Plan, Do, Check, Act",
+  "Plan, Diseño, Coste, Análisis",
+  "Publicar, Difundir, Calcular, Ajustar",
+  "Prever, Decidir, Comprobar, Aplicar"], c:0,
+  e:"PDCA = <b>Plan → Do → Check → Act</b> (planificar, ejecutar, medir, ajustar). El plan de social media es un ciclo vivo."},
+
+{t:"T5", q:"Los tres niveles de monitorización de un plan orgánico son…", o:[
+  "Daily check, weekly review y monthly report",
+  "Awareness, consideración, conversión y lealtad",
+  "Paid, owned, earned y shared media",
+  "Plan, do, check y act continuo"], c:0,
+  e:"Se mide en tres ritmos: <b>daily check</b> (reactivo), <b>weekly review</b> (táctico) y <b>monthly report</b> (estratégico)."},
+
+{t:"T5", q:"Los likes y los seguidores, cuando no guían decisiones, se consideran…", o:[
+  "Vanity metrics (métricas de vanidad)",
+  "KPIs de conversión y rendimiento",
+  "Métricas de atribución multicanal",
+  "Indicadores clave de fidelización"], c:0,
+  e:"Likes y seguidores sueltos son <b>vanity metrics</b>: lucen mucho pero no dicen si el negocio mejora. Monitorizar es escuchar, no contar seguidores."},
+
+{t:"T5", q:"Según los apuntes, ¿qué formato sirve sobre todo para educar paso a paso y ganar guardados?", o:[
+  "El carrusel",
+  "El Reel",
+  "La story",
+  "El live"], c:0,
+  e:"Cada formato tiene su misión: <b>carrusel = educar</b>; Reel = alcance; story = conexión diaria; live = comunidad y confianza."},
+
+{t:"T5", q:"¿Cuál es la jerarquía correcta de una campaña pagada (estructura Meta)?", o:[
+  "Campaña → Conjunto de anuncios → Anuncio",
+  "Anuncio → Campaña → Conjunto de anuncios",
+  "Conjunto de anuncios → Campaña → Anuncio",
+  "Campaña → Anuncio → Audiencia → Presupuesto"], c:0,
+  e:"Estructura: <b>Campaña</b> (objetivo) → <b>Conjunto de anuncios</b> (segmentación, presupuesto, ubicaciones) → <b>Anuncio</b> (creatividad y copy)."},
+
+{t:"T5", q:"¿Qué distingue al branding orgánico del performance?", o:[
+  "Construye reputación y preferencia a largo plazo",
+  "Persigue leads y conversiones a corto plazo",
+  "Solo se mide con CR, CPA, ROAS y ticket",
+  "Se basa en pujas y subastas de anuncios pagados"], c:0,
+  e:"El <b>branding orgánico</b> construye memoria, confianza y preferencia a largo plazo; el <b>performance</b> persigue resultados medibles a corto-medio."},
+
+{t:"T5", q:"En el informe mensual, ¿qué contiene el \"resumen ejecutivo\"?", o:[
+  "Tres hallazgos y tres recomendaciones clave",
+  "El detalle de todas las publicaciones del mes",
+  "La demografía completa de la audiencia ganada",
+  "El cálculo del ROAS de cada anuncio pagado"], c:0,
+  e:"El <b>resumen ejecutivo</b> condensa el reporte en 3 hallazgos clave + 3 recomendaciones, pensado para la dirección."},
+
+{t:"T5", q:"¿Cuál de estas es una herramienta de gestión/medición de redes citada en los apuntes?", o:[
+  "Metricool",
+  "Photoshop",
+  "Mailchimp",
+  "Salesforce"], c:0,
+  e:"Herramientas del plan orgánico: <b>Hootsuite, Metricool, Buffer, Later y Meta Business Suite</b>."},
+
+{t:"T5", q:"La \"brand bible\" de un plan orgánico recoge…", o:[
+  "Voz, tono, colores y los do's & don'ts de la marca",
+  "El calendario de publicaciones del trimestre",
+  "Las audiencias lookalike y de retargeting pagado",
+  "El cálculo del CLV y del churn cada mes"], c:0,
+  e:"La <b>brand bible</b> fija la identidad operativa: voz, tono, colores y normas de qué sí y qué no, para que todo sea coherente."},
+
+{t:"T5", q:"Tener posts \"de fondo\" siempre disponibles como plan B se llama contenido…", o:[
+  "Evergreen",
+  "Patrocinado",
+  "Generado por el usuario",
+  "Efímero"], c:0,
+  e:"El contenido <b>evergreen</b> no caduca y sirve de reserva cuando no hay publicación programada lista."},
+
+{t:"T5", q:"¿Cuál es la frecuencia de publicación recomendada para Instagram?", o:[
+  "3-5 posts/sem y 5-7 stories/día",
+  "2-3 vídeos verticales cada día",
+  "1 vídeo largo a la semana fijo",
+  "3-10 tweets diarios con enlaces"], c:0,
+  e:"En IG, la pauta de partida es <b>3-5 posts/semana + 5-7 stories al día</b>; el dato real lo dará tu propio dashboard."}
+];
+
+/* ===================== ESTADO Y LÓGICA ===================== */
+const TEMAS = {
+  T1:{nom:"T1 · Marketing Mix", color:"var(--t1)"},
+  T2:{nom:"T2 · POEM",          color:"var(--t2)"},
+  T3:{nom:"T3 · RRSS",          color:"var(--t3)"},
+  T4:{nom:"T4 · Métricas",      color:"var(--t4)"},
+  T5:{nom:"T5 · Campaña",       color:"var(--t5)"}
+};
+
+let selTemas = new Set(["todo"]);
+let selCount = 20;
+let game = null; // {questions:[], idx, score, answers:[]}
+
+const $ = s => document.querySelector(s);
+const shuffle = a => { for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+
+$("#poolCount").textContent = BANK.length;
+$("#fPool").textContent = BANK.length;
+
+/* ---- selección de temas ---- */
+$("#temaChips").addEventListener("click", e => {
+  const c = e.target.closest(".chip"); if(!c) return;
+  const t = c.dataset.tema;
+  if(t === "todo"){ selTemas = new Set(["todo"]); }
+  else{
+    selTemas.delete("todo");
+    if(selTemas.has(t)) selTemas.delete(t); else selTemas.add(t);
+    if(selTemas.size === 0) selTemas = new Set(["todo"]);
+  }
+  document.querySelectorAll("#temaChips .chip").forEach(ch=>{
+    ch.setAttribute("aria-pressed", selTemas.has(ch.dataset.tema) ? "true":"false");
+  });
+});
+
+/* ---- selección de nº preguntas ---- */
+$("#countSeg").addEventListener("click", e => {
+  const b = e.target.closest("button"); if(!b) return;
+  selCount = parseInt(b.dataset.n, 10);
+  document.querySelectorAll("#countSeg button").forEach(x=>x.setAttribute("aria-pressed", x===b?"true":"false"));
+});
+
+/* ---- empezar ---- */
+$("#startBtn").addEventListener("click", startGame);
+$("#againBtn").addEventListener("click", () => { showScreen("start"); });
+$("#quitBtn").addEventListener("click", () => { if(confirm("¿Salir del test? Perderás el progreso.")) showScreen("start"); });
+
+function pool(){
+  return selTemas.has("todo") ? BANK.slice() : BANK.filter(q => selTemas.has(q.t));
+}
+
+function startGame(){
+  let p = shuffle(pool());
+  if(selCount > 0) p = p.slice(0, selCount);
+  const questions = p.map(q => {
+    const opts = q.o.map((text,i)=>({text, correct:i===q.c}));
+    shuffle(opts);
+    return { t:q.t, q:q.q, e:q.e, opts, correctIdx:opts.findIndex(o=>o.correct) };
+  });
+  game = { questions, idx:0, score:0, answers:[] };
+  showScreen("quiz");
+  renderQuestion();
+}
+
+function showScreen(name){
+  $("#start").classList.toggle("hidden", name!=="start");
+  $("#quiz").classList.toggle("hidden", name!=="quiz");
+  $("#results").classList.toggle("hidden", name!=="results");
+  window.scrollTo({top:0});
+}
+
+function renderQuestion(){
+  const g = game, q = g.questions[g.idx];
+  const total = g.questions.length;
+  $("#qProgress").textContent = `${g.idx+1} / ${total}`;
+  $("#qScore").textContent = `${g.score} ✓`;
+  $("#qBar").style.width = `${(g.idx/total)*100}%`;
+
+  const color = TEMAS[q.t].color;
+  const keys = ["A","B","C","D"];
+  const optsHTML = q.opts.map((o,i)=>`
+    <button class="opt" data-i="${i}">
+      <span class="key">${keys[i]}</span>
+      <span class="txt">${o.text}</span>
+      <span class="mark"></span>
+    </button>`).join("");
+
+  $("#qcard").innerHTML = `
+    <span class="qtema"><span class="dot" style="background:${color}"></span>${TEMAS[q.t].nom}</span>
+    <div class="qtext">${q.q}</div>
+    <div class="options" id="options">${optsHTML}</div>
+    <div class="explain" id="explain"></div>
+    <div class="qfoot">
+      <span class="hint" id="hint">Pulsa 1-4 o haz clic</span>
+      <button class="btn btn-next" id="nextBtn" disabled>${g.idx===total-1?"Ver resultados":"Siguiente"} →</button>
+    </div>`;
+
+  $("#options").addEventListener("click", e=>{
+    const b = e.target.closest(".opt"); if(b) answer(parseInt(b.dataset.i,10));
+  });
+  $("#nextBtn").addEventListener("click", nextQuestion);
+}
+
+function answer(i){
+  const g = game, q = g.questions[g.idx];
+  if(q.answered !== undefined) return;
+  q.answered = i;
+  const correct = i === q.correctIdx;
+  if(correct) g.score++;
+  g.answers.push({ q:q.q, t:q.t, chosen:q.opts[i].text, correct:q.opts[q.correctIdx].text, ok:correct });
+
+  document.querySelectorAll(".opt").forEach((b,idx)=>{
+    b.disabled = true;
+    if(idx === q.correctIdx){ b.classList.add("correct"); b.querySelector(".mark").textContent="✓"; }
+    else if(idx === i){ b.classList.add("wrong"); b.querySelector(".mark").textContent="✗"; }
+    else b.classList.add("dim");
+  });
+
+  const ex = $("#explain");
+  ex.className = "explain show " + (correct?"good":"bad");
+  ex.innerHTML = `<span class="lead">${correct?"✓ Correcto":"✗ Incorrecto"}</span>${q.e}`;
+
+  $("#qScore").textContent = `${g.score} ✓`;
+  $("#hint").textContent = correct ? "¡Bien! Pulsa Enter para seguir" : "Lee la explicación · Enter para seguir";
+  const nb = $("#nextBtn"); nb.disabled = false; nb.focus();
+}
+
+function nextQuestion(){
+  if(game.idx < game.questions.length-1){ game.idx++; renderQuestion(); }
+  else showResults();
+}
+
+/* ---- teclado ---- */
+document.addEventListener("keydown", e=>{
+  if($("#quiz").classList.contains("hidden")) return;
+  const q = game.questions[game.idx];
+  if(["1","2","3","4"].includes(e.key)){
+    const i = parseInt(e.key,10)-1;
+    if(i < q.opts.length && q.answered===undefined) answer(i);
+  } else if(e.key==="Enter"){
+    const nb = $("#nextBtn"); if(nb && !nb.disabled) nextQuestion();
+  }
+});
+
+/* ===================== RESULTADOS ===================== */
+function showResults(){
+  const g = game, total = g.questions.length, pct = Math.round((g.score/total)*100);
+  $("#qBar").style.width = "100%";
+  showScreen("results");
+
+  const circ = 2*Math.PI*68;
+  const arc = $("#donutArc");
+  arc.style.strokeDasharray = circ;
+  arc.style.transition = "none"; arc.style.strokeDashoffset = circ;
+  arc.style.stroke = pct>=70 ? "var(--ok)" : pct>=50 ? "var(--accent)" : "var(--no)";
+  requestAnimationFrame(()=>{ requestAnimationFrame(()=>{
+    arc.style.transition = "stroke-dashoffset 1s cubic-bezier(.4,0,.2,1)";
+    arc.style.strokeDashoffset = circ*(1-pct/100);
+  });});
+  $("#rPct").textContent = pct+"%";
+  $("#rRatio").textContent = `${g.score} / ${total}`;
+
+  let verdict, sub;
+  if(pct>=90){ verdict="¡Dominas el temario!"; sub="Nivel de sobresaliente. Llegas listísima al examen."; }
+  else if(pct>=70){ verdict="Vas muy bien"; sub="Aprobado holgado. Pule los fallos de abajo y a por el 10."; }
+  else if(pct>=50){ verdict="Casi lo tienes"; sub="Rozas el aprobado. Repasa los temas más flojos y repite."; }
+  else { verdict="Toca repasar"; sub="Vuelve a los apuntes T1–T5 y haz otra ronda: se nota enseguida."; }
+  $("#rVerdict").textContent = verdict;
+  $("#rVerdictSub").textContent = sub;
+
+  const byTema = {};
+  g.questions.forEach((q,i)=>{
+    const a = g.answers[i];
+    byTema[q.t] = byTema[q.t] || {ok:0,tot:0};
+    byTema[q.t].tot++; if(a && a.ok) byTema[q.t].ok++;
+  });
+  $("#rByTema").innerHTML = Object.keys(TEMAS).filter(t=>byTema[t]).map(t=>{
+    const d = byTema[t], p = Math.round((d.ok/d.tot)*100), col = TEMAS[t].color;
+    return `<div class="trow">
+      <span class="tlabel"><span class="dot" style="background:${col}"></span>${TEMAS[t].nom}</span>
+      <span class="tbar"><i style="width:${p}%; background:${col}"></i></span>
+      <span class="tnum">${d.ok}/${d.tot}</span>
+    </div>`;
+  }).join("");
+
+  const fails = g.answers.filter(a=>!a.ok);
+  const rb = $("#reviewBlock");
+  if(fails.length===0){
+    rb.innerHTML = `<div class="section-label">Repaso</div><div class="ritem" style="text-align:center"><div class="rq" style="margin:0">🎉 Sin fallos. Pleno absoluto.</div></div>`;
+  } else {
+    $("#rReview").innerHTML = fails.map(a=>`
+      <div class="ritem">
+        <span class="rtag">${TEMAS[a.t].nom}</span>
+        <div class="rq">${a.q}</div>
+        <div class="rline ryour"><span class="ic">✗</span><span>Tu respuesta: ${a.chosen}</span></div>
+        <div class="rline rcorr"><span class="ic">✓</span><span>Correcta: ${a.correct}</span></div>
+      </div>`).join("");
+  }
+}
+
+$("#reviewToggle").addEventListener("click", ()=>{
+  const r = $("#rReview"), btn = $("#reviewToggle");
+  if(!r) return;
+  const hidden = r.classList.toggle("hidden");
+  btn.textContent = hidden ? "Mostrar repaso" : "Ocultar repaso";
+});
+</script>
+</body>
+</html>

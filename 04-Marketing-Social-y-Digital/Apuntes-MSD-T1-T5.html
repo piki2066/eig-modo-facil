@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Apuntes · Marketing Social y Digital · T1–T4</title>
+<style>
+  :root{
+    --accent:#db2777; --accent-dark:#be185d; --soft:#fdf2f8; --soft2:#fbd7e8;
+    --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb;
+    --paid:#b45309; --paid-bg:#fef3c7;
+    --owned:#1d4ed8; --owned-bg:#dbeafe;
+    --earned:#15803d; --earned-bg:#dcfce7;
+    --tip-bg:#ecfeff; --tip-bd:#06b6d4;
+    --warn-bg:#fff7ed; --warn-bd:#f97316;
+  }
+  *{box-sizing:border-box;}
+  @page{ size:A4; margin:13mm 12mm 14mm 12mm; }
+  body{
+    font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); font-size:10.6px; line-height:1.42; margin:0;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  /* ---------- PORTADA ---------- */
+  .cover{
+    height:250mm; display:flex; flex-direction:column; justify-content:center;
+    background:linear-gradient(135deg,#db2777 0%,#be185d 60%,#9d174d 100%);
+    color:#fff; border-radius:14px; padding:0 22mm; page-break-after:always;
+  }
+  .cover .kicker{ font-size:13px; letter-spacing:3px; text-transform:uppercase; opacity:.85; }
+  .cover h1{ font-size:40px; line-height:1.05; margin:10px 0 6px; font-weight:800; }
+  .cover .sub{ font-size:16px; opacity:.95; max-width:430px; }
+  .cover .meta{ margin-top:34px; font-size:12.5px; opacity:.92; }
+  .cover .meta b{ font-weight:700; }
+  .cover .chips{ margin-top:26px; display:flex; flex-wrap:wrap; gap:8px; }
+  .cover .chip{ background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35);
+    padding:6px 12px; border-radius:999px; font-size:12px; }
+  .cover .foot{ margin-top:auto; font-size:11px; opacity:.8; }
+
+  /* ---------- ESTRUCTURA ---------- */
+  .tema{ page-break-before:always; }
+  .tema-head{ display:flex; align-items:center; gap:12px; border-bottom:3px solid var(--accent);
+    padding-bottom:8px; margin:0 0 12px; }
+  .tema-num{ background:var(--accent); color:#fff; font-weight:800; font-size:17px;
+    width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
+  .tema-head h2{ font-size:19px; margin:0; color:var(--accent-dark); font-weight:800; }
+  .tema-head .tag{ margin-left:auto; font-size:10px; background:var(--soft); color:var(--accent-dark);
+    border:1px solid var(--soft2); padding:4px 9px; border-radius:999px; font-weight:700; white-space:nowrap; }
+  .frase{ background:var(--soft); border-left:4px solid var(--accent); padding:8px 12px;
+    border-radius:0 8px 8px 0; font-style:italic; margin:0 0 14px; color:#7a1547; }
+
+  h3{ font-size:13px; color:var(--accent-dark); margin:16px 0 6px; font-weight:800;
+    display:flex; align-items:center; gap:7px; }
+  h3 .n{ background:var(--soft2); color:var(--accent-dark); font-size:10px; font-weight:800;
+    width:18px; height:18px; border-radius:5px; display:inline-flex; align-items:center; justify-content:center; }
+  p{ margin:5px 0; }
+  .lead{ color:var(--muted); margin:2px 0 8px; }
+  b,strong{ color:#111827; }
+  .pink{ color:var(--accent-dark); font-weight:700; }
+
+  /* ---------- TABLAS ---------- */
+  table{ width:100%; border-collapse:collapse; margin:6px 0 10px; font-size:9.9px; }
+  th,td{ border:1px solid var(--line); padding:5px 7px; text-align:left; vertical-align:top; }
+  th{ background:var(--soft); color:var(--accent-dark); font-weight:700; }
+  tr:nth-child(even) td{ background:#fafafa; }
+  td .frm{ font-family:"SFMono-Regular",Menlo,Consolas,monospace; background:#f3f4f6;
+    padding:1px 5px; border-radius:4px; font-size:9.4px; }
+
+  /* ---------- CAJAS ---------- */
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:9px; margin:6px 0 10px; }
+  .grid3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px; margin:6px 0 10px; }
+  .card{ border:1px solid var(--line); border-radius:9px; padding:9px 11px; background:#fff; }
+  .card h4{ margin:0 0 5px; font-size:11.5px; }
+  .card ul{ margin:4px 0 0; padding-left:16px; }
+  .card li{ margin:2px 0; }
+
+  .poem{ border-radius:9px; padding:9px 11px; }
+  .poem h4{ margin:0 0 4px; font-size:12px; display:flex; align-items:center; gap:6px; }
+  .poem .badge{ width:20px; height:20px; border-radius:6px; color:#fff; font-weight:800;
+    display:inline-flex; align-items:center; justify-content:center; font-size:11px; }
+  .paid{ background:var(--paid-bg); border:1px solid #fcd34d; } .paid .badge{ background:var(--paid); }
+  .owned{ background:var(--owned-bg); border:1px solid #bfdbfe; } .owned .badge{ background:var(--owned); }
+  .earned{ background:var(--earned-bg); border:1px solid #bbf7d0; } .earned .badge{ background:var(--earned); }
+  .poem ul{ margin:4px 0 0; padding-left:15px; font-size:9.6px; }
+  .poem li{ margin:1.5px 0; }
+
+  .tip,.warn{ border-radius:8px; padding:7px 11px; margin:8px 0; font-size:10px; }
+  .tip{ background:var(--tip-bg); border-left:4px solid var(--tip-bd); }
+  .warn{ background:var(--warn-bg); border-left:4px solid var(--warn-bd); }
+  .tip b,.warn b{ color:#0e7490; } .warn b{ color:#c2410c; }
+
+  .pin{ background:var(--soft); border:1px dashed var(--accent); border-radius:8px;
+    padding:6px 11px; margin:8px 0; font-size:10px; }
+  .pin::before{ content:"📌 "; }
+
+  ul.clean{ margin:5px 0 9px; padding-left:17px; } ul.clean li{ margin:3px 0; }
+  .formula{ display:inline-block; font-family:"SFMono-Regular",Menlo,Consolas,monospace;
+    background:#111827; color:#fff; padding:2px 8px; border-radius:5px; font-size:9.6px; }
+  .steps{ counter-reset:s; padding-left:0; list-style:none; margin:6px 0 10px; }
+  .steps li{ counter-increment:s; position:relative; padding-left:26px; margin:4px 0; }
+  .steps li::before{ content:counter(s); position:absolute; left:0; top:0; background:var(--accent);
+    color:#fff; width:18px; height:18px; border-radius:50%; font-size:10px; font-weight:800;
+    display:flex; align-items:center; justify-content:center; }
+  .small{ font-size:9.3px; color:var(--muted); }
+  .two-col{ column-count:2; column-gap:14px; }
+</style>
+</head>
+<body>
+
+<!-- ===================== PORTADA ===================== -->
+<section class="cover">
+  <div class="kicker">Apuntes de repaso · examen 10-jun-2026</div>
+  <h1>Marketing<br>Social y Digital</h1>
+  <div class="sub">Temas 1 a 5 — versión limpia y visual de mis apuntes a mano, cruzados con el material del temario.</div>
+  <div class="meta">
+    <div><b>Asignatura:</b> Fundamentos del Marketing Social y Digital · 6 ECTS</div>
+    <div><b>Profesor:</b> Rayko Lorenzo</div>
+    <div><b>Examen:</b> prueba escrita (60%) — teoría + casos prácticos</div>
+  </div>
+  <div class="chips">
+    <span class="chip">T1 · Marketing Mix y mensaje</span>
+    <span class="chip">T2 · POEM ⚠️ clave</span>
+    <span class="chip">T3 · RRSS y consumidor</span>
+    <span class="chip">T4 · Métricas ⚠️ práctico</span>
+    <span class="chip">T5 · Campaña real y calendario</span>
+  </div>
+  <div class="foot">Alejandro Rodríguez Gallardo · 1º TSDMG</div>
+</section>
+
+<!-- ===================== TEMA 1 ===================== -->
+<section class="tema">
+  <div class="tema-head">
+    <div class="tema-num">1</div>
+    <h2>Evolución del Marketing Digital y Social</h2>
+    <span class="tag">Marketing Mix · Mensaje</span>
+  </div>
+  <p class="frase">El marketing ya no es un altavoz: es una <b>conversación constante entre marca y persona</b>, con datos, canales digitales y un mensaje coherente, ético y medible.</p>
+
+  <h3><span class="n">1</span>El Marketing Mix: 4P → 7P → 4C</h3>
+  <p class="lead">Conjunto de herramientas que la empresa combina para llegar a su mercado. Las <b>4P</b> las creó <b>Jerome McCarthy (1960)</b> y siguen siendo la base, también en digital.</p>
+  <table>
+    <tr><th style="width:22%">4P (visión empresa)</th><th style="width:38%">Qué incluye</th><th>Imagina una pizzería</th></tr>
+    <tr><td><b>Product</b> · Producto</td><td>Características, calidad, marca, packaging, ciclo de vida</td><td>Qué pizza haces</td></tr>
+    <tr><td><b>Price</b> · Precio</td><td>PVP, descuentos, financiación, estrategia de precios</td><td>Cuánto cobras</td></tr>
+    <tr><td><b>Place</b> · Distribución</td><td>Canales de venta, logística, cobertura geográfica</td><td>Local o solo delivery</td></tr>
+    <tr><td><b>Promotion</b> · Comunicación</td><td>Publicidad, RRPP, promociones, venta personal</td><td>Cómo la publicitas</td></tr>
+  </table>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>🛠️ 7P — para servicios <span class="small">(Booms &amp; Bitner, 1981)</span></h4>
+      <p class="small">4P + 3 variables cuando vendes un <b>servicio</b> (peluquería, banco, escuela):</p>
+      <ul>
+        <li><b>People</b> (Personas) — quién presta el servicio</li>
+        <li><b>Process</b> (Procesos) — cómo se entrega paso a paso</li>
+        <li><b>Physical evidence</b> (Evidencias físicas) — lo tangible que lo rodea (local, web, uniformes)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>👥 4C — el cliente en el centro <span class="small">(Lauterborn, 1990)</span></h4>
+      <ul>
+        <li><b>Product → Customer needs &amp; wants</b> (qué necesita, no qué fabrico)</li>
+        <li><b>Price → Cost to customer</b> (lo que le cuesta obtenerlo)</li>
+        <li><b>Place → Convenience</b> (qué fácil es comprarlo)</li>
+        <li><b>Promotion → Communication</b> (conversación, no monólogo)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3><span class="n">2</span>Lo digital atraviesa las 4P (no es una P aparte)</h3>
+  <table>
+    <tr><th style="width:18%">P clásica</th><th>Cómo la transforma lo digital</th></tr>
+    <tr><td><b>Product</b></td><td>Productos digitales (apps, SaaS), personalización, co-creación con la comunidad</td></tr>
+    <tr><td><b>Price</b></td><td>Pricing dinámico (vuelos, hoteles), modelo freemium, suscripciones, comparadores</td></tr>
+    <tr><td><b>Place</b></td><td>E-commerce, marketplaces (Amazon), venta directa D2C, delivery en horas</td></tr>
+    <tr><td><b>Promotion</b></td><td>SEM, SEO, social ads, influencers, content marketing, email, podcast</td></tr>
+  </table>
+  <div class="pin">Lo digital <b>no es la quinta P</b>: transforma las 4 existentes y añade la capa de conversación social.</div>
+
+  <h3><span class="n">3</span>Tendencias actuales <span class="small">(citar al menos 3 en el examen)</span></h3>
+  <table>
+    <tr><th style="width:26%">Tendencia</th><th>En qué consiste</th><th style="width:26%">Ejemplo</th></tr>
+    <tr><td><b>Personalización algorítmica responsable (IA)</b></td><td>Segmenta y crea contenido masivo personalizado, con ética; el algoritmo explica el porqué</td><td>ChatGPT, Spotify, Netflix</td></tr>
+    <tr><td><b>Comercio social</b></td><td>La compra ocurre dentro de la red, sin salir de ella</td><td>TikTok Shop, IG Shopping, lives</td></tr>
+    <tr><td><b>Privacy-first</b></td><td>Fin de cookies de terceros, más regulación (GDPR), datos <b>zero-party</b></td><td>Newsletters opt-in, encuestas</td></tr>
+    <tr><td><b>Bienestar digital</b></td><td>La marca como aliada de la salud mental; evita la fatiga digital</td><td>Modo nocturno, pausas activas</td></tr>
+  </table>
+
+  <h3><span class="n">4</span>Planificación estratégica del mensaje (qué se emite)</h3>
+  <p class="lead">Primero el <b>mensaje</b>, después el canal. Nunca al revés. Responde 3 preguntas:</p>
+  <div class="grid3">
+    <div class="card"><h4>① ¿Qué queremos conseguir?</h4><p class="small">Objetivos claros y medibles (SMART)</p></div>
+    <div class="card"><h4>② ¿A quién nos dirigimos?</h4><p class="small">Segmentación del público</p></div>
+    <div class="card"><h4>③ ¿Qué queremos que hagan?</h4><p class="small">El efecto o acción deseada</p></div>
+  </div>
+
+  <h3><span class="n">5</span>Los 5 elementos del mensaje de marca</h3>
+  <table>
+    <tr><th style="width:22%">Elemento</th><th>Qué es</th><th style="width:26%">Ejemplo</th></tr>
+    <tr><td><b>Posicionamiento</b></td><td>El lugar mental que ocupa la marca frente a la competencia (Ries &amp; Trout)</td><td>«Volvo = seguridad»</td></tr>
+    <tr><td><b>Propuesta de valor</b></td><td>Beneficio diferencial: para quién, qué problema resuelve, por qué tú</td><td>«Deliveroo: tu restaurante en 30 min»</td></tr>
+    <tr><td><b>Tono y estilo</b></td><td>La personalidad de la marca al hablar (cercana, técnica, divertida…)</td><td>Lidl humor / Rolex elegancia</td></tr>
+    <tr><td><b>Key messages</b></td><td>2-3 mensajes nucleares que se repiten en todos los canales</td><td>Nike «Just do it»</td></tr>
+    <tr><td><b>Storytelling</b></td><td>Narrativa que da sentido emocional al mensaje racional</td><td>Anuncio Lotería de Navidad</td></tr>
+  </table>
+
+  <h3><span class="n">6</span>Mensaje persuasivo: <span class="pink">logos · pathos · ethos</span></h3>
+  <p class="lead">Comunicar no es solo informar: es <b>convencer y movilizar</b> (retórica de Aristóteles).</p>
+  <div class="grid3">
+    <div class="card"><h4>🧮 Logos</h4><p class="small"><b>Argumentos racionales</b>, datos, beneficios. «Un 94% de clientes repite», comparativas de precio.</p></div>
+    <div class="card"><h4>❤️ Pathos</h4><p class="small"><b>Conexión emocional</b>, empatía, valores. Vídeos emotivos, causas sociales, historias reales.</p></div>
+    <div class="card"><h4>🎓 Ethos</h4><p class="small"><b>Credibilidad y autoridad</b> del emisor. Reseñas verificadas, expertos, sellos, influencers.</p></div>
+  </div>
+  <div class="pin">Persuasión = <b>datos (logos) + emoción (pathos) + credibilidad (ethos)</b>, los tres equilibrados.</div>
+</section>
+
+<!-- ===================== TEMA 2 ===================== -->
+<section class="tema">
+  <div class="tema-head">
+    <div class="tema-num">2</div>
+    <h2>Redes, plataformas y comunidades: modelo POEM</h2>
+    <span class="tag">⚠️ Concepto CLAVE</span>
+  </div>
+  <p class="frase">Todo lo que una marca hace en internet es: lo que <b>paga</b> (Paid), lo que <b>controla</b> (Owned) o lo que <b>se gana</b> gracias a otros (Earned). La magia está en combinarlos.</p>
+
+  <h3><span class="n">1</span>¿Qué es el modelo POEM?</h3>
+  <p class="lead">Mapa para clasificar cualquier acción digital según <b>quién controla el canal</b>. Lo creó <b>Sean Corcoran (Forrester, 2009)</b>. Ningún canal queda fuera.</p>
+  <div class="grid3">
+    <div class="poem owned">
+      <h4><span class="badge">O</span>Owned · propio</h4>
+      <p class="small"><b>Tú lo controlas, sin pagar.</b></p>
+      <ul>
+        <li>Web, blog, app móvil</li>
+        <li>Perfiles propios en RRSS</li>
+        <li>Newsletter / email, tienda propia</li>
+      </ul>
+      <p class="small">✅ Control total + datos 1st-party · ⚠️ Solo llega a quien ya te conoce<br>KPI: visitas, suscriptores, conversión</p>
+    </div>
+    <div class="poem earned">
+      <h4><span class="badge">E</span>Earned · ganado</h4>
+      <p class="small"><b>Terceros hablan de ti, sin pagar.</b></p>
+      <ul>
+        <li>Menciones orgánicas, reseñas</li>
+        <li>PR editorial, UGC, eWOM</li>
+        <li>Hashtags virales, backlinks</li>
+      </ul>
+      <p class="small">✅ Alta credibilidad (social proof) · ⚠️ No lo controlas (bueno o malo)<br>KPI: menciones, Share of Voice, sentimiento</p>
+    </div>
+    <div class="poem paid">
+      <h4><span class="badge">P</span>Paid · pagado</h4>
+      <p class="small"><b>Pagas por aparecer.</b></p>
+      <ul>
+        <li>Social Ads, Search Ads, display</li>
+        <li>Native, <b>influencer con contrato</b></li>
+        <li>Ad Boosts, email en BBDD de terceros</li>
+      </ul>
+      <p class="small">✅ Escalable, rápido, targetizable · ⚠️ Si dejas de pagar, desapareces<br>KPI: CPM, CPC, CTR, CPA, ROAS</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <b>Truco de las 3 preguntas (la que más cae):</b>
+    ① ¿Has pagado por esa exposición? → <b>Paid</b>. ② ¿Lo controlas tú y no has pagado? → <b>Owned</b>. ③ ¿Lo ha generado un tercero gratis? → <b>Earned</b>.
+  </div>
+  <div class="warn">
+    <b>Caso influencer:</b> puede ser los tres a la vez. El <b>acuerdo de pago = Paid</b>; si reutilizas su contenido en tu web = Owned; los comentarios que genera = Earned. En el examen, influencer con contrato → <b>Paid</b>.
+  </div>
+
+  <h3><span class="n">2</span>La sinergia POEM (el circuito)</h3>
+  <p class="lead"><b>Paid</b> atrae tráfico → llega a <b>Owned</b> → buena experiencia → genera <b>Earned</b> → trae nuevo público → vuelve a empezar 🔄</p>
+  <table>
+    <tr><th style="width:22%"></th><th>Paid</th><th>Owned</th><th>Earned</th></tr>
+    <tr><td><b>Control</b></td><td>Alto</td><td>Total</td><td>Bajo</td></tr>
+    <tr><td><b>Coste</b></td><td>Alto (€ por exposición)</td><td>Bajo (mantenimiento)</td><td>Mínimo directo</td></tr>
+    <tr><td><b>Credibilidad</b></td><td>Baja</td><td>Media</td><td>Alta</td></tr>
+    <tr><td><b>Escalabilidad</b></td><td>Alta</td><td>Media</td><td>Impredecible</td></tr>
+    <tr><td><b>Velocidad</b></td><td>Rápida</td><td>Media</td><td>Lenta (acumulativa)</td></tr>
+  </table>
+
+  <h3><span class="n">3</span>Comunidades virtuales</h3>
+  <p class="lead">Grupo cohesionado <b>en torno a un interés común</b> que interactúa en plataformas digitales. No son seguidores pasivos: participan y co-crean.</p>
+  <div class="grid2">
+    <div class="card">
+      <h4>4 tipos</h4>
+      <ul>
+        <li><b>De interés</b> — hobbies/fans (Reddit, Discord)</li>
+        <li><b>De marca</b> — la marca aglutina (Harley Owners, Sephora)</li>
+        <li><b>De práctica</b> — conocimiento pro (LinkedIn, Stack Overflow)</li>
+        <li><b>Geográficas</b> — barrio/territorio (NextDoor)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Qué aportan a la marca</h4>
+      <ul>
+        <li>Insights cualitativos continuos (MROC)</li>
+        <li>Co-creación de productos</li>
+        <li>Soporte entre usuarios (peer support)</li>
+        <li>Embajadores naturales</li>
+        <li>Datos de comportamiento y conversación</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3><span class="n">4</span>Del POEM al PESO</h3>
+  <p class="lead">El <b>PESO</b> (Gini Dietrich, <i>Spin Sucks</i>, 2014) añade <b>Shared Media</b>: la difusión entre pares (RTs, reposts, duets de TikTok).</p>
+  <div class="pin"><b>PESO = POEM + Shared.</b> En el examen el temario pide <b>POEM</b>; PESO es el plus que demuestra que entiendes la evolución.</div>
+</section>
+
+<!-- ===================== TEMA 3 ===================== -->
+<section class="tema">
+  <div class="tema-head">
+    <div class="tema-num">3</div>
+    <h2>Marketing en RRSS y comportamiento del consumidor</h2>
+    <span class="tag">Plataformas · Decisión</span>
+  </div>
+  <p class="frase">Elegir la red correcta, combinar contenido propio con anuncios pagados y entender cómo el algoritmo influye en la decisión de compra: eso es el marketing en RRSS.</p>
+
+  <h3><span class="n">1</span>Las RRSS como ecosistemas de decisión</h3>
+  <p class="lead">Son <b>ecosistemas cognitivos</b>: información, entretenimiento y consumo se mezclan. El usuario no siente que le venden — por eso son tan potentes. <b>3 efectos clave:</b></p>
+  <div class="grid3">
+    <div class="card"><h4>👍 Prueba social</h4><p class="small">Muchos likes/comentarios → el cerebro lo lee como señal de calidad.</p></div>
+    <div class="card"><h4>⏳ FOMO</h4><p class="small"><i>Fear of Missing Out</i>: «solo quedan 3 unidades», «todo el mundo lo tiene» → urgencia.</p></div>
+    <div class="card"><h4>🔁 Familiaridad afectiva</h4><p class="small">Ver la marca una y otra vez en el feed genera simpatía sin darte cuenta.</p></div>
+  </div>
+  <div class="pin">Las RRSS influyen en la compra <b>antes</b> de llegar a la tienda — ese momento se llama <b>ZMOT</b> (Zero Moment of Truth).</div>
+
+  <h3><span class="n">2</span>Perfiles de usuario por plataforma</h3>
+  <table>
+    <tr><th style="width:13%">Red</th><th style="width:18%">Público</th><th>Formato estrella</th><th>Para qué marca</th><th>Momento del viaje</th></tr>
+    <tr><td><b>Instagram</b></td><td>18-44, lifestyle</td><td>Reels, Stories, UGC</td><td>Moda, cosmética, viajes</td><td>Inspiración, preferencia</td></tr>
+    <tr><td><b>TikTok</b></td><td>Gen Z / Millennial (13-30)</td><td>Vídeo vertical, Spark Ads</td><td>Marcas jóvenes, FMCG</td><td>Descubrimiento, consideración</td></tr>
+    <tr><td><b>LinkedIn</b></td><td>Pros 25-55, decisores B2B</td><td>Posts expertos, webinars</td><td>Software, consultoría, RRHH</td><td>Consideración, reputación</td></tr>
+    <tr><td><b>X (Twitter)</b></td><td>Líderes opinión, 25-45</td><td>Hilos, clips breves</td><td>Medios, tech, actualidad</td><td>Awareness, crisis</td></tr>
+    <tr><td><b>YouTube</b></td><td>Mixto (universal)</td><td>Tutoriales, reseñas + Shorts</td><td>Electrónica, formación, auto</td><td>Evaluación, posventa</td></tr>
+    <tr><td><b>Facebook</b></td><td>35-65+, familias</td><td>Vídeo corto, carrusel, grupos</td><td>Comercio local, servicios</td><td>Conversión local</td></tr>
+  </table>
+  <p class="small"><b>España (IAB 2024):</b> 87% WhatsApp · 85% YouTube · 71% Instagram · 67% Facebook · 53% TikTok · 51% X · 38% LinkedIn.</p>
+  <div class="pin">Elige plataforma según <b>dónde está tu target</b>, no según dónde estés tú.</div>
+
+  <h3><span class="n">3</span>Orgánico vs Pagado <span class="small">(la decisión central)</span></h3>
+  <table>
+    <tr><th style="width:18%">Dimensión</th><th>Orgánico</th><th>Pagado</th></tr>
+    <tr><td><b>Qué es</b></td><td>Publicas sin pagar; llega quien lo ve natural</td><td>Pagas para aparecer ante una audiencia concreta</td></tr>
+    <tr><td><b>Coste</b></td><td>Tiempo + producción</td><td>Tiempo + producción + presupuesto de medios</td></tr>
+    <tr><td><b>Alcance</b></td><td>Limitado por el algoritmo (IG &lt;5-10%, FB ~2%)</td><td>Predecible y escalable: llegas a quien quieres</td></tr>
+    <tr><td><b>Velocidad</b></td><td>Lento (meses)</td><td>Inmediato (desde el día 1)</td></tr>
+    <tr><td><b>Confianza</b></td><td>Alta — parece auténtico</td><td>Media-baja — saben que es publicidad</td></tr>
+    <tr><td><b>Métrica clave</b></td><td>Engagement rate</td><td>CPM, CTR, ROAS</td></tr>
+  </table>
+  <div class="pin">Hoy uno sin otro no funciona: el <b>orgánico da autenticidad</b>; el <b>pagado da alcance y velocidad</b>.</div>
+
+  <div class="grid2">
+    <div>
+      <h3><span class="n">4</span>Formatos híbridos</h3>
+      <p class="small">Autenticidad del orgánico + alcance del pagado:</p>
+      <ul class="clean small">
+        <li><b>Spark Ads</b> (TikTok) — convertir un post orgánico en anuncio manteniendo likes/comentarios</li>
+        <li><b>Branded Mission</b> (TikTok) — crowdsourcing: los mejores vídeos de usuarios → anuncios</li>
+        <li><b>Partnership Ads</b> (IG/FB) — amplificar posts de creadores con su permiso</li>
+        <li><b>Boost</b> (todas) — pagar para que un post que ya funciona llegue a más gente</li>
+      </ul>
+    </div>
+    <div>
+      <h3><span class="n">5</span>Targeting publicitario</h3>
+      <p class="small">Mostrar anuncios <b>a quien quieres</b> (modelo Meta):</p>
+      <ul class="clean small">
+        <li><b>Core audience</b> — demografía/intereses → prospección de nuevos</li>
+        <li><b>Custom audience</b> — tu BBDD (emails/teléfonos) → clientes actuales</li>
+        <li><b>Lookalike</b> — gemelos estadísticos de tus mejores clientes → escalar</li>
+        <li><b>Retargeting</b> — los que ya interactuaron (visitaron, carrito) → recuperar</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3><span class="n">6</span>Modelos de decisión: de AIDA a las 5As</h3>
+  <table>
+    <tr><th style="width:18%">Modelo</th><th>Pasos</th><th style="width:30%">¿Refleja lo digital?</th></tr>
+    <tr><td><b>AIDA</b> (clásico)</td><td>Atención → Interés → Deseo → Acción</td><td>No — es lineal y pre-digital</td></tr>
+    <tr><td><b>5As</b> de Kotler</td><td>Aware → Appeal → Ask → Act → <b>Advocate</b></td><td>Sí — recoge la conversación y la recomendación</td></tr>
+  </table>
+  <div class="pin">Clave: en las 5As el cliente se vuelve <b>Advocate</b> (embajador) que recomienda y genera <b>Earned</b> natural. El consumidor <b>zigzaguea</b>, no sigue el embudo recto.</div>
+
+  <h3><span class="n">7</span>Plan detallado en Social Media: 2 capas</h3>
+  <div class="grid2">
+    <div class="card owned"><h4>Capa orgánica</h4><p class="small"><b>Narrativa:</b> pilares (demostraciones, historias de clientes, evidencia de calidad, comunidad).<br><b>Medición:</b> engagement rate, alcance, seguidores nuevos.</p></div>
+    <div class="card paid"><h4>Capa pagada</h4><p class="small"><b>Narrativa:</b> Descubrimiento (lookalikes) → Consideración (interacción) → Conversión (catálogos).<br><b>Medición:</b> CPM, CTR, CPA, ROAS.</p></div>
+  </div>
+  <p class="small"><b>Gobernanza (ciclo continuo):</b></p>
+  <ol class="steps small">
+    <li><b>Diagnóstico</b> — detectar contenidos con atención sostenida (señales fuertes) vs débiles</li>
+    <li><b>Decisión</b> — qué escalar, qué pausar, qué reformular</li>
+    <li><b>Diseño</b> — nuevos microexperimentos basados en lo aprendido</li>
+  </ol>
+  <div class="pin">Plan de Social Media = ciclo: <b>publicar → medir → aprender → mejorar</b>. No se hace una vez y se deja.</div>
+</section>
+
+<!-- ===================== TEMA 4 ===================== -->
+<section class="tema">
+  <div class="tema-head">
+    <div class="tema-num">4</div>
+    <h2>Performance: métricas y analítica</h2>
+    <span class="tag">⚠️ Práctico</span>
+  </div>
+  <p class="frase">Sin métricas no hay aprendizaje: cada objetivo necesita sus <b>KPIs propios</b>. El examen te dará un objetivo y tendrás que decir <b>qué mides</b>.</p>
+
+  <h3><span class="n">1</span>KPI vs métrica</h3>
+  <div class="grid2">
+    <div class="card"><h4>Métrica</h4><p class="small">Cualquier número que puedes medir: visitas, likes, clics… <b>No todo lo medible importa.</b></p></div>
+    <div class="card"><h4>KPI <span class="small">(Key Performance Indicator)</span></h4><p class="small">La métrica que <b>responde directamente a tu objetivo</b>. Si quieres vender, el KPI es la conversión, no los seguidores.</p></div>
+  </div>
+
+  <h3><span class="n">2</span>Objetivos SMART</h3>
+  <table>
+    <tr><th style="width:30%">Letra</th><th>Pregunta clave</th></tr>
+    <tr><td><b>S</b> — Specific (específico)</td><td>¿Qué exactamente quiero conseguir?</td></tr>
+    <tr><td><b>M</b> — Measurable (medible)</td><td>¿Con qué KPI lo mido?</td></tr>
+    <tr><td><b>A</b> — Achievable (alcanzable)</td><td>¿Es realista con mis recursos?</td></tr>
+    <tr><td><b>R</b> — Relevant (relevante)</td><td>¿Por qué importa al negocio?</td></tr>
+    <tr><td><b>T</b> — Time-bound (con plazo)</td><td>¿Para cuándo?</td></tr>
+  </table>
+  <div class="tip"><b>❌ Vago:</b> «Más seguidores». &nbsp;&nbsp; <b>✅ SMART:</b> «Pasar de 12 000 a 18 000 seguidores en IG antes del 30-jun publicando 3 Reels/semana».</div>
+
+  <h3><span class="n">3</span>El funnel de marketing y sus fases</h3>
+  <table>
+    <tr><th style="width:24%">Fase</th><th>¿Qué quiere el usuario?</th><th>Objetivo de marketing</th></tr>
+    <tr><td><b>Awareness</b> (descubrimiento)</td><td>Acaba de conocerte</td><td>Llegar a la mayor gente posible</td></tr>
+    <tr><td><b>Consideración</b></td><td>Te está evaluando</td><td>Que interactúe y aprenda sobre ti</td></tr>
+    <tr><td><b>Conversión</b></td><td>Decide comprar</td><td>Que compre / se dé de alta</td></tr>
+    <tr><td><b>Fidelización</b></td><td>Ya es cliente</td><td>Que repita y recomiende</td></tr>
+  </table>
+  <div class="warn"><b>Error clásico de examen:</b> usar KPIs de conversión para un objetivo de awareness. <b>Cada fase tiene los suyos.</b></div>
+
+  <h3><span class="n">4</span>KPIs de Awareness: alcance e impresiones</h3>
+  <table>
+    <tr><th style="width:22%">KPI</th><th>Qué mide</th><th style="width:30%">Fórmula / ejemplo</th></tr>
+    <tr><td><b>Alcance</b> (Reach)</td><td>Usuarios <b>únicos</b> que vieron el contenido</td><td>1 000 personas distintas</td></tr>
+    <tr><td><b>Impresiones</b></td><td>Veces totales que se mostró (una persona cuenta varias)</td><td>1 000 × 2 = 2 000</td></tr>
+    <tr><td><b>Frecuencia</b></td><td>Veces de media que lo ve cada persona</td><td><span class="frm">Impresiones ÷ Alcance</span> = 2</td></tr>
+    <tr><td><b>CPM</b></td><td>Coste por cada 1 000 impresiones</td><td>20€ / 10 000 imp → <b>CPM 2€</b></td></tr>
+  </table>
+
+  <h3><span class="n">5</span>KPIs de Consideración y Conversión <span class="small">(¡hay que calcularlos!)</span></h3>
+  <table>
+    <tr><th style="width:13%">Sigla</th><th style="width:28%">Nombre</th><th>Fórmula</th><th>Ejemplo</th></tr>
+    <tr><td><b>CTR</b></td><td>Click-Through Rate (tasa de clics)</td><td><span class="frm">(Clics ÷ Impresiones) × 100</span></td><td>100 clics / 10 000 imp = <b>1%</b></td></tr>
+    <tr><td><b>CR</b></td><td>Conversion Rate (tasa de conversión)</td><td><span class="frm">(Conversiones ÷ Visitas) × 100</span></td><td>50 compras / 1 000 visitas = <b>5%</b></td></tr>
+    <tr><td><b>CAC</b></td><td>Customer Acquisition Cost</td><td><span class="frm">Gasto total ÷ Clientes nuevos</span></td><td>1 000€ / 50 = <b>20€/cliente</b></td></tr>
+    <tr><td><b>CPA</b></td><td>Cost Per Action (lead, registro…)</td><td><span class="frm">Gasto total ÷ Conversiones</span></td><td>500€ / 25 = <b>20€</b></td></tr>
+    <tr><td><b>ROAS</b></td><td>Return On Ad Spend</td><td><span class="frm">Ingresos ÷ Gasto en ads</span></td><td>2 000€ / 500€ = <b>4×</b> (≥4× bueno)</td></tr>
+  </table>
+  <div class="tip"><b>Regla rápida:</b> ¿que hagan clic? → <b>CTR</b>. ¿que compren? → <b>CR, CPA, ROAS</b>. ¿es rentable la inversión? → <b>ROAS</b>.</div>
+
+  <h3><span class="n">6</span>KPIs de Fidelización</h3>
+  <table>
+    <tr><th style="width:14%">Sigla</th><th style="width:26%">Qué mide</th><th>Ejemplo</th></tr>
+    <tr><td><b>CLV / LTV</b></td><td>Dinero que te da un cliente en toda su relación</td><td>3 compras/año × 40€ × 2 años = <b>CLV 240€</b></td></tr>
+    <tr><td><b>Churn</b></td><td>% de clientes que se van en un periodo</td><td>200 en enero → 180 en febrero = <b>churn 10%</b></td></tr>
+    <tr><td><b>NPS</b></td><td>Disposición a recomendar (0-10)</td><td>NPS alto = te recomiendan solos (marketing gratis)</td></tr>
+  </table>
+  <div class="pin">Regla de oro: <b>CLV &gt; 3× CAC</b>. Si captar cuesta 30€, el cliente debe darte ≥ 90€ o el negocio no escala.</div>
+
+  <h3><span class="n">7</span>Métricas específicas de RRSS</h3>
+  <table>
+    <tr><th style="width:24%">Métrica</th><th>Fórmula</th><th>Para qué</th></tr>
+    <tr><td><b>Engagement Rate</b></td><td><span class="frm">(Interacciones ÷ Alcance) × 100</span></td><td>IG 3-6% bueno · TikTok 5-9%</td></tr>
+    <tr><td><b>Save Rate</b></td><td><span class="frm">(Guardados ÷ Impresiones) × 100</span></td><td>Contenido de referencia (la métrica de calidad más honesta)</td></tr>
+    <tr><td><b>Share Rate</b></td><td><span class="frm">(Compartidos ÷ Impresiones) × 100</span></td><td>Viralidad orgánica</td></tr>
+    <tr><td><b>Completion Rate</b></td><td><span class="frm">(Vistas completas ÷ Total vistas) × 100</span></td><td>Vídeo: si se van a los 3 s, falla</td></tr>
+    <tr><td><b>Share of Voice</b></td><td><span class="frm">(Tus menciones ÷ Total sector) × 100</span></td><td>Tu presencia en la conversación</td></tr>
+  </table>
+
+  <h3><span class="n">8</span>Cheatsheet: «dado este objetivo, ¿qué KPIs?» <span class="small">(la que más cae)</span></h3>
+  <table>
+    <tr><th style="width:40%">Brief / Objetivo</th><th style="width:18%">Fase</th><th>KPIs recomendados</th></tr>
+    <tr><td>«Que conozcan el lanzamiento»</td><td>Awareness</td><td>Alcance, impresiones, CPM, frecuencia</td></tr>
+    <tr><td>«Generar tráfico cualificado a la web»</td><td>Consideración</td><td>CTR, sesiones, tiempo en página, rebote</td></tr>
+    <tr><td>«Mejorar la comunidad en Instagram»</td><td>Consideración</td><td>Engagement rate, save rate, crecimiento orgánico</td></tr>
+    <tr><td>«Vender más en e-commerce»</td><td>Conversión</td><td>CR, CPA, ROAS, ticket medio</td></tr>
+    <tr><td>«Captar leads B2B»</td><td>Conversión</td><td>CPL, CR, calidad del lead</td></tr>
+    <tr><td>«Fidelizar clientes existentes»</td><td>Fidelización</td><td>CLV, churn, NPS, tasa de recompra</td></tr>
+  </table>
+  <div class="tip"><b>Truco mental:</b> conocer/ver/llegar → <b>Awareness</b> · clic/interés/visitar → <b>Consideración</b> · comprar/vender → <b>Conversión</b> · repetir/recomendar → <b>Fidelización</b>.</div>
+
+  <h3><span class="n">9</span>Modelos de atribución <span class="small">(¿quién se lleva el mérito de la venta?)</span></h3>
+  <table>
+    <tr><th style="width:24%">Modelo</th><th>Cómo reparte el mérito</th><th style="width:26%">Cuándo usarlo</th></tr>
+    <tr><td><b>Last click</b></td><td>100% al último clic antes de comprar</td><td>Solo te importa el cierre</td></tr>
+    <tr><td><b>First click</b></td><td>100% al primer contacto con la marca</td><td>Valorar el awareness</td></tr>
+    <tr><td><b>Lineal</b></td><td>Reparto igual entre todos los canales</td><td>Todos los pasos importan igual</td></tr>
+    <tr><td><b>Decaimiento temporal</b></td><td>Más mérito a los canales cercanos a la compra</td><td>Ciclos de compra largos</td></tr>
+    <tr><td><b>Data-driven</b></td><td>La IA (GA4) calcula qué canal contribuyó de verdad</td><td><b>El recomendado hoy</b></td></tr>
+  </table>
+  <div class="pin"><b>Data-driven</b> = modelo recomendado en GA4. <b>Last click</b> es el más simple pero el más injusto con el awareness.</div>
+</section>
+
+<!-- ===================== TEMA 5 ===================== -->
+<section class="tema">
+  <div class="tema-head">
+    <div class="tema-num">5</div>
+    <h2>Planificación y desarrollo de una campaña real</h2>
+    <span class="tag">Calendario · Reporting</span>
+  </div>
+  <p class="frase">Una campaña orgánica no es «publicar y rezar»: es un <b>ciclo de planificar → publicar → medir → ajustar</b>, apoyado en un calendario editorial, pilares de contenido y un reporting periódico que convierte los datos en decisiones.</p>
+
+  <h3><span class="n">1</span>El calendario editorial <span class="small">(el documento maestro)</span></h3>
+  <p class="lead">Dice <b>qué publicas, en qué canal, cuándo y con qué objetivo</b>, planificado con antelación (semana/mes/trimestre). Sin él, cada día empiezas de cero. Campos mínimos por publicación:</p>
+  <div class="grid2">
+    <div class="card">
+      <ul class="clean small" style="margin:0">
+        <li><b>Fecha y hora</b> — publicar en el pico de audiencia</li>
+        <li><b>Plataforma</b> — IG, TikTok, LinkedIn…</li>
+        <li><b>Formato</b> — Reel, carrusel, story, vídeo…</li>
+        <li><b>Pilar temático</b> — a qué eje pertenece</li>
+        <li><b>Objetivo / KPI</b> — qué métrica quieres mover</li>
+      </ul>
+    </div>
+    <div class="card">
+      <ul class="clean small" style="margin:0">
+        <li><b>Copy + creatividad</b> — texto y enlace al diseño</li>
+        <li><b>CTA</b> — qué acción pides (guardar, comentar…)</li>
+        <li><b>Hashtags</b> — para ampliar alcance</li>
+        <li><b>Responsable</b> — quién aprueba y quién publica</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3><span class="n">2</span>Pilares de contenido: 3-5 ejes en rotación <span class="small">(coherencia + variedad)</span></h3>
+  <table>
+    <tr><th style="width:20%">Pilar</th><th>Qué publicas</th><th style="width:30%">Ejemplo</th></tr>
+    <tr><td><b>Producto</b></td><td>Lo que vendes, lanzamientos, beneficios</td><td>Foto de la nueva colección</td></tr>
+    <tr><td><b>Educativo</b></td><td>Tutoriales, tips, guías de uso</td><td>Reel «Cómo hacer X en 3 pasos»</td></tr>
+    <tr><td><b>Cultura</b></td><td>Equipo, valores, behind the scenes</td><td>Story del día a día</td></tr>
+    <tr><td><b>Comunidad</b></td><td>UGC, testimonios, casos de clientes</td><td>Repost de cliente satisfecho</td></tr>
+    <tr><td><b>Entretenimiento</b></td><td>Humor, memes, retos virales</td><td>Trending audio de TikTok</td></tr>
+    <tr><td><b>Inspiracional</b></td><td>Frases, misión, propósito de marca</td><td>Cita con el valor de la marca</td></tr>
+  </table>
+  <div class="pin">Mix orientativo: <b>30% producto · 40% educativo/entretenimiento · 20% comunidad · 10% inspiracional.</b></div>
+
+  <h3><span class="n">3</span>Timing y frecuencia: cuándo y cuánto publicar</h3>
+  <table>
+    <tr><th style="width:18%">Plataforma</th><th>Frecuencia recomendada</th><th>Mejor horario (España)</th><th>KPI clave</th></tr>
+    <tr><td><b>Instagram</b></td><td>3-5 posts/sem + 5-7 stories/día</td><td>L-V 18:00-21:00</td><td>Comentarios, guardados</td></tr>
+    <tr><td><b>TikTok</b></td><td>2-3 vídeos/día</td><td>L-J 19:00-22:00</td><td>Visualizaciones, réplicas</td></tr>
+    <tr><td><b>LinkedIn</b></td><td>3-5 posts/semana</td><td>L-V 08:00-10:00</td><td>CTR, respuestas de valor</td></tr>
+    <tr><td><b>X (Twitter)</b></td><td>3-10 tweets/día</td><td>L-V 12:00-14:00</td><td>Clics a recursos, menciones</td></tr>
+    <tr><td><b>Facebook</b></td><td>1 post/día</td><td>L-V 12:00-14:00</td><td>Alcance, reacciones</td></tr>
+    <tr><td><b>YouTube</b></td><td>1 vídeo/semana</td><td>J-V por la tarde</td><td>Watch time, suscriptores</td></tr>
+  </table>
+  <div class="warn"><b>Ojo:</b> estos horarios son de <b>partida</b>. Tu dashboard real dirá los óptimos de tu comunidad — lo que funciona en Madrid puede no funcionar en otra ciudad.</div>
+
+  <h3><span class="n">4</span>Formatos de contenido <span class="small">(el envoltorio del mensaje)</span></h3>
+  <table>
+    <tr><th style="width:20%">Formato</th><th style="width:26%">Canal ideal</th><th>Para qué sirve</th></tr>
+    <tr><td><b>Reel / TikTok</b></td><td>IG, TikTok</td><td>Alcance, viralidad, tutoriales rápidos</td></tr>
+    <tr><td><b>Carrusel</b></td><td>IG, LinkedIn</td><td>Educar, guías paso a paso, guardados</td></tr>
+    <tr><td><b>Story</b></td><td>IG, Facebook</td><td>Conexión diaria, encuestas, CTAs directos</td></tr>
+    <tr><td><b>Live / AMA</b></td><td>IG, YouTube, TikTok</td><td>Co-crear valor, detectar barreras, confianza</td></tr>
+    <tr><td><b>Vídeo largo</b></td><td>YouTube, LinkedIn</td><td>Profundidad, casos de estudio, autoridad</td></tr>
+    <tr><td><b>Texto + link</b></td><td>LinkedIn, X</td><td>Pensamiento, debate, tráfico web</td></tr>
+  </table>
+  <div class="pin">Cada formato tiene su objetivo: <b>Reel = alcance · carrusel = educación · story = conexión diaria · live = comunidad y confianza.</b></div>
+
+  <h3><span class="n">5</span>Monitorización: 3 niveles de medición</h3>
+  <div class="grid3">
+    <div class="card"><h4>📅 Daily check</h4><p class="small">Cada día (2 min). Comentarios, DMs, picos raros. <b>Acción reactiva.</b></p></div>
+    <div class="card"><h4>📈 Weekly review</h4><p class="small">Cada semana (15-30 min). Top y bottom posts, ajustes. <b>Acción táctica.</b></p></div>
+    <div class="card"><h4>📊 Monthly report</h4><p class="small">Cada mes (1-2 h). Dashboard vs KPIs, decisiones. <b>Acción estratégica.</b></p></div>
+  </div>
+  <div class="pin">Monitorizar es <b>escuchar activamente</b>, no contar seguidores. Más allá de las <b>vanity metrics</b> (likes/seguidores): la crítica de la comunidad es tan útil como el aplauso.</div>
+
+  <h3><span class="n">6</span>El informe mensual: estructura del reporting</h3>
+  <table>
+    <tr><th style="width:6%">#</th><th style="width:28%">Sección</th><th>Contenido</th></tr>
+    <tr><td>1</td><td><b>Resumen ejecutivo</b></td><td>3 hallazgos + 3 recomendaciones para la dirección</td></tr>
+    <tr><td>2</td><td><b>Audiencia</b></td><td>Crecimiento de seguidores, demografía, cambios</td></tr>
+    <tr><td>3</td><td><b>Contenido</b></td><td>Top 5 publicaciones y por qué funcionaron</td></tr>
+    <tr><td>4</td><td><b>Engagement</b></td><td>Evolución de métricas vs benchmark anterior</td></tr>
+    <tr><td>5</td><td><b>Conversión</b></td><td>Tráfico web, leads y ventas atribuidos a social</td></tr>
+    <tr><td>6</td><td><b>Aprendizajes</b></td><td>Qué se probó, qué funcionó y qué no</td></tr>
+    <tr><td>7</td><td><b>Próximos pasos</b></td><td>Plan del mes siguiente con los ajustes</td></tr>
+  </table>
+
+  <h3><span class="n">7</span>El ciclo PDCA <span class="small">(Plan → Do → Check → Act · ciclo de Deming)</span></h3>
+  <table>
+    <tr><th style="width:22%">Fase</th><th>En social media</th><th>Qué produce</th></tr>
+    <tr><td><b>Plan</b> (Planificar)</td><td>Diseñar el calendario editorial del mes</td><td>Publicaciones programadas con objetivos</td></tr>
+    <tr><td><b>Do</b> (Ejecutar)</td><td>Publicar según el calendario</td><td>Contenido real en las redes</td></tr>
+    <tr><td><b>Check</b> (Medir)</td><td>Daily + weekly + monthly review</td><td>Datos de lo que funcionó y lo que no</td></tr>
+    <tr><td><b>Act</b> (Ajustar)</td><td>Cambiar pilares, horarios, formatos, frecuencia</td><td>Nuevo plan mejorado con datos</td></tr>
+  </table>
+  <div class="pin">El plan es <b>vivo</b>: cada mes se ajusta con datos reales (mix de pilares, frecuencia, horarios, formatos, hashtags), no con intuición.</div>
+
+  <h3><span class="n">8</span>Branding orgánico vs Performance <span class="small">(conviven)</span></h3>
+  <table>
+    <tr><th style="width:22%">Enfoque</th><th>Objetivo</th><th>Trabaja sobre</th><th style="width:18%">Plazo</th></tr>
+    <tr><td><b>Branding orgánico</b></td><td>Reputación, preferencia de marca</td><td>Memoria, confianza, valores</td><td>Largo plazo</td></tr>
+    <tr><td><b>Performance</b></td><td>Leads, conversiones, ventas</td><td>Resultados medibles</td><td>Corto-medio</td></tr>
+  </table>
+  <div class="tip"><b>Estructura de campaña pagada:</b> Campaña (objetivo) → Conjunto de anuncios (segmentación + presupuesto + ubicaciones) → Anuncio (creatividad + copy + formato).</div>
+
+  <h3><span class="n">9</span>Buenas prácticas operativas del plan orgánico</h3>
+  <div class="grid2">
+    <div class="card">
+      <ul class="clean small" style="margin:0">
+        <li><b>Brand bible</b> — voz, tono, colores, do's &amp; don'ts</li>
+        <li><b>Banco de assets</b> — fotos, vídeos y plantillas listas</li>
+        <li><b>Flujo de aprobación</b> — quién valida antes de publicar</li>
+      </ul>
+    </div>
+    <div class="card">
+      <ul class="clean small" style="margin:0">
+        <li><b>Protocolo de crisis</b> — qué hacer si algo se vuelve viral negativo</li>
+        <li><b>Contenido evergreen</b> — posts «de fondo» como plan B</li>
+        <li><b>Testing A/B</b> — probar copy, miniatura o formato</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pin">Un plan orgánico real no es solo publicar: es tener <b>infraestructura operativa</b> detrás (brand bible, assets, aprobaciones, crisis, testing). <b>Herramientas:</b> Hootsuite, Metricool, Buffer, Later, Meta Business Suite.</div>
+</section>
+
+</body>
+</html>

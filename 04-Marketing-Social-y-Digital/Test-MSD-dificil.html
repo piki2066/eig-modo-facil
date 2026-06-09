@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Examen de prueba · Marketing Social y Digital · Nivel difícil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f1318; --bg2:#131922; --card:#171e29; --card2:#1c2433;
+    --line:#27303f; --line-soft:#202836;
+    --ink:#e8eaf0; --ink-soft:#9aa3b5; --ink-mute:#5f6a80;
+    --amber:#f0b24a; --amber-deep:#c98a23; --amber-dim:rgba(240,178,74,.12);
+    --ok:#4ade80; --ok-dim:rgba(74,222,128,.1);
+    --bad:#f87171; --bad-dim:rgba(248,113,113,.1);
+    --t1:#f0b24a; --t2:#a78bfa; --t3:#5eead4; --t4:#fb923c; --t5:#86efac;
+    --serif:"Fraunces",Georgia,serif;
+    --sans:"Instrument Sans",-apple-system,"Segoe UI",sans-serif;
+    --mono:"JetBrains Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans); font-size:17px; line-height:1.6; color:var(--ink);
+    background:
+      radial-gradient(900px 480px at 85% -8%, rgba(240,178,74,.07), transparent 60%),
+      radial-gradient(700px 400px at -5% 8%, rgba(167,139,250,.05), transparent 55%),
+      var(--bg);
+    min-height:100vh; padding-bottom:90px;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* textura grano sutil */
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.35;z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.025 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .wrap{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:0 22px}
+
+  /* ===== Cabecera ===== */
+  header.top{padding:54px 0 8px}
+  .stamp{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(240,178,74,.35);padding:7px 14px;border-radius:3px;margin-bottom:22px}
+  .stamp::before{content:'';width:7px;height:7px;background:var(--amber);border-radius:50%;box-shadow:0 0 10px var(--amber)}
+  h1{font-family:var(--serif);font-weight:900;font-size:clamp(34px,6vw,52px);line-height:1.04;letter-spacing:-.02em;margin-bottom:14px}
+  h1 em{font-style:italic;color:var(--amber)}
+  .lede{color:var(--ink-soft);font-size:18px;max-width:600px}
+  .lede b{color:var(--ink)}
+  .rule{height:1px;background:linear-gradient(90deg,var(--amber),transparent 70%);margin:30px 0 0;opacity:.5}
+
+  /* ===== Tarjetas ===== */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;margin-top:26px;box-shadow:0 20px 50px -28px rgba(0,0,0,.7)}
+  @media (max-width:520px){.card{padding:22px 18px}}
+
+  /* ===== Pantalla inicio ===== */
+  .meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin-top:6px}
+  .meta-cell{background:var(--bg2);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px}
+  .meta-cell b{display:block;font-family:var(--serif);font-size:30px;font-weight:700;color:var(--amber);line-height:1.1}
+  .meta-cell span{font-size:12.5px;color:var(--ink-mute);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+  .temas-list{margin-top:22px;display:flex;flex-direction:column;gap:9px}
+  .tema-row{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--ink-soft)}
+  .tema-row .sw{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+  .tema-row b{color:var(--ink);font-weight:600}
+  .aviso{margin-top:24px;padding:14px 18px;background:var(--amber-dim);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;font-size:14.5px;color:var(--ink-soft)}
+  .aviso b{color:var(--amber)}
+
+  .btn{font-family:var(--sans);font-weight:700;border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:transform .15s,box-shadow .25s,background .15s;border-radius:10px}
+  .btn-main{width:100%;margin-top:28px;background:var(--amber);color:#13100a;font-size:17px;padding:17px 28px;letter-spacing:.01em;box-shadow:0 12px 32px -10px rgba(240,178,74,.45)}
+  .btn-main:hover{transform:translateY(-2px);background:#f7c065;box-shadow:0 18px 38px -12px rgba(240,178,74,.55)}
+  .btn-main:active{transform:translateY(0)}
+  .btn-ghost{background:transparent;color:var(--ink-soft);border:1px solid var(--line);font-size:14px;padding:12px 20px}
+  .btn-ghost:hover{border-color:var(--amber);color:var(--amber)}
+
+  /* ===== Barra progreso ===== */
+  .quiz-bar{position:sticky;top:0;z-index:50;display:none;align-items:center;gap:14px;padding:13px 22px;margin:0 -22px;background:rgba(15,19,24,.82);backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);border-bottom:1px solid var(--line-soft)}
+  .quiz-bar.on{display:flex}
+  .qb-quit{flex-shrink:0;width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--ink-mute);font-size:16px;cursor:pointer;font-family:var(--sans);line-height:1;transition:all .15s}
+  .qb-quit:hover{border-color:var(--bad);color:var(--bad)}
+  .track{flex:1;height:7px;border-radius:99px;background:var(--line-soft);overflow:hidden}
+  .fill{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--amber-deep),var(--amber));border-radius:99px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+  .qb-num{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--ink-soft);flex-shrink:0}
+  .qb-score{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--ok);flex-shrink:0}
+
+  /* ===== Pregunta ===== */
+  #qcard{position:relative;overflow:hidden;animation:rise .35s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .qnum-ghost{position:absolute;top:-28px;right:6px;font-family:var(--serif);font-weight:900;font-size:150px;line-height:1;color:rgba(240,178,74,.05);user-select:none;pointer-events:none;font-style:italic}
+  .qtema{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:3px;margin-bottom:18px;border:1px solid}
+  .qtema .sw{width:7px;height:7px;border-radius:50%}
+  .qtext{font-family:var(--serif);font-weight:600;font-size:clamp(20px,3.4vw,24px);line-height:1.35;letter-spacing:-.01em;margin-bottom:24px;position:relative;z-index:1}
+
+  .opts{display:flex;flex-direction:column;gap:11px;position:relative;z-index:1}
+  .opt{font-family:var(--sans);font-size:16px;text-align:left;width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:11px;padding:14px 16px;cursor:pointer;color:var(--ink);display:flex;align-items:flex-start;gap:14px;line-height:1.45;transition:border-color .15s,background .15s,transform .1s}
+  .opt:hover:not(:disabled){border-color:var(--amber);background:var(--card2);transform:translateX(3px)}
+  .opt:disabled{cursor:default}
+  .opt .key{flex-shrink:0;font-family:var(--mono);font-size:12px;font-weight:700;color:var(--ink-mute);border:1px solid var(--line);border-radius:6px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:all .15s}
+  .opt:hover:not(:disabled) .key{border-color:var(--amber);color:var(--amber)}
+  .opt.is-ok{border-color:var(--ok);background:var(--ok-dim)}
+  .opt.is-ok .key{border-color:var(--ok);color:var(--ok);background:transparent}
+  .opt.is-bad{border-color:var(--bad);background:var(--bad-dim)}
+  .opt.is-bad .key{border-color:var(--bad);color:var(--bad)}
+  .opt.is-dim{opacity:.42}
+
+  .explain{display:none;margin-top:20px;padding:16px 20px;border-radius:11px;font-size:15px;line-height:1.6;color:var(--ink-soft);animation:rise .3s both}
+  .explain.on{display:block}
+  .explain.good{background:var(--ok-dim);border:1px solid rgba(74,222,128,.25)}
+  .explain.fail{background:var(--bad-dim);border:1px solid rgba(248,113,113,.25)}
+  .explain .verdict{display:block;font-family:var(--serif);font-style:italic;font-weight:700;font-size:17px;margin-bottom:6px}
+  .explain.good .verdict{color:var(--ok)}
+  .explain.fail .verdict{color:var(--bad)}
+  .explain b{color:var(--ink)}
+
+  .next-row{display:flex;justify-content:flex-end;margin-top:22px}
+  .btn-next{background:var(--ink);color:var(--bg);font-size:15.5px;padding:13px 26px}
+  .btn-next:hover{transform:translateY(-2px);background:#fff}
+  .kbd-hint{font-family:var(--mono);font-size:11px;color:var(--ink-mute);margin-top:18px;text-align:center;letter-spacing:.06em}
+  .kbd-hint kbd{border:1px solid var(--line);border-radius:4px;padding:1px 6px;background:var(--bg2)}
+
+  /* ===== Resultados ===== */
+  .res-head{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+  .ring{position:relative;width:140px;height:140px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+  .ring::after{content:'';position:absolute;inset:10px;border-radius:50%;background:var(--card)}
+  .ring-label{position:relative;z-index:1;text-align:center}
+  .ring-label b{display:block;font-family:var(--serif);font-weight:900;font-size:36px;line-height:1}
+  .ring-label span{font-size:11px;font-family:var(--mono);color:var(--ink-mute);letter-spacing:.1em;text-transform:uppercase}
+  .res-msg{flex:1;min-width:220px}
+  .res-msg h2{font-family:var(--serif);font-size:30px;font-weight:900;font-style:italic;margin-bottom:8px}
+  .res-msg p{color:var(--ink-soft);font-size:16px}
+  .res-msg .nota{font-family:var(--mono);font-size:13px;color:var(--amber);margin-top:10px}
+
+  .tema-bars{margin-top:30px;display:flex;flex-direction:column;gap:13px}
+  .tb-row{display:grid;grid-template-columns:128px 1fr 52px;gap:14px;align-items:center;font-size:13.5px}
+  @media (max-width:520px){.tb-row{grid-template-columns:96px 1fr 48px}}
+  .tb-name{color:var(--ink-soft);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tb-track{height:8px;border-radius:99px;background:var(--line-soft);overflow:hidden}
+  .tb-fill{display:block;height:100%;border-radius:99px;transition:width .8s cubic-bezier(.2,.8,.2,1)}
+  .tb-pct{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--ink-soft);text-align:right}
+
+  .fails h3{font-family:var(--serif);font-style:italic;font-size:21px;font-weight:700;margin-bottom:4px}
+  .fails .sub{color:var(--ink-mute);font-size:14px;margin-bottom:18px}
+  .fail-item{border:1px solid var(--line);border-radius:11px;padding:18px 20px;margin-top:12px;background:var(--bg2)}
+  .fail-item .fq{font-weight:600;font-size:15.5px;margin-bottom:10px}
+  .fail-item .fa{font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+  .fail-item .fa b.no{color:var(--bad)}
+  .fail-item .fa b.si{color:var(--ok)}
+  .fail-item .fx{margin-top:8px;font-size:14px;color:var(--ink-mute);font-style:italic}
+  .end-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .end-actions .btn{flex:1;min-width:180px}
+  .hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="quiz-bar" id="quizbar">
+    <button class="qb-quit" id="quitBtn" title="Abandonar">✕</button>
+    <span class="qb-num" id="qbNum">1/30</span>
+    <div class="track"><span class="fill" id="qbFill"></span></div>
+    <span class="qb-score" id="qbScore">✓ 0</span>
+  </div>
+
+  <!-- ============ INICIO ============ -->
+  <section id="screen-start">
+    <header class="top">
+      <div class="stamp">Simulacro de examen · 10 jun 2026</div>
+      <h1>Marketing Social <em>y</em> Digital</h1>
+      <p class="lede">Test de <b>nivel difícil</b> con los cinco temas mezclados. Preguntas con trampa: autores, fechas, clasificaciones POEM y KPIs por fase. Redactado a partir de los PDF de Rayko.</p>
+      <div class="rule"></div>
+    </header>
+
+    <div class="card">
+      <div class="meta-grid">
+        <div class="meta-cell"><b>32</b><span>preguntas</span></div>
+        <div class="meta-cell"><b>5</b><span>temas mezclados</span></div>
+        <div class="meta-cell"><b>4</b><span>opciones por pregunta</span></div>
+      </div>
+
+      <div class="temas-list">
+        <div class="tema-row"><span class="sw" style="background:var(--t1)"></span><b>T1</b> · Evolución del marketing digital y social</div>
+        <div class="tema-row"><span class="sw" style="background:var(--t2)"></span><b>T2</b> · Redes, plataformas y comunidades · POEM/PESO</div>
+        <div class="tema-row"><span class="sw" style="background:var(--t3)"></span><b>T3</b> · Marketing en RRSS y comportamiento del consumidor</div>
+        <div class="tema-row"><span class="sw" style="background:var(--t4)"></span><b>T4</b> · Performance: métricas y analítica</div>
+        <div class="tema-row"><span class="sw" style="background:var(--t5)"></span><b>T5</b> · Planificación y campaña orgánica real</div>
+      </div>
+
+      <div class="aviso"><b>Ojo:</b> las opciones se barajan en cada intento y los distractores están sacados del propio temario — leer entera la pregunta antes de contestar.</div>
+
+      <button class="btn btn-main" id="startBtn">Empezar el simulacro →</button>
+    </div>
+  </section>
+
+  <!-- ============ PREGUNTA ============ -->
+  <section id="screen-quiz" class="hidden">
+    <div class="card" id="qcard" style="margin-top:34px">
+      <div class="qnum-ghost" id="qGhost">01</div>
+      <span class="qtema" id="qTema"><span class="sw"></span><span id="qTemaTxt"></span></span>
+      <p class="qtext" id="qText"></p>
+      <div class="opts" id="qOpts"></div>
+      <div class="explain" id="qExplain"></div>
+      <div class="next-row hidden" id="nextRow">
+        <button class="btn btn-next" id="nextBtn">Siguiente →</button>
+      </div>
+    </div>
+    <p class="kbd-hint">pulsa <kbd>1</kbd>–<kbd>4</kbd> para responder · <kbd>↵</kbd> para continuar</p>
+  </section>
+
+  <!-- ============ RESULTADOS ============ -->
+  <section id="screen-end" class="hidden">
+    <header class="top" style="padding-bottom:0">
+      <div class="stamp">Resultado del simulacro</div>
+    </header>
+    <div class="card">
+      <div class="res-head">
+        <div class="ring" id="ring"><div class="ring-label"><b id="ringPct">0%</b><span id="ringCount">0/30</span></div></div>
+        <div class="res-msg">
+          <h2 id="resTitle"></h2>
+          <p id="resBody"></p>
+          <p class="nota" id="resNota"></p>
+        </div>
+      </div>
+      <div class="tema-bars" id="temaBars"></div>
+    </div>
+
+    <div class="card fails hidden" id="failsCard">
+      <h3>Repaso de falladas</h3>
+      <p class="sub">Léelas dos veces — son justo lo que conviene mirar esta noche.</p>
+      <div id="failsList"></div>
+    </div>
+
+    <div class="end-actions">
+      <button class="btn btn-main" style="margin-top:0" id="retryFailsBtn">Repetir solo las falladas</button>
+      <button class="btn btn-ghost" id="retryAllBtn">Repetir todo el test</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* ============================================================
+   BANCO DE PREGUNTAS — 30, nivel difícil
+   c = índice de la correcta dentro de o[] (se barajan al pintar)
+   x = explicación
+   ============================================================ */
+const BANK = [
+ // ---------- TEMA 1 ----------
+ {t:1,q:"En la evolución histórica del marketing digital, la etapa «SEM y Display (Google AdWords)» corresponde al periodo…",
+  o:["2000–2005","Finales de los 90–2000","2005–2010","2010–2018"],c:0,
+  x:"La cronología del T1 es: años 90 webs estáticas → finales 90–2000 buscadores y SEO (Google, 1998) → <b>2000–2005 SEM y Display</b> → 2005–2010 Web 2.0 y RRSS → 2010–2018 consolidación (vídeo, multipantalla) → 2018-hoy integración UX."},
+ {t:1,q:"¿Qué es exactamente la «señal algorítmica»?",
+  o:["Los indicadores de interacción temprana que la plataforma registra sobre un contenido y usa como variable de entrada para decidir su alcance",
+     "El código de seguimiento que la marca instala en su web para atribuir conversiones a cada campaña de pago",
+     "La puntuación de calidad que las plataformas asignan a las cuentas oficiales verificadas de las marcas",
+     "Un KPI de cierre de campaña que resume el rendimiento del contenido pagado"],c:0,
+  x:"Visualizaciones, duración de visionado, clics, comentarios, compartidos… la plataforma los usa para decidir si <b>escala, frena o clasifica</b> el alcance de la pieza. No es un píxel ni un KPI de cierre."},
+ {t:1,q:"Según los «gatekeepers algorítmicos» del T1, YouTube suele tender a priorizar…",
+  o:["El watch time y la satisfacción del usuario","El número de suscriptores del canal","Los contenidos oficiales de marcas verificadas, que reciben trato preferente","La frecuencia de publicación semanal"],c:0,
+  x:"YouTube prioriza <b>watch time + CTR + satisfacción</b> (encuestas/likes). El material insiste en que los contenidos «owned» compiten bajo las mismas reglas que los creadores: no hay trato preferente por ser marca."},
+ {t:1,q:"El concepto de «explicabilidad» — el sistema no solo recomienda, sino que explica el porqué — pertenece a la tendencia de…",
+  o:["Personalización algorítmica responsable","Bienestar digital como principio","Diseño sensorial contextual","Colaboración inmersiva"],c:0,
+  x:"Es el cambio clave de la <b>personalización algorítmica responsable</b>: IA para segmentar y crear, pero con ética y transparencia. Meta: convertir datos en reciprocidad."},
+ {t:1,q:"En la construcción argumental del mensaje persuasivo, la credibilidad y autoridad del emisor corresponde a…",
+  o:["Ethos","Pathos","Logos","Kairós"],c:0,
+  x:"<b>Logos</b> = argumentos racionales y datos; <b>Pathos</b> = conexión emocional y valores compartidos; <b>Ethos</b> = credibilidad y autoridad del emisor. Kairós no aparece en el material (distractor)."},
+ {t:1,q:"En la «arquitectura del mensaje» del T1, ¿qué aporta específicamente el eje de la colaboración?",
+  o:["Legitimidad cultural","Precisión y relevancia contextual","Profundidad expresiva","Eficiencia en los costes de producción del contenido"],c:0,
+  x:"La <b>personalización</b> aporta precisión y relevancia contextual; la <b>sensorialidad</b>, profundidad expresiva; la <b>colaboración</b>, legitimidad cultural. Pregunta de emparejar — cae fácil como trampa."},
+
+ // ---------- TEMA 2 ----------
+ {t:2,q:"El modelo POEM fue sistematizado en 2009 por…",
+  o:["Sean Corcoran, de Forrester Research","Gini Dietrich, en el libro Spin Sucks","Jonah Berger, en Contagious","Solé Moro y Campo Fernández, en su manual de Social Media Marketing"],c:0,
+  x:"<b>Corcoran (Forrester, 2009)</b> sistematizó POEM. Dietrich (Spin Sucks, 2014) propuso después añadir la S de Shared → modelo PESO. Berger es el del STEPPS. Tres autores, tres trampas."},
+ {t:2,q:"¿Cuándo resulta más útil adoptar el modelo PESO en lugar del POEM?",
+  o:["Al gestionar grandes comunidades, cuando interesa aislar claramente el factor «compartir»","En planes básicos, porque es el modelo más compacto de los dos","Cuando la marca no dispone de perfiles propios en redes sociales","Cuando la estrategia se apoya exclusivamente en medios pagados"],c:0,
+  x:"POEM es más compacto y suficiente para <b>planes básicos</b>; PESO conviene con <b>grandes comunidades</b> porque las herramientas ya reportan métricas de Shared (RT, repost, duet) por separado."},
+ {t:2,q:"Los perfiles oficiales de una marca en Instagram o TikTok se clasifican como…",
+  o:["Owned media, aunque la plataforma pertenezca a un tercero","Shared media, porque viven en plataformas de terceros","Earned media, por ser contenido que circula en redes sociales","Un híbrido paid–earned según el alcance que consigan"],c:0,
+  x:"Trampa clásica: aunque la plataforma sea de terceros, la marca gestiona contenido, estrategia y relación con la audiencia → son <b>activos propios (Owned)</b> según Solé Moro & Campo Fernández (2025)."},
+ {t:2,q:"El modelo STEPPS, que explica por qué un contenido se viraliza y genera WOM, fue propuesto por…",
+  o:["Jonah Berger en «Contagious»","Sean Corcoran en Forrester","Gini Dietrich en «Spin Sucks»","Chaffey y Ellis-Chadwick en «Digital Marketing»"],c:0,
+  x:"<b>Berger</b> sostiene que la viralización no es aleatoria: responde a contenido, emoción, relevancia social y contexto. El Earned no es fortuito, sino resultado indirecto de una planificación adecuada."},
+ {t:2,q:"En el NPS (Net Promoter Score), ¿qué puntuaciones cuentan como recomendación positiva?",
+  o:["Solo 9 y 10","8, 9 y 10","De 7 a 10","Cualquier puntuación por encima de 5, al ser aprobado"],c:0,
+  x:"Tal cual lo da el material con el ejemplo «¿Recomendarías ESIC a un amigo?»: <b>solo el 9 y el 10</b> cuentan como sí. El 7 y el 8 son pasivos."},
+ {t:2,q:"Según el T2, la participación de un influencer se considera Earned media cuando…",
+  o:["La acción genera conversación y amplificación orgánica más allá del acuerdo inicial","Existe una contraprestación económica directa por crear o difundir contenidos","Sus contenidos se integran o reutilizan en los canales propios de la marca","Nunca: el influencer marketing es siempre Paid por definición"],c:0,
+  x:"El influencer no encaja rígido en una categoría: con pago directo es <b>Paid</b>; reutilizado en canales propios es <b>Owned</b>; y cuando desborda el acuerdo generando conversación orgánica, es <b>Earned</b>."},
+ {t:2,q:"En el flujo de activación Seed–Hub–Ripple, el «Hub» es…",
+  o:["El espacio owned donde vive la experiencia y se capturan datos: web, app, landing o content hub","La inversión inicial de pago que enciende la difusión de la campaña","La ola de menciones, UGC y backlinks que genera la viralización","El panel de control desde el que se gestionan las campañas de paid social"],c:0,
+  x:"<b>Seed</b> = semilla de pago (ads, Sparks, producto a creadores, «first pilot»). <b>Hub</b> = centro owned que profundiza y captura datos/CRM. <b>Ripple</b> = efecto onda en Earned."},
+ {t:2,q:"El Share of Voice (SOV) es una métrica que el material asocia a…",
+  o:["Earned media","Paid media","Owned media","Las métricas internas de producto, como DAU y MAU"],c:0,
+  x:"El SOV mide cuánto se habla de tu marca frente a la conversación total del sector → métrica de <b>Earned</b>, junto a los backlinks. DAU/MAU/CTR/NPS van con Owned; CVR/CPA/VTR/ROAS con Paid."},
+
+ // ---------- TEMA 3 ----------
+ {t:3,q:"Un «incremento en share of search» es el indicador observable de la variable de comportamiento…",
+  o:["Preferencia","Conversión","Atención selectiva","Intención de búsqueda"],c:0,
+  x:"Tabla del T3: atención selectiva → retención en vídeo; intención de búsqueda → clics a sitio; <b>preferencia → share of search</b>; conversión → CTR a checkout y ROAS; lealtad → recompra/NPS."},
+ {t:3,q:"Según el mapa de plataformas del T3, YouTube se posiciona en los momentos del viaje del consumidor de…",
+  o:["Evaluación y posventa","Descubrimiento y conversión local","Inspiración y preferencia","Awareness y gestión de crisis"],c:0,
+  x:"YouTube = archivo audiovisual y profundidad (tutoriales, reseñas, comparativas) → <b>evaluación y posventa</b>. Descubrimiento/conversión local es Facebook; inspiración/preferencia, Instagram; awareness/crisis, X."},
+ {t:3,q:"Los Spark Ads de TikTok consisten en…",
+  o:["Convertir un post orgánico en anuncio preservando sus likes y comentarios originales","Un crowdsourcing de contenido con creadores cuyos mejores vídeos se transforman en anuncios","Amplificar de pago publicaciones de creadores en Meta con la autorización del creador","Anuncios dinámicos cuyas creatividades se generan automáticamente con IA"],c:0,
+  x:"Spark Ads = post orgánico promocionado <b>conservando interacciones</b>. La opción b describe Branded Mission; la c, los Partnership Ads de Instagram/Facebook. Tres formatos híbridos que conviene distinguir."},
+ {t:3,q:"En el POEM como «máquina de aprendizaje estratégico», ¿qué tipo de dato produce cada capa?",
+  o:["Owned recoge comportamiento; Earned ofrece percepción; Paid genera evidencia experimental","Owned ofrece percepción; Earned recoge comportamiento; Paid genera evidencia experimental","Owned genera evidencia experimental; Earned ofrece percepción; Paid recoge comportamiento","Las tres capas producen el mismo tipo de dato y solo cambia el volumen"],c:0,
+  x:"Cierre del T3: <b>Owned → comportamiento</b> (navegación, leads), <b>Earned → percepción</b> (qué opinan), <b>Paid → evidencia experimental</b> (tests con inversión). Integrados, ajustan la propuesta de valor."},
+ {t:3,q:"En la capa pagada del plan de social media, la etapa de descubrimiento se trabaja con…",
+  o:["Audiencias amplias y lookalikes","Catálogos y formatos de baja fricción adaptados a la decisión","Señales de interacción acumuladas en campañas anteriores","Retargeting sobre los carritos abandonados de la web"],c:0,
+  x:"Arquitectura por etapas: <b>descubrimiento → audiencias amplias y lookalikes</b>; consideración → señales de interacción; conversión → catálogos y baja fricción."},
+ {t:3,q:"WhatsApp Business aparece caracterizado en el T3 como…",
+  o:["Canal owned relacional, orientado a conversión y fidelización","Red conversacional emergente integrada en Meta, en fase de adopción","Plataforma de autoridad y legitimación profesional para B2B","Earned media, porque la difusión ocurre entre pares en chats privados"],c:0,
+  x:"WhatsApp Business = <b>canal owned</b> de atención y conversión (catálogo, Click to WhatsApp). La «red conversacional emergente de Meta» es Threads; la autoridad B2B, LinkedIn."},
+ {t:3,q:"¿Qué afirma el T3 sobre la distinción entre contenido orgánico y pagado?",
+  o:["La distinción binaria resulta insuficiente: los formatos híbridos difuminan la frontera","Es la base del plan y debe mantenerse estricta para poder medir cada capa","Solo aplica a las plataformas de vídeo corto como TikTok","Ha desaparecido: hoy todo contenido en redes es de pago en la práctica"],c:0,
+  x:"«La distinción binaria entre contenido orgánico y pagado resulta <b>insuficiente</b>»: boosts, Spark Ads, Branded Mission y Partnership Ads mantienen la autenticidad optimizando alcance."},
+
+ // ---------- TEMA 4 ----------
+ {t:4,q:"¿Qué KPI cita el T4 como ejemplo de indicador adelantado (señal anticipada) de la conversión?",
+  o:["La tasa de adición al carrito","Las impresiones servidas en la campaña","El Net Promoter Score","El ticket medio del pedido"],c:0,
+  x:"Dentro de la M de SMART (medición): métrica primaria + indicadores auxiliares como señales anticipadas — el ejemplo literal es <b>la tasa de adición al carrito</b> como adelanto de la conversión."},
+ {t:4,q:"En el embudo de objetivos del T4, la tasa de rebote es un KPI de la fase de…",
+  o:["Consideración (interacción)","Descubrimiento (alcance)","Conversión (ventas)","Fidelización (recompra)"],c:0,
+  x:"Descubrimiento → usuarios únicos, visualizaciones, CPM. <b>Consideración → CTR, interacciones, pageviews, tiempo en web y tasa de rebote</b>. Conversión → CPA, CPL, carrito→pago. Fidelización → recurrencia, reseñas, NPS, LTV/CAC."},
+ {t:4,q:"La ratio LTV/CAC pertenece a los KPIs de…",
+  o:["Fidelización","Conversión","Consideración","Descubrimiento"],c:0,
+  x:"El valor de vida del cliente frente al coste de adquirirlo mide la <b>relación sostenible</b>, no la venta puntual → fase de fidelización, junto a recurrencia, reseñas y NPS."},
+ {t:4,q:"¿Qué fuente establece, según el T4, «definiciones consensuadas para métricas digitales y buenas prácticas de medición»?",
+  o:["Las guías y whitepapers de IAB Spain","Los informes y benchmarks de WARC","Los sistemas de audiencias de Nielsen y GfK","Las definiciones oficiales de KPI de Meta Ads"],c:0,
+  x:"<b>IAB Spain</b> → definiciones consensuadas; <b>WARC</b> → evidencia entre inversión, métricas y negocio; <b>Nielsen/GfK</b> → audiencias cross-media. Tres fuentes, tres funciones distintas."},
+ {t:4,q:"El modelo de medición de Google Analytics 4 se basa en…",
+  o:["Eventos y atribución","Sesiones y páginas vistas","Cookies de terceros","Paneles de audiencia declarativos"],c:0,
+  x:"GA4 abandona el modelo clásico de sesiones: su medición se basa en <b>eventos y atribución</b>, tal como lo recoge el material en herramientas de referencia."},
+ {t:4,q:"Entre las preguntas que el T4 propone hacerse al analizar métricas de vídeo está…",
+  o:["¿Cuándo entra mi marca y cuál es la retención habitual de mis vídeos?","¿Cuántos suscriptores nuevos genera cada pieza publicada?","¿Cuál es el coste de producción por segundo de metraje?","¿Cuántos hashtags maximizan la distribución del vídeo?"],c:0,
+  x:"En vídeo no basta saber cuántos ven: importa <b>cómo lo consumen</b>. Preguntas literales: ¿cuándo entra mi marca?, ¿cuándo entra el mensaje principal?, ¿cuál es la retención habitual?"},
+ {t:4,q:"En el ejemplo SMART de la empresa financiera, la parte «durante el trimestre» aporta la dimensión…",
+  o:["Temporal: plazos que estructuran experimentos y revisiones","Específica: describe con precisión el resultado esperado","Alcanzable: introduce el principio de realismo operativo","Relevante: conecta el objetivo con el impacto económico"],c:0,
+  x:"El objetivo era «aumentar un 20 % los clientes calificados <b>durante el trimestre</b>, con CPA &lt; 15 $». El plazo es la T de SMART: aporta disciplina, ritmo y fases de prueba."},
+
+ // ---------- TEMA 5 ----------
+ {t:5,q:"En la matriz semanal de contenidos del T5, la ventana horaria recomendada para LinkedIn es…",
+  o:["08:00–10:00","12:00–14:00","18:00–21:00","19:00–22:00"],c:0,
+  x:"LinkedIn 2/semana <b>08:00–10:00</b> (evidencia y casos, KPI: CTR). 12–14h es X; 18–21h Instagram; 19–22h TikTok. La lógica: cada canal tiene su microtemporalidad."},
+ {t:5,q:"En la estructura de una campaña pagada en redes, la segmentación de audiencia y el presupuesto se definen en…",
+  o:["El conjunto de anuncios","La campaña","El anuncio","La cuenta publicitaria, antes de crear la campaña"],c:0,
+  x:"Trampa habitual: la <b>campaña</b> define el objetivo (alcance, tráfico, leads…); el <b>conjunto de anuncios</b> fija segmentación, presupuesto, calendario y ubicaciones; el <b>anuncio</b> contiene creatividades y copys."},
+ {t:5,q:"La «monitorización formativa» del T5 defiende que…",
+  o:["Los comentarios con evidencia valen más que los clics vacíos, y la crítica es un dato valioso","El alcance total es la métrica principal que hay que maximizar","Las vanity metrics son el mejor termómetro de la salud de una comunidad","El feedback negativo debe filtrarse para proteger la reputación de marca"],c:0,
+  x:"Ir <b>más allá de las vanity metrics</b>: medir facilidad de uso y percepción de valor, tratar la resistencia como dato para refinar, y devolver a la comunidad los ajustes implementados (feedback transparente)."},
+ {t:5,q:"¿Qué herramientas cita el T5 como ejemplo para gestionar y monitorizar un plan orgánico real?",
+  o:["Hootsuite y Metricool","Semrush y Ahrefs","Salesforce y HubSpot","Google Trends y Looker Studio"],c:0,
+  x:"Para calendarios, programación y dashboards que unifiquen orgánico + ads, el material nombra <b>Hootsuite y Metricool</b>, y dominarlas se presenta como requisito para liderar la transformación digital."},
+];
+
+/* ============================================================ */
+const TEMAS = {
+  1:{name:"T1 · Evolución",full:"Evolución del mkt digital",color:"var(--t1)"},
+  2:{name:"T2 · POEM/PESO",full:"Redes y comunidades",color:"var(--t2)"},
+  3:{name:"T3 · RRSS y consumidor",full:"RRSS y consumidor",color:"var(--t3)"},
+  4:{name:"T4 · Métricas",full:"Performance y analítica",color:"var(--t4)"},
+  5:{name:"T5 · Planificación",full:"Campaña orgánica",color:"var(--t5)"},
+};
+
+let order=[], idx=0, score=0, answered=false, results=[];
+
+const $=id=>document.getElementById(id);
+const shuffle=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;};
+
+function startQuiz(pool){
+  order=shuffle(pool); idx=0; score=0; results=[];
+  $("screen-start").classList.add("hidden");
+  $("screen-end").classList.add("hidden");
+  $("screen-quiz").classList.remove("hidden");
+  $("quizbar").classList.add("on");
+  paint();
+  window.scrollTo({top:0});
+}
+
+function paint(){
+  const q=order[idx]; answered=false;
+  const card=$("qcard"); card.style.animation="none"; void card.offsetWidth; card.style.animation="";
+  $("qGhost").textContent=String(idx+1).padStart(2,"0");
+  const tm=TEMAS[q.t];
+  $("qTema").style.color=tm.color; $("qTema").style.borderColor=tm.color+"";
+  $("qTema").querySelector(".sw").style.background=tm.color;
+  $("qTemaTxt").textContent=tm.name;
+  $("qText").innerHTML=q.q;
+  $("qbNum").textContent=`${idx+1}/${order.length}`;
+  $("qbScore").textContent=`✓ ${score}`;
+  $("qbFill").style.width=`${(idx/order.length)*100}%`;
+  $("qExplain").className="explain"; $("qExplain").innerHTML="";
+  $("nextRow").classList.add("hidden");
+
+  // baraja opciones recordando cuál es la correcta
+  const opts=q.o.map((txt,i)=>({txt,ok:i===q.c}));
+  const mixed=shuffle(opts);
+  q._mixed=mixed;
+  const box=$("qOpts"); box.innerHTML="";
+  mixed.forEach((op,i)=>{
+    const b=document.createElement("button");
+    b.className="opt";
+    b.innerHTML=`<span class="key">${"ABCD"[i]}</span><span>${op.txt}</span>`;
+    b.onclick=()=>answer(i);
+    box.appendChild(b);
+  });
+}
+
+function answer(i){
+  if(answered) return; answered=true;
+  const q=order[idx], mixed=q._mixed;
+  const ok=mixed[i].ok;
+  if(ok) score++;
+  results.push({q,ok,chosen:mixed[i].txt});
+  document.querySelectorAll("#qOpts .opt").forEach((b,j)=>{
+    b.disabled=true;
+    if(mixed[j].ok) b.classList.add("is-ok");
+    else if(j===i) b.classList.add("is-bad");
+    else b.classList.add("is-dim");
+  });
+  const ex=$("qExplain");
+  ex.className="explain on "+(ok?"good":"fail");
+  ex.innerHTML=`<span class="verdict">${ok?"Correcta.":"Falló — apúntala."}</span>${q.x}`;
+  $("qbScore").textContent=`✓ ${score}`;
+  $("qbFill").style.width=`${((idx+1)/order.length)*100}%`;
+  $("nextRow").classList.remove("hidden");
+  $("nextBtn").textContent = idx===order.length-1 ? "Ver resultado →" : "Siguiente →";
+}
+
+function next(){
+  if(!answered) return;
+  if(idx<order.length-1){ idx++; paint(); window.scrollTo({top:0,behavior:"smooth"}); }
+  else finish();
+}
+
+function finish(){
+  $("screen-quiz").classList.add("hidden");
+  $("quizbar").classList.remove("on");
+  $("screen-end").classList.remove("hidden");
+  const n=order.length, pct=Math.round(score/n*100);
+  const col = pct>=70 ? "var(--ok)" : pct>=50 ? "var(--amber)" : "var(--bad)";
+  $("ring").style.background=`conic-gradient(${col} ${pct*3.6}deg, var(--line-soft) 0deg)`;
+  $("ringPct").textContent=pct+"%"; $("ringPct").style.color=col;
+  $("ringCount").textContent=`${score}/${n}`;
+  const nota=(score/n*10).toFixed(1).replace(".",",");
+  let title,body;
+  if(pct>=85){title="Vas sobrada.";body="A este nivel el examen de mañana no debería darte sustos. Repasa las falladas y a dormir.";}
+  else if(pct>=70){title="Buen nivel.";body="Apruebas con margen. Las falladas de abajo son exactamente lo que toca repasar esta noche.";}
+  else if(pct>=50){title="Justo en el corte.";body="Aprobarías por poco. Dale una vuelta a las falladas y repite el test antes de acostarte.";}
+  else{title="Aún verde.";body="Tranquila: este test es difícil a propósito. Repasa las explicaciones de abajo y vuelve a intentarlo — la segunda vuelta siempre sube mucho.";}
+  $("resTitle").textContent=title; $("resBody").textContent=body;
+  $("resNota").textContent=`equivalencia aproximada: ${nota} / 10`;
+
+  // barras por tema
+  const byTema={};
+  results.forEach(r=>{ const t=r.q.t; byTema[t]??={ok:0,n:0}; byTema[t].n++; if(r.ok)byTema[t].ok++; });
+  const bars=$("temaBars"); bars.innerHTML="";
+  Object.keys(TEMAS).forEach(t=>{
+    const d=byTema[t]; if(!d) return;
+    const p=Math.round(d.ok/d.n*100);
+    bars.insertAdjacentHTML("beforeend",
+      `<div class="tb-row"><span class="tb-name">${TEMAS[t].name}</span>
+       <div class="tb-track"><span class="tb-fill" style="width:0%;background:${TEMAS[t].color}" data-w="${p}"></span></div>
+       <span class="tb-pct">${d.ok}/${d.n}</span></div>`);
+  });
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    document.querySelectorAll(".tb-fill").forEach(f=>f.style.width=f.dataset.w+"%");
+  }));
+
+  // falladas
+  const fails=results.filter(r=>!r.ok);
+  if(fails.length){
+    $("failsCard").classList.remove("hidden");
+    const list=$("failsList"); list.innerHTML="";
+    fails.forEach(f=>{
+      list.insertAdjacentHTML("beforeend",
+        `<div class="fail-item">
+           <div class="fq">${f.q.q}</div>
+           <div class="fa">Tu respuesta: <b class="no">${f.chosen}</b><br>Correcta: <b class="si">${f.q.o[f.q.c]}</b></div>
+           <div class="fx">${f.q.x.replace(/<[^>]+>/g,"")}</div>
+         </div>`);
+    });
+    $("retryFailsBtn").classList.remove("hidden");
+    $("retryFailsBtn").onclick=()=>startQuiz(fails.map(f=>f.q));
+  } else {
+    $("failsCard").classList.add("hidden");
+    $("retryFailsBtn").classList.add("hidden");
+  }
+  window.scrollTo({top:0});
+}
+
+$("startBtn").onclick=()=>startQuiz(BANK);
+$("retryAllBtn").onclick=()=>startQuiz(BANK);
+$("nextBtn").onclick=next;
+$("quitBtn").onclick=()=>{
+  if(confirm("¿Abandonar el simulacro? Se perderá el progreso.")){
+    $("screen-quiz").classList.add("hidden");
+    $("quizbar").classList.remove("on");
+    $("screen-start").classList.remove("hidden");
+    window.scrollTo({top:0});
+  }
+};
+document.addEventListener("keydown",e=>{
+  if($("screen-quiz").classList.contains("hidden")) return;
+  if(!answered && /^[1-4]$/.test(e.key)){
+    const btns=document.querySelectorAll("#qOpts .opt");
+    const i=+e.key-1; if(btns[i]) answer(i);
+  } else if(answered && e.key==="Enter"){ next(); }
+});
+</script>
+</body>
+</html>
