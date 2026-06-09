@@ -1,0 +1,61 @@
+/* Apuntes oficiales MSD — terminología de los PDFs */
+:root{
+  --accent:#db2777; --accent-dark:#be185d; --soft:#fdf2f8; --soft2:#fbd7e8;
+  --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb;
+  --def-bg:#eef2ff; --def-bd:#4f46e5; --def-ink:#3730a3;
+  --frase-bg:#ecfdf5; --frase-bd:#10b981;
+  --warn-bg:#fff7ed; --warn-bd:#f97316;
+}
+*{box-sizing:border-box;}
+body{
+  font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink); font-size:16.5px; line-height:1.55; margin:0;
+  background:#fafafa;
+}
+.wrap{max-width:760px; margin:0 auto; padding:18px 16px 60px;}
+.top{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; align-items:center;}
+.tag{background:var(--soft); color:var(--accent-dark); border:1px solid var(--soft2);
+  padding:4px 11px; border-radius:999px; font-size:12.5px; font-weight:700;}
+.tag.warn{background:var(--warn-bg); border-color:#fed7aa; color:#c2410c;}
+.volver{display:inline-block; margin:4px 0 14px; color:var(--accent-dark); font-weight:700;
+  text-decoration:none; font-size:14.5px;}
+h1{font-size:26px; line-height:1.2; margin:6px 0 4px; color:var(--accent-dark);}
+.subtitle{color:var(--muted); margin:0 0 18px; font-size:15.5px;}
+h2{font-size:20px; margin:30px 0 8px; color:var(--accent-dark);
+  border-bottom:2.5px solid var(--soft2); padding-bottom:6px;}
+h3{font-size:17px; margin:20px 0 6px; color:#9d174d;}
+p{margin:8px 0;}
+ul,ol{margin:8px 0; padding-left:22px;}
+li{margin:4px 0;}
+strong{color:#9d174d;}
+.termino{background:var(--soft); border-radius:4px; padding:0 4px; font-weight:700; color:var(--accent-dark);}
+/* Definición textual del PDF */
+.definicion{background:var(--def-bg); border-left:4px solid var(--def-bd);
+  border-radius:0 10px 10px 0; padding:10px 14px; margin:12px 0; font-size:15.5px;}
+.definicion .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--def-bd); margin-bottom:3px;}
+.definicion b,.definicion strong{color:var(--def-ink);}
+/* Frase para el examen */
+.frase-examen{background:var(--frase-bg); border-left:4px solid var(--frase-bd);
+  border-radius:0 10px 10px 0; padding:10px 14px; margin:12px 0; font-size:15.5px;}
+.frase-examen .lbl{display:block; font-size:11.5px; font-weight:800; letter-spacing:.08em;
+  text-transform:uppercase; color:#047857; margin-bottom:3px;}
+/* Aviso */
+.ojo{background:var(--warn-bg); border-left:4px solid var(--warn-bd);
+  border-radius:0 10px 10px 0; padding:10px 14px; margin:12px 0; font-size:15px;}
+/* Tablas */
+table{border-collapse:collapse; width:100%; margin:12px 0; font-size:14.5px; background:#fff;}
+th{background:var(--soft); color:var(--accent-dark); text-align:left; padding:8px 10px;
+  border:1px solid var(--soft2); font-size:13.5px;}
+td{padding:8px 10px; border:1px solid var(--line); vertical-align:top;}
+/* Índice de la portada */
+.lista-temas{list-style:none; padding:0; margin:16px 0;}
+.lista-temas li{margin:10px 0;}
+.lista-temas a{display:block; background:#fff; border:1.5px solid var(--soft2);
+  border-radius:14px; padding:14px 16px; text-decoration:none; color:var(--ink);
+  font-weight:700; font-size:16.5px; box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.lista-temas a:active{background:var(--soft);}
+.lista-temas .mini{display:block; font-weight:400; color:var(--muted); font-size:13.5px; margin-top:3px;}
+.nav-temas{display:flex; justify-content:space-between; margin-top:34px; gap:10px;}
+.nav-temas a{color:var(--accent-dark); font-weight:700; text-decoration:none; font-size:15px;}
+@media print{ body{background:#fff;} .volver,.nav-temas{display:none;} }
